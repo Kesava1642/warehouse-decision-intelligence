@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Try our warehouse decision demo. Enter your requirements and receive a recommendation with matched supplier options.">
+    <title>Decision Demo | Warehouse Decision Intelligence</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">Warehouse Decision Intelligence</a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="how-it-works.html" class="nav-link">How it works</a></li>
+                    <li><a href="decision-demo.html" class="nav-link active">Decision demo</a></li>
+                    <li><a href="use-cases.html" class="nav-link">Use cases</a></li>
+                    <li><a href="early-access.html" class="nav-link nav-cta">Early access</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Decision Demo</h1>
+                <p class="page-intro">See how our decision-first approach works. Enter your warehouse requirements below and receive a recommendation with matched supplier options.</p>
+                <p class="demo-note">This is an MVP demo using sample supplier data. The full service will include verified UK suppliers.</p>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo-section">
+            <div class="container">
+                <div class="demo-layout">
+                    <!-- Input Form -->
+                    <div class="demo-form-container">
+                        <h2>Your requirements</h2>
+                        <form id="decision-form" class="demo-form">
+                            <div class="form-group">
+                                <label for="equipment-type">Equipment type</label>
+                                <select id="equipment-type" name="equipmentType" required>
+                                    <option value="">Select equipment...</option>
+                                    <option value="pallet-truck-manual">Pallet Truck (Manual)</option>
+                                    <option value="pallet-truck-electric">Pallet Truck (Electric)</option>
+                                    <option value="stretch-wrapper">Stretch Wrapper</option>
+                                    <option value="labels-printing">Labels &amp; Printing</option>
+                                    <option value="racking">Racking</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="warehouse-size">Warehouse size</label>
+                                <select id="warehouse-size" name="warehouseSize" required>
+                                    <option value="">Select size...</option>
+                                    <option value="small">Small (under 5,000 sq ft)</option>
+                                    <option value="medium">Medium (5,000–25,000 sq ft)</option>
+                                    <option value="large">Large (over 25,000 sq ft)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="usage-level">Usage level</label>
+                                <select id="usage-level" name="usageLevel" required>
+                                    <option value="">Select usage...</option>
+                                    <option value="low">Low (occasional use)</option>
+                                    <option value="medium">Medium (daily use, standard shifts)</option>
+                                    <option value="heavy">Heavy (multi-shift / high throughput)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget-range">Budget range</label>
+                                <select id="budget-range" name="budgetRange" required>
+                                    <option value="">Select budget...</option>
+                                    <option value="under-500">Under £500</option>
+                                    <option value="500-2000">£500 – £2,000</option>
+                                    <option value="2000-10000">£2,000 – £10,000</option>
+                                    <option value="over-10000">£10,000+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="urgency">Urgency</label>
+                                <select id="urgency" name="urgency" required>
+                                    <option value="">Select urgency...</option>
+                                    <option value="immediate">Immediate (need within 1–2 weeks)</option>
+                                    <option value="planned">Planned (can wait 4+ weeks)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Location <span class="optional">(optional)</span></label>
+                                <input type="text" id="location" name="location" placeholder="UK town or city">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Get recommendation</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Panel -->
+                    <div class="demo-results-container" id="results-container">
+                        <div class="results-placeholder">
+                            <div class="placeholder-icon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                                </svg>
+                            </div>
+                            <p>Complete the form to see your recommendation and matched suppliers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Footer Note -->
+        <section class="demo-footer-note">
+            <div class="container">
+                <p>Demo uses sample suppliers. Live supplier directory will be available after the pilot phase.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p class="footer-tagline">UK-focused warehouse decision intelligence</p>
+                <p class="footer-contact">Contact: <a href="mailto:hello@example.com">hello@example.com</a></p>
+            </div>
+            <nav class="footer-nav">
+                <a href="../index.html">Home</a>
+                <a href="how-it-works.html">How it works</a>
+                <a href="decision-demo.html">Decision demo</a>
+                <a href="use-cases.html">Use cases</a>
+                <a href="early-access.html">Early access</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="../assets/app.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.nav');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            menuBtn.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
