@@ -287,6 +287,156 @@ p {
     flex-wrap: wrap;
 }
 
+.hero-pilot-note {
+    margin-top: var(--spacing-lg);
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: rgba(26, 86, 219, 0.1);
+    border: 1px solid rgba(26, 86, 219, 0.2);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+/* =============================================
+   Audience Section (Who This Is For)
+   ============================================= */
+.audience-section {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 500px;
+    margin: -1rem auto var(--spacing-xl);
+    color: var(--color-text-light);
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.audience-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background-color: var(--color-background-alt);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.audience-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-radius: var(--border-radius);
+}
+
+.audience-text h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.audience-text p {
+    font-size: 0.9375rem;
+    margin-bottom: 0;
+}
+
+/* =============================================
+   What You Receive Section
+   ============================================= */
+.receive-section {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background-color: var(--color-background);
+}
+
+.receive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.receive-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-xl);
+    background-color: var(--color-background-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.receive-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.receive-card.featured {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.receive-card.featured .receive-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.receive-card.featured h3 {
+    color: #ffffff;
+}
+
+.receive-card.featured p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.receive-card.featured .receive-link {
+    color: #ffffff;
+}
+
+.receive-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background-color: rgba(26, 86, 219, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.receive-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.receive-card p {
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.receive-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
 /* =============================================
    Problem Section
    ============================================= */
@@ -1665,6 +1815,15 @@ p {
     
     .outcomes-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Audience and Receive responsive */
+    .audience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .receive-grid {
+        grid-template-columns: 1fr;
     }
     
     /* Demo responsive */
