@@ -348,7 +348,7 @@
                                     </div>
                                 </div>
                                 <div class="supplier-actions">
-                                    <a href="mailto:contact@warehousedecision.example?subject=Quote%20request%20-%20${encodeURIComponent(equipmentName)}" class="btn btn-small btn-primary">Request quote</a>
+                                    <a href="mailto:hello@example.com?subject=Quote%20request%20-%20${encodeURIComponent(equipmentName)}" class="btn btn-small btn-primary">Request quote</a>
                                     <a href="#" class="btn btn-small btn-secondary" onclick="event.preventDefault(); alert('Supplier directory coming soon.');">Visit supplier</a>
                                 </div>
                             </div>

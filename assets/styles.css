@@ -2017,6 +2017,16 @@ p {
         font-size: 1.25rem;
     }
     
+    /* Audience responsive mobile */
+    .audience-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .audience-icon {
+        margin: 0 auto;
+    }
+    
     /* Footer */
     .footer-content {
         flex-direction: column;
@@ -2025,6 +2035,8 @@ p {
     
     .footer-nav {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
     }
 }
 
