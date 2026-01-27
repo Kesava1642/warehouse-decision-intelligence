@@ -1311,6 +1311,96 @@ p {
 }
 
 /* =============================================
+   Use Cases Page
+   ============================================= */
+.use-cases-section {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.use-case-card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.use-case-header {
+    padding: var(--spacing-lg);
+    background-color: var(--color-background-alt);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.use-case-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.use-case-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.use-case-subtitle {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+.use-case-body {
+    padding: var(--spacing-lg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.use-case-section h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.use-case-section p {
+    font-size: 0.9375rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.use-case-section.outcome {
+    margin-top: auto;
+    padding: var(--spacing-md);
+    background-color: rgba(5, 150, 105, 0.08);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--color-success);
+}
+
+.use-case-section.outcome h3 {
+    color: var(--color-success);
+}
+
+.use-case-section.outcome p {
+    color: var(--color-text);
+}
+
+/* =============================================
    Responsive Design
    ============================================= */
 @media (max-width: 1024px) {
@@ -1352,6 +1442,11 @@ p {
     
     .pricing-tiers {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Use Cases responsive */
+    .use-cases-grid {
+        grid-template-columns: 1fr;
     }
 }
 
