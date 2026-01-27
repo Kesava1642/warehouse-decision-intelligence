@@ -1401,6 +1401,179 @@ p {
 }
 
 /* =============================================
+   Framework Page
+   ============================================= */
+.framework-section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.framework-section h2 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.framework-intro {
+    max-width: 700px;
+    margin-bottom: var(--spacing-2xl);
+    font-size: 1.0625rem;
+}
+
+.framework-stages {
+    position: relative;
+    max-width: 800px;
+}
+
+/* Connecting line */
+.framework-stages::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 48px;
+    bottom: 48px;
+    width: 2px;
+    background-color: var(--color-border);
+}
+
+.framework-stage {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.framework-stage:last-child {
+    margin-bottom: 0;
+}
+
+.stage-marker {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.stage-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+.stage-content {
+    flex-grow: 1;
+    padding-top: 0.5rem;
+}
+
+.stage-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.stage-content > p {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.stage-decisions {
+    background-color: var(--color-background-alt);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+.stage-decisions h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stage-decisions ul {
+    list-style: none;
+}
+
+.stage-decisions li {
+    position: relative;
+    padding-left: 1.25rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+}
+
+.stage-decisions li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+/* Output Section */
+.output-section {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background-color: var(--color-background-alt);
+}
+
+.output-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.output-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    font-size: 1.0625rem;
+}
+
+.output-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+.output-card {
+    background-color: var(--color-background);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.output-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background-color: rgba(26, 86, 219, 0.1);
+    color: var(--color-primary);
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+}
+
+.output-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.output-card p {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+/* =============================================
    Responsive Design
    ============================================= */
 @media (max-width: 1024px) {
@@ -1447,6 +1620,11 @@ p {
     /* Use Cases responsive */
     .use-cases-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Framework responsive */
+    .output-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1568,6 +1746,25 @@ p {
     
     .offer-details h2 {
         font-size: 1.5rem;
+    }
+    
+    /* Framework responsive mobile */
+    .output-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .framework-stages::before {
+        left: 20px;
+    }
+    
+    .stage-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .framework-stage {
+        gap: var(--spacing-md);
     }
     
     /* Footer */
