@@ -1052,6 +1052,265 @@ p {
 }
 
 /* =============================================
+   Early Access Page
+   ============================================= */
+
+/* Offer Section */
+.offer-section {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+}
+
+.offer-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.offer-details h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.offer-intro {
+    font-size: 1.0625rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Pricing Tiers */
+.pricing-tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.pricing-tier {
+    padding: var(--spacing-md);
+    background-color: var(--color-background-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+}
+
+.pricing-tier.featured {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.tier-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tier-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tier-desc {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+}
+
+/* Offer Inclusions */
+.offer-inclusions {
+    margin-bottom: var(--spacing-xl);
+}
+
+.offer-inclusions h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.inclusions-list {
+    list-style: none;
+}
+
+.inclusions-list li {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.inclusions-list li:last-child {
+    border-bottom: none;
+}
+
+.inclusion-icon {
+    flex-shrink: 0;
+    color: var(--color-success);
+}
+
+.inclusions-list li span:last-child {
+    color: var(--color-text-light);
+}
+
+.inclusions-list li strong {
+    color: var(--color-text);
+}
+
+/* Trust Notes */
+.trust-notes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background-color: var(--color-background-alt);
+    border-radius: var(--border-radius);
+}
+
+.trust-note {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+}
+
+.trust-note svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+/* Lead Form Container */
+.form-container {
+    position: sticky;
+    top: calc(var(--header-height) + var(--spacing-lg));
+}
+
+.form-card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.form-intro {
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Lead Form */
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.lead-form .form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.required {
+    color: var(--color-negative);
+}
+
+.lead-form textarea {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    resize: vertical;
+    min-height: 100px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lead-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+/* Form Confirmation */
+.form-confirmation {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.confirmation-icon {
+    color: var(--color-success);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-confirmation h4 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.form-confirmation p {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Next Steps Section */
+.next-steps-section {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-background-alt);
+}
+
+.next-steps-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.next-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.next-step .step-marker {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-info h3 {
+    font-size: 1.0625rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-info p {
+    font-size: 0.9375rem;
+    margin-bottom: 0;
+}
+
+/* =============================================
    Responsive Design
    ============================================= */
 @media (max-width: 1024px) {
@@ -1080,6 +1339,19 @@ p {
     
     .supplier-cards {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Early Access responsive */
+    .offer-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-container {
+        position: static;
+    }
+    
+    .pricing-tiers {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -1187,6 +1459,20 @@ p {
         flex-direction: column;
         gap: var(--spacing-sm);
         align-items: flex-start;
+    }
+    
+    /* Early Access responsive mobile */
+    .pricing-tiers {
+        grid-template-columns: 1fr;
+    }
+    
+    .next-steps-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .offer-details h2 {
+        font-size: 1.5rem;
     }
     
     /* Footer */
