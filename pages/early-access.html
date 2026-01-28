@@ -50,22 +50,55 @@
                         <p class="offer-intro">A structured decision review covering equipment, consumables, waste, and business continuity—delivered by an independent analyst, not a supplier.</p>
                         
                         <!-- Pricing -->
-                        <div class="pricing-tiers">
-                            <div class="pricing-tier">
-                                <div class="tier-name">Small site</div>
-                                <div class="tier-price">£99</div>
-                                <div class="tier-desc">Single area, straightforward operation</div>
-                            </div>
-                            <div class="pricing-tier featured">
-                                <div class="tier-name">Medium site</div>
-                                <div class="tier-price">£199</div>
-                                <div class="tier-desc">Multiple areas or higher complexity</div>
-                            </div>
-                            <div class="pricing-tier">
-                                <div class="tier-name">Larger / multi-area</div>
-                                <div class="tier-price">£299</div>
-                                <div class="tier-desc">Multiple zones, shifts, or locations</div>
-                            </div>
+                        <div class="pricing-tiers" aria-label="Select assessment package">
+                            <!-- Starter Tier -->
+                            <label class="pricing-tier" data-tier="starter">
+                                <input type="radio" name="pricingTier" value="starter" class="tier-input" checked>
+                                <div class="tier-header">
+                                    <div class="tier-name">Starter</div>
+                                    <div class="tier-price">£99</div>
+                                    <div class="tier-badge">Single decision</div>
+                                </div>
+                                <ul class="tier-items">
+                                    <li>1 equipment decision — Buy, Rent, Used, or Delay</li>
+                                    <li>Clear spec shortlist you can brief to suppliers</li>
+                                    <li>Top 3 risks and cautions to watch</li>
+                                    <li>Up to 3 matched supplier types / option categories</li>
+                                    <li>Delivery SLA for your written summary (typically 48 hours)</li>
+                                </ul>
+                            </label>
+
+                            <!-- Standard Tier -->
+                            <label class="pricing-tier" data-tier="standard">
+                                <input type="radio" name="pricingTier" value="standard" class="tier-input">
+                                <div class="tier-header">
+                                    <div class="tier-name">Standard</div>
+                                    <div class="tier-price">£199</div>
+                                    <div class="tier-badge tier-badge-featured">Most common</div>
+                                </div>
+                                <ul class="tier-items">
+                                    <li>Everything in Starter</li>
+                                    <li>5 cost‑saving actions for wrap, tape and labels</li>
+                                    <li>Simple comparison table across 2–3 viable options</li>
+                                    <li>Waste‑to‑value checklist for wood, cardboard, plastic and metal</li>
+                                </ul>
+                            </label>
+
+                            <!-- Pro Tier -->
+                            <label class="pricing-tier" data-tier="pro">
+                                <input type="radio" name="pricingTier" value="pro" class="tier-input">
+                                <div class="tier-header">
+                                    <div class="tier-name">Pro</div>
+                                    <div class="tier-price">£299</div>
+                                    <div class="tier-badge">Continuity-focused</div>
+                                </div>
+                                <ul class="tier-items">
+                                    <li>Everything in Standard</li>
+                                    <li>Continuity priorities for the first 60 minutes and first 24 hours</li>
+                                    <li>Guidance on emergency services and support categories to line up</li>
+                                    <li>Note of an optional 15‑min call to walk through your summary</li>
+                                </ul>
+                            </label>
                         </div>
 
                         <!-- What You Get -->
@@ -275,61 +308,111 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('.nav');
-        
-        menuBtn.addEventListener('click', () => {
-            nav.classList.toggle('nav-open');
-            menuBtn.classList.toggle('active');
-        });
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            menuBtn.addEventListener('click', () => {
+                nav.classList.toggle('nav-open');
+                menuBtn.classList.toggle('active');
+            });
 
-        // Form submission handler
-        const form = document.getElementById('early-access-form');
-        const confirmation = document.getElementById('form-confirmation');
+            // Pricing tier selection
+            const tierLabels = document.querySelectorAll('.pricing-tier');
+            const tierRadios = document.querySelectorAll('input[name="pricingTier"]');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Gather form data
-            const formData = {
-                fullName: document.getElementById('full-name').value,
-                company: document.getElementById('company').value || 'Not provided',
-                city: document.getElementById('city').value,
-                warehouseType: document.getElementById('warehouse-type').value,
-                mainNeed: document.getElementById('main-need').value,
-                budgetBand: document.getElementById('budget-band').value,
-                message: document.getElementById('message').value || 'No message'
+            const TIER_DISPLAY = {
+                starter: 'Starter (£99)',
+                standard: 'Standard (£199)',
+                pro: 'Pro (£299)'
             };
 
-            // Build email body
-            const emailSubject = encodeURIComponent('Early Access Request - Warehouse Decision Intelligence');
-            const emailBody = encodeURIComponent(
-                `Early Access Request\n` +
-                `====================\n\n` +
-                `Name: ${formData.fullName}\n` +
-                `Company/Warehouse: ${formData.company}\n` +
-                `City/Town: ${formData.city}\n` +
-                `Warehouse Type: ${formData.warehouseType}\n` +
-                `Main Need: ${formData.mainNeed}\n` +
-                `Budget Band: ${formData.budgetBand}\n\n` +
-                `Message:\n${formData.message}\n`
-            );
+            function setSelectedTier(tierKey) {
+                tierRadios.forEach(radio => {
+                    radio.checked = radio.value === tierKey;
+                });
 
-            // Open mailto link
-            window.location.href = `mailto:contact@yourdomain?subject=${emailSubject}&body=${emailBody}`;
+                tierLabels.forEach(label => {
+                    const isSelected = label.getAttribute('data-tier') === tierKey;
+                    if (isSelected) {
+                        label.classList.add('selected');
+                    } else {
+                        label.classList.remove('selected');
+                    }
+                });
+            }
 
-            // Show confirmation
-            form.style.display = 'none';
-            confirmation.style.display = 'block';
-        });
+            // Initialise selection from query string or default to starter
+            (function initialiseTierFromQuery() {
+                const params = new URLSearchParams(window.location.search);
+                const queryTier = params.get('tier');
+                const allowed = ['starter', 'standard', 'pro'];
+                const initialTier = allowed.includes(queryTier) ? queryTier : 'starter';
+                setSelectedTier(initialTier);
+            })();
 
-        // Reset form function
-        function resetForm() {
-            form.reset();
-            form.style.display = 'block';
-            confirmation.style.display = 'none';
-        }
+            // Click handlers for cards/radios
+            tierLabels.forEach(label => {
+                label.addEventListener('click', () => {
+                    const tierKey = label.getAttribute('data-tier');
+                    setSelectedTier(tierKey);
+                });
+            });
+
+            // Lead capture form submission handler
+            const form = document.getElementById('early-access-form');
+            const confirmation = document.getElementById('form-confirmation');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const selectedTierInput = document.querySelector('input[name="pricingTier"]:checked');
+                const selectedTier = selectedTierInput ? selectedTierInput.value : 'starter';
+                const selectedTierDisplay = TIER_DISPLAY[selectedTier] || 'Starter (£99)';
+
+                // Gather form data
+                const formData = {
+                    fullName: document.getElementById('full-name').value,
+                    company: document.getElementById('company').value || 'Not provided',
+                    city: document.getElementById('city').value,
+                    warehouseType: document.getElementById('warehouse-type').value,
+                    mainNeed: document.getElementById('main-need').value,
+                    budgetBand: document.getElementById('budget-band').value,
+                    message: document.getElementById('message').value || 'No message',
+                    tier: selectedTierDisplay
+                };
+
+                // Build email body
+                const emailSubject = encodeURIComponent('Early Access Request - Warehouse Decision Intelligence');
+                const emailBody = encodeURIComponent(
+                    `Early Access Request\n` +
+                    `====================\n\n` +
+                    `Selected Package: ${formData.tier}\n\n` +
+                    `Name: ${formData.fullName}\n` +
+                    `Company/Warehouse: ${formData.company}\n` +
+                    `City/Town: ${formData.city}\n` +
+                    `Warehouse Type: ${formData.warehouseType}\n` +
+                    `Main Need: ${formData.mainNeed}\n` +
+                    `Budget Band: ${formData.budgetBand}\n\n` +
+                    `Message:\n${formData.message}\n`
+                );
+
+                // Open mailto link
+                window.location.href = `mailto:contact@yourdomain?subject=${emailSubject}&body=${emailBody}`;
+
+                // Show confirmation
+                form.style.display = 'none';
+                confirmation.style.display = 'block';
+            });
+
+            // Reset form function
+            function resetForm() {
+                form.reset();
+                // After reset, default back to Starter
+                setSelectedTier('starter');
+                form.style.display = 'block';
+                confirmation.style.display = 'none';
+            }
     </script>
 </body>
 </html>

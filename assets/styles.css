@@ -1236,16 +1236,38 @@ p {
 }
 
 .pricing-tier {
+    display: flex;
+    flex-direction: column;
     padding: var(--spacing-md);
     background-color: var(--color-background-alt);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-lg);
-    text-align: center;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+    position: relative;
 }
 
-.pricing-tier.featured {
+.pricing-tier:hover {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.pricing-tier.selected {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(26, 86, 219, 0.15);
+    background-color: #ffffff;
+}
+
+.pricing-tier .tier-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tier-header {
+    margin-bottom: var(--spacing-sm);
 }
 
 .tier-name {
@@ -1264,9 +1286,43 @@ p {
     margin-bottom: var(--spacing-xs);
 }
 
-.tier-desc {
-    font-size: 0.8125rem;
+.tier-badge {
+    display: inline-block;
+    margin-top: 0.25rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: rgba(15, 118, 110, 0.08);
+    color: #0f766e;
+}
+
+.tier-badge-featured {
+    background-color: rgba(26, 86, 219, 0.12);
+    color: var(--color-primary);
+}
+
+.tier-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
     color: var(--color-text-light);
+}
+
+.tier-items li {
+    position: relative;
+    padding-left: 1.25rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.tier-items li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    color: var(--color-text-muted);
 }
 
 /* Offer Inclusions */
