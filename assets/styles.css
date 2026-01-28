@@ -498,6 +498,67 @@ p {
     font-size: 1.125rem;
 }
 
+/* Horizontal Steps Flow */
+.horizontal-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Connecting line between steps */
+.horizontal-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 28px);
+    right: calc(12.5% + 28px);
+    height: 2px;
+    background-color: var(--border);
+    z-index: 0;
+}
+
+.horizontal-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-circle {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    box-shadow: 0 0 0 4px var(--bg-main);
+}
+
+.step-info h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.step-info p {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Legacy vertical steps (kept for compatibility) */
 .solution-steps {
     max-width: 700px;
     margin: 0 auto;
@@ -2053,6 +2114,16 @@ p {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    /* Horizontal steps tablet - 2x2 grid */
+    .horizontal-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .horizontal-steps::before {
+        display: none;
+    }
+    
     /* Audience and Receive responsive */
     .audience-grid {
         grid-template-columns: 1fr;
@@ -2172,6 +2243,31 @@ p {
     
     .outcomes-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Horizontal steps mobile - stacked vertical */
+    .horizontal-steps {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        max-width: 400px;
+    }
+    
+    .horizontal-steps::before {
+        display: none;
+    }
+    
+    .step-circle {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+    
+    .step-info h3 {
+        font-size: 0.9375rem;
+    }
+    
+    .step-info p {
+        font-size: 0.8125rem;
     }
     
     .analysis-grid {
