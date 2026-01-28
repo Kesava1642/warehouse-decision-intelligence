@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find part-load pallet space on existing transport routes. Connect with carriers who have spare capacity.">
+    <title>Transport Space Board | Warehouse Decision Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">Warehouse Decision Intelligence</a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="how-it-works.html" class="nav-link">How it works</a></li>
+                    <li><a href="framework.html" class="nav-link">Framework</a></li>
+                    <li><a href="decision-demo.html" class="nav-link">Decision demo</a></li>
+                    <li><a href="transport-board.html" class="nav-link active">Transport board</a></li>
+                    <li><a href="early-access.html" class="nav-link nav-cta">Early access</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Transport Space Board</h1>
+                <p class="page-intro">Find part-load space (pallet space) on existing routes. Connect directly with carriers who have spare capacity on scheduled runs.</p>
+                <span class="pilot-badge">Pilot demo – no live marketplace yet</span>
+            </div>
+        </section>
+
+        <!-- Transport Board Section -->
+        <section class="transport-section">
+            <div class="container">
+                <div class="transport-layout">
+                    <!-- Listings -->
+                    <div class="transport-listings">
+                        <div class="listings-header">
+                            <h2>Available Space</h2>
+                            <p>Sample routes with spare capacity</p>
+                        </div>
+
+                        <div class="route-cards">
+                            <!-- Route 1 -->
+                            <article class="route-card">
+                                <div class="route-header">
+                                    <div class="route-path">
+                                        <span class="route-from">Birmingham</span>
+                                        <span class="route-arrow">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span class="route-to">Manchester</span>
+                                    </div>
+                                    <div class="route-capacity">
+                                        <strong>6</strong> pallets
+                                    </div>
+                                </div>
+                                <div class="route-details">
+                                    <div class="route-detail">
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">Mon 3 Feb, 06:00</span>
+                                    </div>
+                                    <div class="route-detail">
+                                        <span class="detail-label">Constraints</span>
+                                        <span class="detail-value">Standard pallets, ambient</span>
+                                    </div>
+                                </div>
+                                <a href="mailto:hello@example.com?subject=Transport%20booking%20request%20-%20Birmingham%20to%20Manchester%20(3%20Feb)" class="btn btn-small btn-primary">Request booking</a>
+                            </article>
+
+                            <!-- Route 2 -->
+                            <article class="route-card">
+                                <div class="route-header">
+                                    <div class="route-path">
+                                        <span class="route-from">London</span>
+                                        <span class="route-arrow">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span class="route-to">Leeds</span>
+                                    </div>
+                                    <div class="route-capacity">
+                                        <strong>4</strong> pallets
+                                    </div>
+                                </div>
+                                <div class="route-details">
+                                    <div class="route-detail">
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">Tue 4 Feb, 14:00</span>
+                                    </div>
+                                    <div class="route-detail">
+                                        <span class="detail-label">Constraints</span>
+                                        <span class="detail-value">Tail-lift available, max 800kg/pallet</span>
+                                    </div>
+                                </div>
+                                <a href="mailto:hello@example.com?subject=Transport%20booking%20request%20-%20London%20to%20Leeds%20(4%20Feb)" class="btn btn-small btn-primary">Request booking</a>
+                            </article>
+
+                            <!-- Route 3 -->
+                            <article class="route-card">
+                                <div class="route-header">
+                                    <div class="route-path">
+                                        <span class="route-from">Bristol</span>
+                                        <span class="route-arrow">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span class="route-to">Glasgow</span>
+                                    </div>
+                                    <div class="route-capacity">
+                                        <strong>10</strong> pallets
+                                    </div>
+                                </div>
+                                <div class="route-details">
+                                    <div class="route-detail">
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">Wed 5 Feb, 22:00</span>
+                                    </div>
+                                    <div class="route-detail">
+                                        <span class="detail-label">Constraints</span>
+                                        <span class="detail-value">Euro pallets only, overnight run</span>
+                                    </div>
+                                </div>
+                                <a href="mailto:hello@example.com?subject=Transport%20booking%20request%20-%20Bristol%20to%20Glasgow%20(5%20Feb)" class="btn btn-small btn-primary">Request booking</a>
+                            </article>
+
+                            <!-- Route 4 -->
+                            <article class="route-card">
+                                <div class="route-header">
+                                    <div class="route-path">
+                                        <span class="route-from">Southampton</span>
+                                        <span class="route-arrow">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span class="route-to">Birmingham</span>
+                                    </div>
+                                    <div class="route-capacity">
+                                        <strong>8</strong> pallets
+                                    </div>
+                                </div>
+                                <div class="route-details">
+                                    <div class="route-detail">
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">Thu 6 Feb, 08:00</span>
+                                    </div>
+                                    <div class="route-detail">
+                                        <span class="detail-label">Constraints</span>
+                                        <span class="detail-value">Chilled (+2°C to +5°C)</span>
+                                    </div>
+                                </div>
+                                <a href="mailto:hello@example.com?subject=Transport%20booking%20request%20-%20Southampton%20to%20Birmingham%20(6%20Feb)" class="btn btn-small btn-primary">Request booking</a>
+                            </article>
+
+                            <!-- Route 5 -->
+                            <article class="route-card">
+                                <div class="route-header">
+                                    <div class="route-path">
+                                        <span class="route-from">Newcastle</span>
+                                        <span class="route-arrow">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span class="route-to">London</span>
+                                    </div>
+                                    <div class="route-capacity">
+                                        <strong>3</strong> pallets
+                                    </div>
+                                </div>
+                                <div class="route-details">
+                                    <div class="route-detail">
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">Fri 7 Feb, 05:00</span>
+                                    </div>
+                                    <div class="route-detail">
+                                        <span class="detail-label">Constraints</span>
+                                        <span class="detail-value">Tail-lift, fragile goods OK</span>
+                                    </div>
+                                </div>
+                                <a href="mailto:hello@example.com?subject=Transport%20booking%20request%20-%20Newcastle%20to%20London%20(7%20Feb)" class="btn btn-small btn-primary">Request booking</a>
+                            </article>
+
+                            <!-- Route 6 -->
+                            <article class="route-card">
+                                <div class="route-header">
+                                    <div class="route-path">
+                                        <span class="route-from">Edinburgh</span>
+                                        <span class="route-arrow">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span class="route-to">Manchester</span>
+                                    </div>
+                                    <div class="route-capacity">
+                                        <strong>12</strong> pallets
+                                    </div>
+                                </div>
+                                <div class="route-details">
+                                    <div class="route-detail">
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">Sat 8 Feb, 10:00</span>
+                                    </div>
+                                    <div class="route-detail">
+                                        <span class="detail-label">Constraints</span>
+                                        <span class="detail-value">Standard pallets, ADR certified</span>
+                                    </div>
+                                </div>
+                                <a href="mailto:hello@example.com?subject=Transport%20booking%20request%20-%20Edinburgh%20to%20Manchester%20(8%20Feb)" class="btn btn-small btn-primary">Request booking</a>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Post a Route Form -->
+                    <div class="post-route-container">
+                        <div class="post-route-card">
+                            <h3>Post a Route</h3>
+                            <p class="form-intro">Have spare capacity? List your available space.</p>
+
+                            <form id="post-route-form" class="post-route-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="route-from">From</label>
+                                        <input type="text" id="route-from" name="routeFrom" placeholder="e.g. Birmingham" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="route-to">To</label>
+                                        <input type="text" id="route-to" name="routeTo" placeholder="e.g. London" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="route-date">Date</label>
+                                        <input type="date" id="route-date" name="routeDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="route-capacity">Pallets available</label>
+                                        <input type="number" id="route-capacity" name="routeCapacity" min="1" max="26" placeholder="e.g. 6" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="route-constraints">Constraints <span class="optional">(optional)</span></label>
+                                    <input type="text" id="route-constraints" name="routeConstraints" placeholder="e.g. Tail-lift, chilled, max weight">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="route-contact">Contact email</label>
+                                    <input type="email" id="route-contact" name="routeContact" placeholder="your@email.com" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-full">Post route</button>
+                            </form>
+
+                            <!-- Confirmation Message -->
+                            <div id="post-route-confirmation" class="form-confirmation" style="display: none;">
+                                <div class="confirmation-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <h4>Thanks — pilot request received</h4>
+                                <p>We'll be in touch when the transport board goes live.</p>
+                                <button type="button" class="btn btn-secondary" onclick="resetPostRouteForm()">Post another route</button>
+                            </div>
+                        </div>
+
+                        <div class="pilot-note">
+                            <p><strong>Pilot notice:</strong> This is a demonstration of the transport board concept. Routes shown are sample data. The live marketplace will launch after the pilot phase.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p class="footer-tagline">UK-focused warehouse decision intelligence</p>
+                <p class="footer-contact">Contact: <a href="mailto:hello@example.com">hello@example.com</a></p>
+            </div>
+            <nav class="footer-nav">
+                <a href="../index.html">Home</a>
+                <a href="how-it-works.html">How it works</a>
+                <a href="framework.html">Framework</a>
+                <a href="decision-demo.html">Decision demo</a>
+                <a href="transport-board.html">Transport board</a>
+                <a href="use-cases.html">Use cases</a>
+                <a href="early-access.html">Early access</a>
+                <a href="trust.html">Trust</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="../assets/app.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.nav');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            menuBtn.classList.toggle('active');
+        });
+
+        // Post route form handler
+        const postRouteForm = document.getElementById('post-route-form');
+        const postRouteConfirmation = document.getElementById('post-route-confirmation');
+
+        if (postRouteForm) {
+            postRouteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                postRouteForm.style.display = 'none';
+                postRouteConfirmation.style.display = 'block';
+            });
+        }
+
+        function resetPostRouteForm() {
+            postRouteForm.reset();
+            postRouteForm.style.display = 'block';
+            postRouteConfirmation.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

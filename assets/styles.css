@@ -2097,6 +2097,202 @@ p {
 }
 
 /* =============================================
+   Transport Space Board Page
+   ============================================= */
+.pilot-badge {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: rgba(37, 99, 235, 0.2);
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+.transport-section {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+}
+
+.transport-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+/* Listings */
+.transport-listings {
+    min-width: 0;
+}
+
+.listings-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.listings-header h2 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.listings-header p {
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.route-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.route-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border);
+}
+
+.route-path {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.route-from,
+.route-to {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.route-arrow {
+    color: var(--text-muted);
+}
+
+.route-capacity {
+    text-align: right;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.route-capacity strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.route-details {
+    flex-grow: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.route-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-xs) 0;
+    font-size: 0.875rem;
+}
+
+.route-detail .detail-label {
+    color: var(--text-muted);
+}
+
+.route-detail .detail-value {
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+/* Post Route Form */
+.post-route-container {
+    position: sticky;
+    top: calc(var(--header-height) + var(--spacing-lg));
+}
+
+.post-route-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.post-route-card h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.post-route-card .form-intro {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.post-route-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.post-route-form input[type="text"],
+.post-route-form input[type="email"],
+.post-route-form input[type="date"],
+.post-route-form input[type="number"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    background-color: var(--bg-section);
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-route-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.post-route-form input::placeholder {
+    color: var(--text-muted);
+}
+
+.pilot-note {
+    padding: var(--spacing-md);
+    background-color: var(--bg-section);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--accent);
+}
+
+.pilot-note p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.pilot-note strong {
+    color: var(--text-primary);
+}
+
+/* =============================================
    Responsive Design
    ============================================= */
 @media (max-width: 1024px) {
@@ -2162,6 +2358,19 @@ p {
     
     /* Framework responsive */
     .output-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Transport board responsive tablet */
+    .transport-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-route-container {
+        position: static;
+    }
+    
+    .route-cards {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -2353,6 +2562,32 @@ p {
     
     .audience-icon {
         margin: 0 auto;
+    }
+    
+    /* Transport board responsive mobile */
+    .route-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .route-header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .route-capacity {
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+    
+    .route-capacity strong {
+        display: inline;
+        font-size: 1.25rem;
     }
     
     /* Footer */
