@@ -1517,6 +1517,180 @@ p {
 }
 
 /* =============================================
+   Emergency Services Finder Page
+   ============================================= */
+
+.services-scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.services-scenario-card {
+    padding: var(--spacing-lg);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.services-scenario-card h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.services-finder-section {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+}
+
+.services-finder-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.services-finder-filters {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-lg);
+}
+
+.services-finder-filters h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.services-filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.services-filter-note {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-sm);
+}
+
+.services-results h2 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.services-results-intro {
+    margin-bottom: var(--spacing-md);
+}
+
+.services-provider-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+.services-provider-card {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.provider-header {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.provider-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.15rem;
+}
+
+.provider-availability {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-end;
+}
+
+.availability-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.availability-today {
+    background-color: rgba(22, 163, 74, 0.12);
+    color: #15803d;
+}
+
+.availability-next-day {
+    background-color: rgba(234, 179, 8, 0.12);
+    color: #854d0e;
+}
+
+.availability-week {
+    background-color: rgba(37, 99, 235, 0.12);
+    color: #1d4ed8;
+}
+
+.response-window {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+}
+
+.provider-actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.services-provider-registration {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background-color: var(--color-background-alt);
+    border-top: 1px solid var(--color-border);
+}
+
+.services-registration-form {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.registration-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.services-confirmation {
+    margin-top: var(--spacing-md);
+}
+
+.services-confirmation label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+}
+
+.services-confirmation input[type="checkbox"] {
+    margin-top: 0.15rem;
+}
+
+.services-disclaimer {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    max-width: 800px;
+}
+
+/* =============================================
    Use Cases Page
    ============================================= */
 .use-cases-section {
