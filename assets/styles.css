@@ -364,7 +364,7 @@ p {
 
 .receive-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
 }
 
@@ -2052,10 +2052,6 @@ p {
         grid-template-columns: 1fr;
     }
     
-    .receive-grid {
-        grid-template-columns: 1fr;
-    }
-    
     /* Demo responsive */
     .demo-layout {
         grid-template-columns: 1fr;
@@ -2284,5 +2280,20 @@ p {
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+/* =============================================
+   Receive grid responsive overrides
+   ============================================= */
+@media (min-width: 700px) {
+    .receive-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1100px) {
+    .receive-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
