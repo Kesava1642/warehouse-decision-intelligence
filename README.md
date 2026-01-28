@@ -118,7 +118,7 @@ warehouse-decision-intelligence/
 
 For questions about the service or early access:
 
-- Email: hello@example.com (placeholder)
+- Email: warehouse.decision.intelligence@gmail.com (placeholder)
 - Website: [Open index.html locally]
 
 ---
