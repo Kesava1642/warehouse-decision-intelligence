@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Emergency Services Finder (Pilot) helps UK warehouses locate urgent support when usual engineers are unavailable.">
-    <title>Emergency Services Finder (Pilot) | Warehouse Decision Intelligence</title>
+    <meta name="description" content="Emergency Services Directory (Pilot) helps UK warehouses find urgent support providers for electrical, doors, fire safety, IT, forklifts, and more.">
+    <title>Emergency Services Directory (Pilot) | Warehouse Decision Intelligence</title>
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
@@ -19,10 +19,8 @@
                     <li><a href="how-it-works.html" class="nav-link">How it works</a></li>
                     <li><a href="framework.html" class="nav-link">Framework</a></li>
                     <li><a href="decision-demo.html" class="nav-link">Decision demo</a></li>
-                    <li><a href="use-cases.html" class="nav-link">Use cases</a></li>
-                    <li><a href="services.html" class="nav-link active">Emergency Services</a></li>
+                    <li><a href="transport-board.html" class="nav-link">Transport board</a></li>
                     <li><a href="early-access.html" class="nav-link nav-cta">Early access</a></li>
-                    <li><a href="trust.html" class="nav-link">Trust</a></li>
                 </ul>
             </nav>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -37,239 +35,226 @@
         <!-- Page Header -->
         <section class="page-header">
             <div class="container">
-                <h1>Emergency Services Finder (Pilot)</h1>
-                <p class="page-intro">Find urgent support when your usual engineer is unavailable. This pilot connects UK warehouses with providers offering same-day, next-day, or this-week callouts.</p>
+                <h1>Emergency Services Directory</h1>
+                <p class="page-intro">Find urgent support when your usual engineer or contractor is unavailable. Search by category and location to connect with providers offering same-day or next-day callouts.</p>
+                <span class="pilot-badge">Pilot demo – directory uses sample data</span>
             </div>
         </section>
 
-        <!-- When This Helps -->
-        <section class="content-section alt-bg">
+        <!-- Directory Section -->
+        <section class="directory-section">
             <div class="container">
-                <h2>When this helps</h2>
-                <p>Use the Emergency Services Finder when an issue is blocking safe operation or shipping, and you need to know who might still be available.</p>
-                <div class="services-scenarios-grid">
-                    <div class="services-scenario-card">
-                        <h3>Emergency exit / door / shutter failure</h3>
-                        <p>Fire exit, loading door, or shutter stuck open or closed, affecting safety or security.</p>
-                    </div>
-                    <div class="services-scenario-card">
-                        <h3>Dock bay / leveller issue</h3>
-                        <p>Dock leveller, dock shelter, or edge-of-dock issue stopping vehicles from loading or unloading safely.</p>
-                    </div>
-                    <div class="services-scenario-card">
-                        <h3>Printer / label / IT failure</h3>
-                        <p>Label printers, scanners, or key warehouse IT failing and threatening despatch cut-offs.</p>
-                    </div>
-                    <div class="services-scenario-card">
-                        <h3>Electrical / maintenance urgent support</h3>
-                        <p>Urgent electrical or maintenance jobs where waiting for the usual contractor is not practical.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div class="directory-layout">
+                    <!-- Filters Sidebar -->
+                    <aside class="directory-filters">
+                        <div class="filters-card">
+                            <h2>Search providers</h2>
+                            
+                            <form id="directory-filter-form" class="filter-form">
+                                <div class="form-group">
+                                    <label for="filter-category">Category</label>
+                                    <select id="filter-category" name="category">
+                                        <option value="">All categories</option>
+                                        <option value="Electrical">Electrical</option>
+                                        <option value="Doors/Shutters">Doors / Shutters</option>
+                                        <option value="Fire Safety">Fire Safety</option>
+                                        <option value="IT/Network">IT / Network</option>
+                                        <option value="Forklift Service">Forklift Service</option>
+                                        <option value="Printers/Labels">Printers / Labels</option>
+                                        <option value="Calibration">Calibration</option>
+                                    </select>
+                                </div>
 
-        <!-- Finder Filters & Results -->
-        <section class="services-finder-section">
-            <div class="container">
-                <div class="services-finder-layout">
-                    <!-- Filters -->
-                    <aside class="services-finder-filters">
-                        <h2>Find urgent support</h2>
-                        <form class="services-filter-form" onsubmit="event.preventDefault();">
-                            <div class="form-group">
-                                <label for="service-category">Category</label>
-                                <select id="service-category" name="serviceCategory">
-                                    <option value="">Any category</option>
-                                    <option value="Door/Exit">Door / Exit</option>
-                                    <option value="Electrical">Electrical</option>
-                                    <option value="Equipment Service">Equipment Service</option>
-                                    <option value="IT/Printer">IT / Printer</option>
-                                    <option value="Calibration">Calibration</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label for="filter-location">Your location</label>
+                                    <select id="filter-location" name="location">
+                                        <option value="">Select region</option>
+                                        <option value="West Midlands">West Midlands</option>
+                                        <option value="East Midlands">East Midlands</option>
+                                        <option value="North West">North West</option>
+                                        <option value="North East">North East</option>
+                                        <option value="Yorkshire">Yorkshire</option>
+                                        <option value="South East">South East</option>
+                                        <option value="South West">South West</option>
+                                        <option value="London">London</option>
+                                        <option value="Scotland">Scotland</option>
+                                        <option value="Wales">Wales</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="service-town">Town / City</label>
-                                <input type="text" id="service-town" name="serviceTown" placeholder="e.g. Birmingham, Leeds">
-                            </div>
+                                <div class="form-group">
+                                    <label for="filter-radius">Search radius</label>
+                                    <select id="filter-radius" name="radius">
+                                        <option value="">Any distance</option>
+                                        <option value="25">Within 25 miles</option>
+                                        <option value="50">Within 50 miles</option>
+                                        <option value="100">Within 100 miles</option>
+                                        <option value="national">National / Remote</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="service-availability">Availability</label>
-                                <select id="service-availability" name="serviceAvailability">
-                                    <option value="">Any time</option>
-                                    <option value="Today">Today</option>
-                                    <option value="Next day">Next day</option>
-                                    <option value="This week">This week</option>
-                                </select>
-                            </div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="filter-available-today" name="availableToday">
+                                        <span class="checkbox-text">Available today only</span>
+                                    </label>
+                                </div>
 
-                            <p class="services-filter-note">Filters are for guidance only. Final response times depend on the provider.</p>
-                        </form>
+                                <button type="button" class="btn btn-primary btn-full" onclick="applyFilters()">Search</button>
+                                <button type="button" class="btn btn-secondary btn-full" onclick="resetFilters()">Reset filters</button>
+                            </form>
+
+                            <p class="filter-note">Availability shown is indicative. Always confirm directly with the provider.</p>
+                        </div>
                     </aside>
 
                     <!-- Provider Results -->
-                    <section class="services-results">
-                        <h2>Example providers (pilot placeholders)</h2>
-                        <p class="services-results-intro">These are example provider profiles to show how the finder will work during the pilot. They are not real verified brands yet.</p>
+                    <section class="directory-results">
+                        <div class="results-header">
+                            <h2>Providers</h2>
+                            <p class="results-count" id="results-count">Showing all providers</p>
+                        </div>
 
-                        <div class="services-provider-grid">
-                            <!-- Provider 1 -->
-                            <article class="services-provider-card">
-                                <header class="provider-header">
-                                    <div>
-                                        <h3>Warehouse Door Support – Pilot A</h3>
-                                        <p class="provider-meta">Category: Door / Exit</p>
-                                        <p class="provider-meta">Coverage: West Midlands and surrounding areas</p>
-                                    </div>
-                                    <div class="provider-availability">
-                                        <span class="availability-badge availability-today">Available today</span>
-                                        <span class="response-window">Typical response: 2–4 hours</span>
-                                    </div>
-                                </header>
-                                <div class="provider-actions">
-                                    <button 
-                                        type="button" 
-                                        class="btn btn-primary btn-small"
-                                        data-category="Door / Exit"
-                                        data-default-availability="Today"
-                                        onclick="requestSupportFromProvider(this)">
-                                        Request support
-                                    </button>
-                                </div>
-                            </article>
+                        <div class="provider-grid" id="provider-grid">
+                            <!-- Provider cards will be rendered by JavaScript -->
+                        </div>
 
-                            <!-- Provider 2 -->
-                            <article class="services-provider-card">
-                                <header class="provider-header">
-                                    <div>
-                                        <h3>Dock & Leveller Assistance – Pilot B</h3>
-                                        <p class="provider-meta">Category: Equipment Service</p>
-                                        <p class="provider-meta">Coverage: M1 / M62 corridor (selected sites)</p>
-                                    </div>
-                                    <div class="provider-availability">
-                                        <span class="availability-badge availability-next-day">Available next day</span>
-                                        <span class="response-window">Typical response: same day if booked before 10:00</span>
-                                    </div>
-                                </header>
-                                <div class="provider-actions">
-                                    <button 
-                                        type="button" 
-                                        class="btn btn-primary btn-small"
-                                        data-category="Equipment Service"
-                                        data-default-availability="Next day"
-                                        onclick="requestSupportFromProvider(this)">
-                                        Request support
-                                    </button>
-                                </div>
-                            </article>
-
-                            <!-- Provider 3 -->
-                            <article class="services-provider-card">
-                                <header class="provider-header">
-                                    <div>
-                                        <h3>Label & Printer Helpdesk – Pilot C</h3>
-                                        <p class="provider-meta">Category: IT / Printer</p>
-                                        <p class="provider-meta">Coverage: Remote UK-wide with on-site options in selected regions</p>
-                                    </div>
-                                    <div class="provider-availability">
-                                        <span class="availability-badge availability-today">Available today (remote)</span>
-                                        <span class="response-window">Typical response: within 2 hours for remote triage</span>
-                                    </div>
-                                </header>
-                                <div class="provider-actions">
-                                    <button 
-                                        type="button" 
-                                        class="btn btn-primary btn-small"
-                                        data-category="IT / Printer"
-                                        data-default-availability="Today"
-                                        onclick="requestSupportFromProvider(this)">
-                                        Request support
-                                    </button>
-                                </div>
-                            </article>
-
-                            <!-- Provider 4 -->
-                            <article class="services-provider-card">
-                                <header class="provider-header">
-                                    <div>
-                                        <h3>Calibration & Safety Checks – Pilot D</h3>
-                                        <p class="provider-meta">Category: Calibration</p>
-                                        <p class="provider-meta">Coverage: Selected UK regions (by pre-booking)</p>
-                                    </div>
-                                    <div class="provider-availability">
-                                        <span class="availability-badge availability-week">Available this week</span>
-                                        <span class="response-window">Typical response: within 3–5 working days</span>
-                                    </div>
-                                </header>
-                                <div class="provider-actions">
-                                    <button 
-                                        type="button" 
-                                        class="btn btn-primary btn-small"
-                                        data-category="Calibration"
-                                        data-default-availability="This week"
-                                        onclick="requestSupportFromProvider(this)">
-                                        Request support
-                                    </button>
-                                </div>
-                            </article>
+                        <div class="no-results" id="no-results" style="display: none;">
+                            <div class="no-results-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </div>
+                            <h3>No providers match your filters</h3>
+                            <p>Try adjusting your search criteria or <button type="button" class="link-btn" onclick="resetFilters()">reset filters</button> to see all providers.</p>
                         </div>
                     </section>
                 </div>
             </div>
         </section>
 
-        <!-- Provider Registration -->
-        <section class="services-provider-registration">
+        <!-- Register as Provider Section -->
+        <section class="provider-register-section">
             <div class="container">
-                <h2>Register as a provider (pilot)</h2>
-                <p>If you provide emergency support to warehouses and would like to be considered for the pilot directory, share a few details below. We will review and may contact you for more information.</p>
-
-                <form id="provider-registration-form" class="services-registration-form">
-                    <div class="registration-grid">
-                        <div class="form-group">
-                            <label for="provider-company">Company name</label>
-                            <input type="text" id="provider-company" name="providerCompany" placeholder="Your company name">
+                <div class="register-layout">
+                    <div class="register-info">
+                        <h2>Register as a provider</h2>
+                        <p>If you offer emergency support services to UK warehouses, register your interest to be included in our pilot directory.</p>
+                        
+                        <div class="register-benefits">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <span>Connect with warehouses needing urgent support</span>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <span>No listing fees during the pilot phase</span>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <span>We verify providers before adding to the directory</span>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="provider-category">Category</label>
-                            <input type="text" id="provider-category" name="providerCategory" placeholder="e.g. Dock levellers, doors, electrical">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="provider-coverage">Coverage area</label>
-                            <input type="text" id="provider-coverage" name="providerCoverage" placeholder="e.g. North West, M25, UK-wide remote">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="provider-availability">Availability pattern</label>
-                            <input type="text" id="provider-availability" name="providerAvailability" placeholder="e.g. Same-day before 10:00, next-day, weekends by agreement">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="provider-contact">Phone / email</label>
-                            <input type="text" id="provider-contact" name="providerContact" placeholder="Best number or email for urgent requests">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="provider-website">Website <span class="optional">(optional)</span></label>
-                            <input type="text" id="provider-website" name="providerWebsite" placeholder="Website or profile link">
-                        </div>
+                        <p class="verify-note"><strong>Note:</strong> We verify all providers during the pilot. Registration does not guarantee inclusion.</p>
                     </div>
 
-                    <div class="form-group services-confirmation">
-                        <label>
-                            <input type="checkbox" id="provider-confirmation">
-                            <span>I confirm I have appropriate insurance and qualifications for the work I offer.</span>
-                        </label>
+                    <div class="register-form-container">
+                        <form id="provider-register-form" class="register-form">
+                            <div class="form-group">
+                                <label for="reg-company">Company name <span class="required">*</span></label>
+                                <input type="text" id="reg-company" name="company" required placeholder="Your company name">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="reg-category">Service category <span class="required">*</span></label>
+                                    <select id="reg-category" name="category" required>
+                                        <option value="">Select category</option>
+                                        <option value="Electrical">Electrical</option>
+                                        <option value="Doors/Shutters">Doors / Shutters</option>
+                                        <option value="Fire Safety">Fire Safety</option>
+                                        <option value="IT/Network">IT / Network</option>
+                                        <option value="Forklift Service">Forklift Service</option>
+                                        <option value="Printers/Labels">Printers / Labels</option>
+                                        <option value="Calibration">Calibration</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reg-response">Typical response time</label>
+                                    <select id="reg-response" name="response">
+                                        <option value="">Select response</option>
+                                        <option value="Same day">Same day</option>
+                                        <option value="Next day">Next day</option>
+                                        <option value="2-3 days">2-3 days</option>
+                                        <option value="Within a week">Within a week</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-coverage">Coverage area <span class="required">*</span></label>
+                                <input type="text" id="reg-coverage" name="coverage" required placeholder="e.g. West Midlands, M1 corridor, UK-wide">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="reg-contact">Contact email <span class="required">*</span></label>
+                                    <input type="email" id="reg-contact" name="contact" required placeholder="your@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="reg-phone">Phone</label>
+                                    <input type="tel" id="reg-phone" name="phone" placeholder="Contact number">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-notes">Additional notes</label>
+                                <textarea id="reg-notes" name="notes" rows="3" placeholder="Specialities, certifications, availability hours..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Submit registration</button>
+                        </form>
+
+                        <!-- Confirmation -->
+                        <div id="register-confirmation" class="form-confirmation" style="display: none;">
+                            <div class="confirmation-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <h4>Thanks — pilot request received</h4>
+                            <p>We'll review your registration and be in touch if we need more information.</p>
+                            <button type="button" class="btn btn-secondary" onclick="resetRegisterForm()">Submit another</button>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <button type="button" class="btn btn-secondary" onclick="submitProviderRegistration()">Send registration by email</button>
-                </form>
-
-                <p class="services-disclaimer">
-                    We connect interested warehouses and potential providers. We are not the employer or contracting party, and we cannot guarantee availability or response times. 
-                    You must verify insurance, qualifications, and that any work complies with your site health &amp; safety rules and permits.
+        <!-- Disclaimer -->
+        <section class="disclaimer-section">
+            <div class="container">
+                <p class="disclaimer-text">
+                    <strong>Pilot disclaimer:</strong> This directory shows sample provider data for demonstration purposes. We connect interested warehouses with potential providers but are not the contracting party. You must verify insurance, qualifications, and compliance with your site health &amp; safety requirements before engaging any provider.
                 </p>
             </div>
         </section>
@@ -280,15 +265,15 @@
         <div class="container footer-content">
             <div class="footer-info">
                 <p class="footer-tagline">UK-focused warehouse decision intelligence</p>
-                <p class="footer-contact">Contact: <a href="mailto:warehouse.decision.intelligence@gmail.com">warehouse.decision.intelligence@gmail.com</a></p>
+                <p class="footer-contact">Contact: <a href="mailto:hello@example.com">hello@example.com</a></p>
             </div>
             <nav class="footer-nav">
                 <a href="../index.html">Home</a>
                 <a href="how-it-works.html">How it works</a>
                 <a href="framework.html">Framework</a>
                 <a href="decision-demo.html">Decision demo</a>
+                <a href="transport-board.html">Transport board</a>
                 <a href="use-cases.html">Use cases</a>
-                <a href="services.html">Emergency Services</a>
                 <a href="early-access.html">Early access</a>
                 <a href="trust.html">Trust</a>
             </nav>
@@ -305,68 +290,216 @@
             menuBtn.classList.toggle('active');
         });
 
-        // Build support request mailto with current filters
-        function requestSupportFromProvider(buttonEl) {
-            const category = buttonEl.getAttribute('data-category') || 'Warehouse emergency support';
-            const defaultAvailability = buttonEl.getAttribute('data-default-availability') || 'Today';
+        // Sample provider data (static JSON)
+        const providers = [
+            {
+                id: 1,
+                name: "Midlands Industrial Electrical",
+                category: "Electrical",
+                areaServed: "West Midlands, East Midlands",
+                regions: ["West Midlands", "East Midlands"],
+                responseTime: "2-4 hours",
+                availableToday: true,
+                description: "Emergency electrical repairs, 3-phase systems, lighting, and distribution boards."
+            },
+            {
+                id: 2,
+                name: "SecureDoor Services",
+                category: "Doors/Shutters",
+                areaServed: "North West, Yorkshire, North East",
+                regions: ["North West", "Yorkshire", "North East"],
+                responseTime: "Same day",
+                availableToday: true,
+                description: "Industrial doors, roller shutters, fire exits, and dock doors. 24/7 callout available."
+            },
+            {
+                id: 3,
+                name: "FireSafe Compliance",
+                category: "Fire Safety",
+                areaServed: "National (UK-wide)",
+                regions: ["West Midlands", "East Midlands", "North West", "North East", "Yorkshire", "South East", "South West", "London", "Scotland", "Wales"],
+                responseTime: "Next day",
+                availableToday: false,
+                description: "Fire alarm testing, extinguisher servicing, emergency lighting, and compliance checks."
+            },
+            {
+                id: 4,
+                name: "Warehouse IT Solutions",
+                category: "IT/Network",
+                areaServed: "Remote UK-wide, on-site South East",
+                regions: ["South East", "London"],
+                responseTime: "1-2 hours (remote)",
+                availableToday: true,
+                description: "Network issues, server problems, WMS connectivity, and wireless infrastructure."
+            },
+            {
+                id: 5,
+                name: "QuickLift Forklift Services",
+                category: "Forklift Service",
+                areaServed: "M1/M6 corridor",
+                regions: ["West Midlands", "East Midlands", "Yorkshire"],
+                responseTime: "4-6 hours",
+                availableToday: true,
+                description: "Forklift breakdown repair, LOLER inspections, and short-term hire."
+            },
+            {
+                id: 6,
+                name: "Label & Print Support",
+                category: "Printers/Labels",
+                areaServed: "Remote UK-wide",
+                regions: ["West Midlands", "East Midlands", "North West", "North East", "Yorkshire", "South East", "South West", "London", "Scotland", "Wales"],
+                responseTime: "2 hours (remote triage)",
+                availableToday: true,
+                description: "Thermal printer repairs, label software issues, and barcode scanner support."
+            },
+            {
+                id: 7,
+                name: "Precision Calibration Ltd",
+                category: "Calibration",
+                areaServed: "Midlands and South",
+                regions: ["West Midlands", "East Midlands", "South East", "South West", "London"],
+                responseTime: "2-3 working days",
+                availableToday: false,
+                description: "Scale calibration, measuring equipment, and UKAS-accredited services."
+            },
+            {
+                id: 8,
+                name: "Northern Electrical Emergency",
+                category: "Electrical",
+                areaServed: "Scotland, North East, North West",
+                regions: ["Scotland", "North East", "North West"],
+                responseTime: "Same day",
+                availableToday: true,
+                description: "Emergency callouts, PAT testing, and fixed wire testing."
+            },
+            {
+                id: 9,
+                name: "Access Door Specialists",
+                category: "Doors/Shutters",
+                areaServed: "South East, London",
+                regions: ["South East", "London"],
+                responseTime: "3-4 hours",
+                availableToday: true,
+                description: "Rapid response for industrial doors, loading bay doors, and security shutters."
+            },
+            {
+                id: 10,
+                name: "FleetFix MHE",
+                category: "Forklift Service",
+                areaServed: "Wales, South West",
+                regions: ["Wales", "South West"],
+                responseTime: "Next day",
+                availableToday: false,
+                description: "Forklift repairs, reach trucks, pallet trucks, and MHE servicing."
+            }
+        ];
 
-            const townInput = document.getElementById('service-town');
-            const availabilitySelect = document.getElementById('service-availability');
+        // Render provider cards
+        function renderProviders(filteredProviders) {
+            const grid = document.getElementById('provider-grid');
+            const noResults = document.getElementById('no-results');
+            const countEl = document.getElementById('results-count');
 
-            const town = townInput && townInput.value ? townInput.value.trim() : '';
-            const chosenAvailability = availabilitySelect && availabilitySelect.value ? availabilitySelect.value : defaultAvailability;
+            if (filteredProviders.length === 0) {
+                grid.innerHTML = '';
+                noResults.style.display = 'block';
+                countEl.textContent = 'No providers found';
+                return;
+            }
 
-            const subjectParts = [
-                'Emergency support',
-                category,
-                town || 'Town/city not specified',
-                chosenAvailability
-            ];
+            noResults.style.display = 'none';
+            countEl.textContent = `Showing ${filteredProviders.length} provider${filteredProviders.length !== 1 ? 's' : ''}`;
 
-            const emailSubject = encodeURIComponent(subjectParts.join(' - '));
-
-            const emailBody = encodeURIComponent(
-                'Emergency Services Finder request (pilot)\n' +
-                '========================================\n\n' +
-                `Category: ${category}\n` +
-                `Town/City: ${town || 'Not specified'}\n` +
-                `Requested availability: ${chosenAvailability}\n\n` +
-                'Please include a brief description of your situation, site type, and any access or safety constraints.\n'
-            );
-
-            window.location.href = `mailto:warehouse.decision.intelligence@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            grid.innerHTML = filteredProviders.map(provider => `
+                <article class="provider-card">
+                    <div class="provider-header">
+                        <div class="provider-info">
+                            <h3>${provider.name}</h3>
+                            <span class="provider-category">${provider.category}</span>
+                        </div>
+                        <div class="provider-availability ${provider.availableToday ? 'available' : 'not-available'}">
+                            ${provider.availableToday ? 'Available today' : 'Book ahead'}
+                        </div>
+                    </div>
+                    <div class="provider-body">
+                        <p class="provider-description">${provider.description}</p>
+                        <div class="provider-details">
+                            <div class="provider-detail">
+                                <span class="detail-label">Area served</span>
+                                <span class="detail-value">${provider.areaServed}</span>
+                            </div>
+                            <div class="provider-detail">
+                                <span class="detail-label">Response time</span>
+                                <span class="detail-value">${provider.responseTime}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="provider-actions">
+                        <a href="mailto:hello@example.com?subject=${encodeURIComponent(`Emergency support request - ${provider.category} - ${provider.name}`)}&body=${encodeURIComponent(`Provider: ${provider.name}\nCategory: ${provider.category}\nArea: ${provider.areaServed}\n\nPlease describe your situation:\n\n`)}" class="btn btn-primary btn-small">Contact provider</a>
+                    </div>
+                </article>
+            `).join('');
         }
 
-        // Provider registration mailto
-        function submitProviderRegistration() {
-            const company = document.getElementById('provider-company').value || 'Not provided';
-            const category = document.getElementById('provider-category').value || 'Not provided';
-            const coverage = document.getElementById('provider-coverage').value || 'Not provided';
-            const availability = document.getElementById('provider-availability').value || 'Not provided';
-            const contact = document.getElementById('provider-contact').value || 'Not provided';
-            const website = document.getElementById('provider-website').value || 'Not provided';
-            const confirmationChecked = document.getElementById('provider-confirmation').checked;
+        // Apply filters
+        function applyFilters() {
+            const category = document.getElementById('filter-category').value;
+            const location = document.getElementById('filter-location').value;
+            const radius = document.getElementById('filter-radius').value;
+            const availableToday = document.getElementById('filter-available-today').checked;
 
-            const confirmationText = confirmationChecked
-                ? 'Confirmed: Provider states they have appropriate insurance and qualifications.'
-                : 'Not confirmed: Provider has NOT ticked the insurance/qualifications line.';
+            let filtered = [...providers];
 
-            const emailSubject = encodeURIComponent('Emergency Services Provider Registration (Pilot)');
-            const emailBody = encodeURIComponent(
-                'New provider registration (pilot)\n' +
-                '=================================\n\n' +
-                `Company name: ${company}\n` +
-                `Category: ${category}\n` +
-                `Coverage area: ${coverage}\n` +
-                `Availability pattern: ${availability}\n` +
-                `Phone / email: ${contact}\n` +
-                `Website: ${website}\n\n` +
-                `${confirmationText}\n`
-            );
+            // Filter by category
+            if (category) {
+                filtered = filtered.filter(p => p.category === category);
+            }
 
-            window.location.href = `mailto:warehouse.decision.intelligence@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            // Filter by location/region
+            if (location) {
+                filtered = filtered.filter(p => p.regions.includes(location));
+            }
+
+            // Filter by radius (simplified - national providers show for all)
+            if (radius === 'national') {
+                filtered = filtered.filter(p => p.regions.length >= 5);
+            }
+
+            // Filter by availability today
+            if (availableToday) {
+                filtered = filtered.filter(p => p.availableToday === true);
+            }
+
+            renderProviders(filtered);
         }
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('filter-category').value = '';
+            document.getElementById('filter-location').value = '';
+            document.getElementById('filter-radius').value = '';
+            document.getElementById('filter-available-today').checked = false;
+            renderProviders(providers);
+        }
+
+        // Provider registration form
+        const registerForm = document.getElementById('provider-register-form');
+        const registerConfirmation = document.getElementById('register-confirmation');
+
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            registerForm.style.display = 'none';
+            registerConfirmation.style.display = 'block';
+        });
+
+        function resetRegisterForm() {
+            registerForm.reset();
+            registerForm.style.display = 'block';
+            registerConfirmation.style.display = 'none';
+        }
+
+        // Initial render
+        renderProviders(providers);
     </script>
 </body>
 </html>
-
