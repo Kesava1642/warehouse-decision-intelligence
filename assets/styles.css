@@ -17,12 +17,21 @@
     --accent-hover: #3B82F6;
     --text-muted: #94a3b8;
 
+    /* Design tokens (unified styling) */
+    --bg: #0B1220;
+    --surface: #FFFFFF;
+    --surface-muted: #F1F5F9;
+    --text: #0F172A;
+    --text-on-dark: #E5E7EB;
+    --border-token: rgba(15, 23, 42, 0.12);
+    --shadow: 0 10px 30px rgba(2, 6, 23, 0.18);
+
     /* Card and footer tokens (white cards, light footer) */
     --card-bg: #FFFFFF;
     --card-text: #0F172A;
     --card-muted: #334155;
     --card-border: rgba(203, 213, 225, 0.45);
-    --footer-bg: #eef2f7;
+    --footer-bg: #F1F5F9;
     --footer-text: #0F172A;
 
     --color-success: #059669;
@@ -66,8 +75,8 @@ html {
 body {
     font-family: var(--font-family);
     line-height: var(--line-height-base);
-    color: var(--text-secondary);
-    background-color: var(--bg-main);
+    color: var(--text-on-dark);
+    background: var(--bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -203,6 +212,7 @@ p {
     color: var(--text-secondary);
     padding: var(--spacing-xs) 0;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -646,6 +656,44 @@ p {
 }
 
 /* =============================================
+   Base card component + featured (do not change featured)
+   ============================================= */
+.card {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border-token);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.card a {
+    color: #2563EB;
+}
+
+.card a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.card--featured,
+.receive-card.featured {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+.card--featured a,
+.receive-card.featured a {
+    color: #ffffff;
+}
+
+.card--featured a:hover,
+.receive-card.featured a:hover {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
+}
+
+/* =============================================
    Card tokens – all card components (white bg, dark text)
    ============================================= */
 .card,
@@ -659,6 +707,8 @@ p {
 .audience-item,
 .receive-card:not(.featured),
 .problem-block,
+.problem-card,
+.benefit-card,
 .outcome-card,
 .analysis-item,
 .comparison-card,
@@ -688,11 +738,13 @@ p {
 .stage-decisions,
 .use-case-header,
 .transport-card,
-.price-card {
-    background: var(--card-bg);
-    color: var(--card-text);
-    border: 1px solid var(--card-border);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+.price-card,
+.usecase-block {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border-token);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
 }
 
 .card p,
@@ -706,6 +758,8 @@ p {
 .audience-item p,
 .receive-card:not(.featured) p,
 .problem-block p,
+.problem-card p,
+.benefit-card p,
 .outcome-card p,
 .analysis-item p,
 .comparison-card p,
@@ -731,7 +785,8 @@ p {
 .stage-decisions p,
 .use-case-header p,
 .transport-card p,
-.price-card p {
+.price-card p,
+.usecase-block p {
     color: var(--card-muted);
 }
 
@@ -755,6 +810,8 @@ p {
 .audience-item h3,
 .receive-card:not(.featured) h3,
 .problem-block h3,
+.problem-card h3,
+.benefit-card h3,
 .outcome-card h3,
 .analysis-item h3,
 .comparison-card h2,
@@ -786,7 +843,9 @@ p {
 .transport-card h2,
 .transport-card h3,
 .price-card h2,
-.price-card h3 {
+.price-card h3,
+.usecase-block h2,
+.usecase-block h3 {
     color: var(--card-text);
 }
 
@@ -801,6 +860,8 @@ p {
 .audience-item a,
 .receive-card:not(.featured) a,
 .problem-block a,
+.problem-card a,
+.benefit-card a,
 .outcome-card a,
 .analysis-item a,
 .comparison-card a,
@@ -823,7 +884,8 @@ p {
 .no-results a,
 .trust-notes a,
 .transport-card a,
-.price-card a {
+.price-card a,
+.usecase-block a {
     color: var(--accent);
 }
 
@@ -838,6 +900,8 @@ p {
 .audience-item a:hover,
 .receive-card:not(.featured) a:hover,
 .problem-block a:hover,
+.problem-card a:hover,
+.benefit-card a:hover,
 .outcome-card a:hover,
 .analysis-item a:hover,
 .comparison-card a:hover,
@@ -860,7 +924,8 @@ p {
 .no-results a:hover,
 .trust-notes a:hover,
 .transport-card a:hover,
-.price-card a:hover {
+.price-card a:hover,
+.usecase-block a:hover {
     color: var(--accent-hover);
 }
 
@@ -932,6 +997,28 @@ p {
     border-color: var(--card-border);
 }
 
+/* Decision Demo form: clearly selectable on dark background */
+.demo-form-container .form-group select,
+.demo-form-container .form-group input[type="text"],
+.demo-form-container .form-group input {
+    background: #FFFFFF;
+    color: #0F172A;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    border-radius: 16px;
+}
+
+.demo-form-container .form-group select:focus,
+.demo-form-container .form-group input[type="text"]:focus,
+.demo-form-container .form-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+.demo-form-container .btn {
+    border-radius: 16px;
+}
+
 /* Recommendation panel – readable text on white */
 .recommendation-panel .spec-label,
 .recommendation-panel .reasons-label,
@@ -949,10 +1036,19 @@ p {
    Footer
    ============================================= */
 .footer {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-    border-top: 1px solid var(--card-border);
+    padding: var(--spacing-lg) 0;
+    background: var(--surface-muted);
+    color: var(--text);
+    border-top: 1px solid var(--border-token);
+}
+
+.footer a {
+    color: #2563EB;
+}
+
+.footer a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
 }
 
 .footer-content {
@@ -964,7 +1060,7 @@ p {
 }
 
 .footer-tagline {
-    color: var(--footer-text);
+    color: var(--text);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -2930,6 +3026,53 @@ p {
    Responsive Design
    ============================================= */
 @media (max-width: 1024px) {
+    /* Hamburger nav: hide horizontal nav, show hamburger */
+    .header .nav {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--bg-section);
+        border-bottom: 1px solid var(--border);
+        padding: var(--spacing-md);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 999;
+    }
+
+    .header .nav.nav-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: stretch;
+    }
+
+    .header .nav-link {
+        display: block;
+        padding: var(--spacing-sm);
+        white-space: normal;
+    }
+
+    .header .nav-link.active::after {
+        display: none;
+    }
+
+    .header .nav-cta {
+        text-align: center;
+        margin-top: var(--spacing-xs);
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
     .problem-grid {
         grid-template-columns: repeat(2, 1fr);
     }
