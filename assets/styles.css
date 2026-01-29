@@ -1290,7 +1290,7 @@ header .nav a {
     width: 100%;
     min-height: 70vh;
     background-color: var(--bg);
-    background-image: url("../assets/images/how it works.png");
+    background-image: url("./images/how it works.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
