@@ -1297,8 +1297,7 @@ header .nav a {
     position: relative;
     display: flex;
     align-items: center;
-    padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 28px;
 }
 
 .how-hero::before {
@@ -1309,9 +1308,21 @@ header .nav a {
     pointer-events: none;
 }
 
+.how-hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent 0%, var(--bg-section) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
 .how-hero-overlay {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
@@ -1347,6 +1358,23 @@ header .nav a {
     .how-hero-overlay p {
         font-size: 1.125rem;
     }
+}
+
+/* =============================================
+   How it works – Intro line (below hero, above first section)
+   ============================================= */
+.how-intro {
+    padding: var(--spacing-lg) 0 var(--spacing-lg);
+    background-color: var(--bg-section);
+    margin-top: -1px;
+}
+
+.how-intro-text {
+    margin: 0;
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
 }
 
 /* =============================================
