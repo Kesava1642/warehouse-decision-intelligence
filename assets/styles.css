@@ -1105,83 +1105,181 @@ header .nav a {
 }
 
 /* =============================================
-   Footer (light grey, one-line nav on desktop, wrap on mobile)
+   Site Footer (WHOOP-style dark multi-column)
    ============================================= */
-.footer {
-    background: #eef2f7;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    padding: 28px 0;
-    color: #0f172a;
+.site-footer {
+    background: var(--bg);
+    color: var(--text-on-dark);
+    width: 100%;
+    padding: 80px 0 96px;
 }
 
-.footer .footer-content {
+.footer-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-.footer .footer-top {
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 56px;
+    margin-bottom: 48px;
+}
+
+.footer-col h4 {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+}
+
+.footer-col {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 14px;
+    gap: 0;
 }
 
-.footer .footer-nav {
+.footer-col a {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    padding: 6px 0;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+.footer-col a + a {
+    margin-top: 12px;
+}
+
+.footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0 0 48px;
+}
+
+.footer-bottom {
     display: flex;
-    justify-content: center;
-    gap: 18px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
 }
 
-.footer a {
-    color: #2563EB;
+.footer-brand {
+    flex: 0 1 auto;
 }
 
-.footer a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
+.footer-brand .footer-wordmark {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 6px;
+    letter-spacing: -0.02em;
 }
 
-.footer-tagline {
-    color: #0f172a;
-    margin: 0;
-    font-size: 1rem;
-}
-
-.footer-contact {
-    color: #475569;
-    margin: 0;
+.footer-brand .footer-mission {
     font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 320px;
 }
 
-.footer-contact a {
-    color: #2563EB;
+.footer-subscribe {
+    flex: 0 1 auto;
+    min-width: 280px;
 }
 
-.footer-contact a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
+.footer-subscribe-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
 }
 
-.footer-nav a {
-    font-size: 0.875rem;
+.footer-subscribe input[type="email"] {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 0 10px;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.footer-subscribe input[type="email"]::placeholder {
+    color: var(--text-muted);
+}
+
+.footer-subscribe input[type="email"]:focus {
+    border-bottom-color: var(--accent);
+}
+
+.footer-subscribe .footer-submit {
+    padding: 12px 20px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--bg);
+    background: var(--text-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
     white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-@media (max-width: 768px) {
-    .footer .footer-nav {
-        flex-wrap: wrap;
-        white-space: normal;
-        overflow-x: visible;
-        row-gap: 10px;
+.footer-subscribe .footer-submit:hover {
+    background: var(--accent);
+    color: var(--text-primary);
+}
+
+.footer-note {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    margin: 8px 0 0;
+    max-width: 260px;
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 56px 0 72px;
     }
 
-    .footer-nav a {
-        white-space: normal;
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 40px;
+    }
+
+    .footer-divider {
+        margin-bottom: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .footer-subscribe {
+        min-width: 100%;
     }
 }
 
