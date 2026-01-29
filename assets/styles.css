@@ -2887,6 +2887,36 @@ header .nav a {
     font-weight: 600;
 }
 
+/* How we score decisions (trust page – endorsement-ready) */
+.score-section .score-criteria li strong {
+    color: var(--text-primary);
+}
+
+.score-independence {
+    margin-top: var(--spacing-md);
+}
+
+.score-disclaimer,
+.score-data-note {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: rgba(30, 41, 59, 0.4);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--accent);
+}
+
+.score-disclaimer p,
+.score-data-note p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.score-disclaimer + .score-data-note {
+    margin-top: var(--spacing-md);
+}
+
 /* =============================================
    Transport Space Board Page
    ============================================= */
