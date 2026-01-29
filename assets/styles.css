@@ -404,22 +404,24 @@ header .nav a {
     align-items: center;
 }
 
+/* Left-to-right overlay: darker behind text, right side stays vivid */
 .hero.hero-home::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(11, 18, 32, 0.94) 0%, rgba(11, 18, 32, 0.78) 28%, rgba(11, 18, 32, 0.42) 55%, rgba(11, 18, 32, 0.1) 82%, transparent 100%);
+    background: linear-gradient(to right, rgba(11, 18, 32, 0.92) 0%, rgba(11, 18, 32, 0.75) 30%, rgba(11, 18, 32, 0.38) 58%, rgba(11, 18, 32, 0.08) 85%, transparent 100%);
     pointer-events: none;
 }
 
+/* Bottom fade: short, ends at hero edge so "Who this is for" is not dimmed */
 .hero.hero-home::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent 0%, var(--bg-section) 100%);
+    height: 32px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(17, 24, 39, 0.25) 35%, var(--bg-section) 95%);
     pointer-events: none;
     z-index: 1;
 }
@@ -431,10 +433,12 @@ header .nav a {
 
 .hero.hero-home .hero-headline {
     color: #fff;
+    line-height: 1.25;
 }
 
 .hero.hero-home .hero-subheading {
     color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
 }
 
 .hero.hero-home .hero-pilot-note {
@@ -443,17 +447,89 @@ header .nav a {
     color: #fff;
 }
 
+/* CTA pill: soft backdrop so buttons stay readable on any part of the image */
+.hero.hero-home .hero-ctas {
+    background: rgba(11, 18, 32, 0.52);
+    padding: 1rem 1.5rem;
+    border-radius: 100px;
+    gap: var(--spacing-sm);
+}
+
+/* Home hero only: "Request early access" = white button, dark text (primary button unchanged) */
+.hero.hero-home .hero-ctas .btn-secondary {
+    background-color: #fff;
+    color: var(--bg);
+    border-color: #fff;
+}
+
+.hero.hero-home .hero-ctas .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.92);
+    color: var(--bg);
+    border-color: rgba(255, 255, 255, 0.92);
+}
+
+/* Home hero: tablet and small desktop */
 @media (max-width: 768px) {
     .hero.hero-home {
-        min-height: 50vh;
+        min-height: 55vh;
+        padding: var(--spacing-2xl) 0;
     }
 
     .hero.hero-home .hero-headline {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        line-height: 1.3;
+        max-width: 100%;
     }
 
     .hero.hero-home .hero-subheading {
-        font-size: 1.125rem;
+        font-size: 1.0625rem;
+        line-height: 1.55;
+    }
+
+    /* Stack buttons, full tap area */
+    .hero.hero-home .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 0.75rem;
+    }
+
+    .hero.hero-home .hero-ctas .btn {
+        min-height: 48px;
+        padding: 0.875rem 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Slightly stronger overlay on small screens so text stays readable over any part of image */
+    .hero.hero-home::before {
+        background: linear-gradient(to right, rgba(11, 18, 32, 0.94) 0%, rgba(11, 18, 32, 0.82) 40%, rgba(11, 18, 32, 0.5) 70%, rgba(11, 18, 32, 0.15) 100%);
+    }
+}
+
+/* Home hero: narrow mobile */
+@media (max-width: 420px) {
+    .hero.hero-home {
+        min-height: 60vh;
+        padding: var(--spacing-xl) 0 var(--spacing-2xl);
+    }
+
+    .hero.hero-home .hero-headline {
+        font-size: 1.5rem;
+        line-height: 1.35;
+    }
+
+    .hero.hero-home .hero-subheading {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .hero.hero-home .hero-ctas {
+        max-width: none;
     }
 }
 
