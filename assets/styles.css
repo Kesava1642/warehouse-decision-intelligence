@@ -26,13 +26,15 @@
     --border-token: rgba(15, 23, 42, 0.12);
     --shadow: 0 10px 30px rgba(2, 6, 23, 0.18);
 
-    /* Card and footer tokens (white cards, light footer) */
-    --card-bg: #FFFFFF;
-    --card-text: #0F172A;
-    --card-muted: #334155;
-    --card-border: rgba(203, 213, 225, 0.45);
+    /* Card and footer tokens (premium white cards, light footer) */
+    --card-bg: #ffffff;
+    --card-text: #0f172a;
+    --card-muted: #475569;
+    --card-border: rgba(203, 213, 225, 0.5);
+    --card-radius: 16px;
+    --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
     --footer-bg: #F1F5F9;
-    --footer-text: #0F172A;
+    --footer-text: #0f172a;
 
     --color-success: #059669;
     --color-negative: #dc2626;
@@ -679,14 +681,14 @@ p {
 }
 
 /* =============================================
-   Base card component + featured (do not change featured)
+   Base card component (premium SaaS style) + featured (do not change featured)
    ============================================= */
 .card {
-    background: var(--surface);
-    color: var(--text);
-    border: 1px solid var(--border-token);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
+    background: var(--card-bg);
+    color: var(--card-text);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
 }
 
 .card a {
@@ -763,11 +765,11 @@ p {
 .transport-card,
 .price-card,
 .usecase-block {
-    background: var(--surface);
-    color: var(--text);
-    border: 1px solid var(--border-token);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
+    background: var(--card-bg);
+    color: var(--card-text);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
 }
 
 .card p,
@@ -1056,13 +1058,13 @@ p {
 }
 
 /* =============================================
-   Footer
+   Footer (light grey, consistent height, blue links)
    ============================================= */
 .footer {
-    padding: var(--spacing-lg) 0;
-    background: var(--surface-muted);
-    color: var(--text);
-    border-top: 1px solid var(--border-token);
+    padding: var(--spacing-md) 0;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .footer a {
@@ -1083,7 +1085,7 @@ p {
 }
 
 .footer-tagline {
-    color: var(--text);
+    color: var(--footer-text);
     margin-bottom: var(--spacing-xs);
 }
 
