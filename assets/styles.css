@@ -17,6 +17,13 @@
     --accent-hover: #3B82F6;
     --text-muted: #94a3b8;
 
+    /* Card and footer tokens (white cards, light footer) */
+    --card-bg: #FFFFFF;
+    --card-text: #0F172A;
+    --card-muted: #334155;
+    --footer-bg: #F1F5F9;
+    --footer-text: #0F172A;
+
     --color-success: #059669;
     --color-negative: #dc2626;
 
@@ -638,12 +645,300 @@ p {
 }
 
 /* =============================================
+   Card tokens – all card components (white bg, dark text)
+   ============================================= */
+.card,
+.tool-card,
+.feature-card,
+.pricing-card,
+.value-card,
+.tile,
+.panel,
+.service-card,
+.audience-item,
+.receive-card:not(.featured),
+.problem-block,
+.outcome-card,
+.analysis-item,
+.comparison-card,
+.supplier-step,
+.demo-form-container,
+.recommendation-panel,
+.supplier-panel,
+.form-card,
+.pricing-tier,
+.services-scenario-card,
+.services-finder-filters,
+.services-provider-card,
+.use-case-card,
+.output-card,
+.route-card,
+.post-route-card,
+.filters-card,
+.provider-card,
+.register-form-container,
+.verify-note,
+.disclaimer-section,
+.post-route-container .post-route-card,
+.supplier-card,
+.form-container .form-card,
+.no-results,
+.trust-notes,
+.stage-decisions,
+.use-case-header {
+    background: var(--card-bg);
+    color: var(--card-text);
+    border: 1px solid rgba(203, 213, 225, 0.45);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.card p,
+.tool-card p,
+.feature-card p,
+.pricing-card p,
+.value-card p,
+.tile p,
+.panel p,
+.service-card p,
+.audience-item p,
+.receive-card:not(.featured) p,
+.problem-block p,
+.outcome-card p,
+.analysis-item p,
+.comparison-card p,
+.supplier-step p,
+.demo-form-container p,
+.recommendation-panel p,
+.supplier-panel p,
+.form-card p,
+.pricing-tier p,
+.services-scenario-card p,
+.services-finder-filters p,
+.services-provider-card p,
+.use-case-card p,
+.output-card p,
+.route-card p,
+.post-route-card p,
+.filters-card p,
+.provider-card p,
+.register-form-container p,
+.verify-note p,
+.no-results p,
+.trust-notes p,
+.stage-decisions p,
+.use-case-header p {
+    color: var(--card-muted);
+}
+
+.card h2,
+.card h3,
+.card h4,
+.tool-card h2,
+.tool-card h3,
+.feature-card h2,
+.feature-card h3,
+.pricing-card h2,
+.pricing-card h3,
+.value-card h2,
+.value-card h3,
+.tile h2,
+.tile h3,
+.panel h2,
+.panel h3,
+.service-card h2,
+.service-card h3,
+.audience-item h3,
+.receive-card:not(.featured) h3,
+.problem-block h3,
+.outcome-card h3,
+.analysis-item h3,
+.comparison-card h2,
+.comparison-card h3,
+.supplier-step h3,
+.demo-form-container h2,
+.demo-form-container h3,
+.recommendation-panel h3,
+.supplier-panel h3,
+.form-card h3,
+.pricing-tier h2,
+.pricing-tier h3,
+.services-scenario-card h3,
+.services-finder-filters h2,
+.services-finder-filters h3,
+.services-provider-card h3,
+.use-case-card h2,
+.use-case-card h3,
+.output-card h3,
+.route-card h2,
+.route-card h3,
+.post-route-card h3,
+.filters-card h2,
+.filters-card h3,
+.provider-card h3,
+.register-form-container h3,
+.no-results h3,
+.use-case-header h2 {
+    color: var(--card-text);
+}
+
+.card a,
+.tool-card a,
+.feature-card a,
+.pricing-card a,
+.value-card a,
+.tile a,
+.panel a,
+.service-card a,
+.audience-item a,
+.receive-card:not(.featured) a,
+.problem-block a,
+.outcome-card a,
+.analysis-item a,
+.comparison-card a,
+.supplier-step a,
+.demo-form-container a,
+.recommendation-panel a,
+.supplier-panel a,
+.form-card a,
+.pricing-tier a,
+.services-scenario-card a,
+.services-finder-filters a,
+.services-provider-card a,
+.use-case-card a,
+.output-card a,
+.route-card a,
+.post-route-card a,
+.filters-card a,
+.provider-card a,
+.register-form-container a,
+.no-results a,
+.trust-notes a {
+    color: var(--accent);
+}
+
+.card a:hover,
+.tool-card a:hover,
+.feature-card a:hover,
+.pricing-card a:hover,
+.value-card a:hover,
+.tile a:hover,
+.panel a:hover,
+.service-card a:hover,
+.audience-item a:hover,
+.receive-card:not(.featured) a:hover,
+.problem-block a:hover,
+.outcome-card a:hover,
+.analysis-item a:hover,
+.comparison-card a:hover,
+.supplier-step a:hover,
+.demo-form-container a:hover,
+.recommendation-panel a:hover,
+.supplier-panel a:hover,
+.form-card a:hover,
+.pricing-tier a:hover,
+.services-scenario-card a:hover,
+.services-finder-filters a:hover,
+.services-provider-card a:hover,
+.use-case-card a:hover,
+.output-card a:hover,
+.route-card a:hover,
+.post-route-card a:hover,
+.filters-card a:hover,
+.provider-card a:hover,
+.register-form-container a:hover,
+.no-results a:hover,
+.trust-notes a:hover {
+    color: var(--accent-hover);
+}
+
+/* Nested card content – ensure readable text on white cards */
+.comparison-card .comparison-list li,
+.recommendation-panel .reasons-list li,
+.stage-decisions li,
+.pricing-tier .tier-name {
+    color: var(--card-muted);
+}
+
+.pricing-tier .tier-price {
+    color: var(--card-text);
+}
+
+.pricing-tier .tier-items,
+.pricing-tier .tier-items li,
+.provider-card .provider-meta,
+.provider-card .provider-description,
+.route-card .route-detail .detail-label,
+.route-card .route-detail .detail-value,
+.provider-card .provider-detail .detail-label,
+.provider-card .provider-detail .detail-value,
+.supplier-card .supplier-match,
+.supplier-card .detail-label,
+.supplier-card .detail-value {
+    color: var(--card-muted);
+}
+
+.provider-card .provider-info h3,
+.route-card .route-from,
+.route-card .route-to,
+.supplier-card .supplier-name {
+    color: var(--card-text);
+}
+
+/* Preserve outcome-card accent border */
+.outcome-card {
+    border-left: 4px solid var(--accent);
+}
+
+/* Form controls and labels inside cards – light bg, dark text */
+.demo-form-container .form-group label,
+.form-card .form-group label,
+.form-container .form-card .form-group label,
+.filters-card .form-group label,
+.post-route-card .form-group label,
+.register-form-container .form-group label {
+    color: var(--card-text);
+}
+
+.demo-form-container .form-group select,
+.demo-form-container .form-group input[type="text"],
+.form-card .form-group select,
+.form-card .form-group input,
+.form-card textarea,
+.form-container .form-card .form-group select,
+.form-container .form-card .form-group input,
+.lead-form textarea,
+.filters-card .form-group select,
+.filters-card .form-group input,
+.post-route-card input,
+.post-route-card select,
+.register-form-container input,
+.register-form-container select,
+.register-form textarea {
+    background-color: #ffffff;
+    color: var(--card-text);
+    border-color: rgba(203, 213, 225, 0.8);
+}
+
+/* Recommendation panel – readable text on white */
+.recommendation-panel .spec-label,
+.recommendation-panel .reasons-label,
+.recommendation-panel .decision-label {
+    color: var(--card-muted);
+}
+
+.recommendation-panel .spec-value,
+.recommendation-panel .avoid-text,
+.recommendation-panel .caution-text {
+    color: var(--card-text);
+}
+
+/* =============================================
    Footer
    ============================================= */
 .footer {
     padding: var(--spacing-xl) 0;
-    background-color: var(--bg-section);
-    color: var(--text-primary);
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
 }
 
 .footer-content {
@@ -655,22 +950,22 @@ p {
 }
 
 .footer-tagline {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--footer-text);
     margin-bottom: var(--spacing-xs);
 }
 
 .footer-contact {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--card-muted);
     margin-bottom: 0;
     font-size: 0.875rem;
 }
 
 .footer-contact a {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--accent);
 }
 
 .footer-contact a:hover {
-    color: #ffffff;
+    color: var(--accent-hover);
 }
 
 .footer-nav {
@@ -680,12 +975,12 @@ p {
 }
 
 .footer-nav a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--accent);
     font-size: 0.875rem;
 }
 
 .footer-nav a:hover {
-    color: #ffffff;
+    color: var(--accent-hover);
 }
 
 /* =============================================
@@ -1324,7 +1619,7 @@ p {
 .pricing-tier.selected {
     border-color: var(--accent);
     box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
-    background-color: var(--bg-card);
+    background-color: var(--card-bg);
 }
 
 .pricing-tier .tier-input {
