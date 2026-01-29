@@ -1401,33 +1401,40 @@ header .nav a {
 /* =============================================
    4-step process (How it works page, below hero)
    ============================================= */
+.steps-section {
+    padding: var(--spacing-xl) 0 var(--spacing-2xl);
+}
+
 .steps-section .steps-heading {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .process-steps {
     display: flex;
     justify-content: space-between;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
 }
 
+/* Connector line: aligned through center of each circle (4 equal columns → centers at 12.5%, 37.5%, 62.5%, 87.5%) */
 .process-steps::before {
     content: '';
     position: absolute;
-    left: 15%;
-    right: 15%;
-    top: 24px;
+    left: 12.5%;
+    right: 12.5%;
+    top: 23px;
     height: 2px;
-    background: rgba(148, 163, 184, 0.35);
+    background: rgba(148, 163, 184, 0.4);
     z-index: 0;
+    pointer-events: none;
 }
 
 .step-block {
     flex: 1;
+    min-width: 0;
     position: relative;
     z-index: 1;
     display: flex;
@@ -1467,10 +1474,19 @@ header .nav a {
 }
 
 @media (max-width: 768px) {
+    .steps-section {
+        padding: var(--spacing-lg) 0 var(--spacing-xl);
+    }
+
+    .steps-section .steps-heading {
+        margin-bottom: var(--spacing-md);
+    }
+
     .process-steps {
         flex-direction: column;
         align-items: stretch;
-        gap: var(--spacing-lg);
+        gap: var(--spacing-md);
+        padding: 0;
     }
 
     .process-steps::before {
@@ -1482,10 +1498,31 @@ header .nav a {
         align-items: flex-start;
         text-align: left;
         gap: var(--spacing-md);
+        padding: var(--spacing-sm) 0;
     }
 
     .step-num {
         margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    /* Title takes space next to circle; desc wraps to full width below (no overflow) */
+    .step-block {
+        flex-wrap: wrap;
+    }
+
+    .step-block .step-title {
+        flex: 1 1 calc(100% - 48px - var(--spacing-md));
+        min-width: 0;
+        font-size: 1rem;
+    }
+
+    .step-block .step-desc {
+        flex: 1 1 100%;
+        min-width: 0;
+        padding-left: calc(48px + var(--spacing-md));
+        font-size: 1rem;
+        line-height: 1.5;
     }
 }
 
