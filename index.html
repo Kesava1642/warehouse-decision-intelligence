@@ -98,39 +98,83 @@
                         <p>Every assessment delivers a structured, actionable output—not just advice.</p>
                         <a href="pages/decision-demo.html" class="btn btn-primary">Try the decision demo</a>
                     </div>
-                    <div class="deliverable-card">
-                        <div class="deliverable-card-header">
-                            <span class="deliverable-label">Sample Output</span>
-                            <span class="deliverable-type">Equipment Decision</span>
+                    <div class="report-card">
+                        <!-- Header Row -->
+                        <div class="report-card-header">
+                            <h3 class="report-card-title">Sample decision summary</h3>
+                            <span class="report-badge illustrative">Illustrative</span>
                         </div>
-                        <div class="deliverable-card-body">
-                            <div class="deliverable-item">
-                                <strong>Recommendation</strong>
-                                <p>Proceed with conditions</p>
+
+                        <!-- Score Row -->
+                        <div class="report-score-row">
+                            <div class="report-score-label">
+                                <span class="score-text">Suitability score</span>
+                                <span class="score-value">72 / 100</span>
                             </div>
-                            <div class="deliverable-item">
-                                <strong>Decision</strong>
-                                <p>Rent short-term, purchase refurbished in Q1</p>
-                            </div>
-                            <div class="deliverable-item">
-                                <strong>Key factors</strong>
-                                <ul>
-                                    <li>Seasonal usage pattern identified</li>
-                                    <li>Cash flow preservation prioritised</li>
-                                    <li>Refurb pricing favourable post-peak</li>
-                                </ul>
-                            </div>
-                            <div class="deliverable-item">
-                                <strong>Next actions</strong>
-                                <ul>
-                                    <li>Request rental quotes (2 suppliers)</li>
-                                    <li>Schedule Q1 refurb review</li>
-                                    <li>Document usage during rental period</li>
-                                </ul>
+                            <div class="report-score-bar">
+                                <div class="report-score-fill" style="width: 72%;"></div>
                             </div>
                         </div>
-                        <div class="deliverable-card-footer">
-                            <span class="illustrative-note">Illustrative example — actual reports tailored to your situation</span>
+
+                        <div class="report-divider"></div>
+
+                        <!-- Recommendation Row -->
+                        <div class="report-recommendation-row">
+                            <div class="recommendation-badge-row">
+                                <span class="recommendation-badge conditions">Proceed with conditions</span>
+                            </div>
+                            <p class="recommendation-decision">Rent short-term during peak, purchase refurbished unit in Q1 when prices are lower and urgency reduced.</p>
+                        </div>
+
+                        <div class="report-divider"></div>
+
+                        <!-- Two Column Content -->
+                        <div class="report-columns">
+                            <div class="report-column">
+                                <h4 class="report-column-title">Key factors</h4>
+                                <ul class="report-list factors">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span>Seasonal usage pattern identified</span>
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span>Cash flow preservation prioritised</span>
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span>Refurb pricing favourable post-peak</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="report-column">
+                                <h4 class="report-column-title">Next actions</h4>
+                                <ul class="report-list actions">
+                                    <li>
+                                        <span class="action-number">1</span>
+                                        <span>Request rental quotes (2 suppliers)</span>
+                                    </li>
+                                    <li>
+                                        <span class="action-number">2</span>
+                                        <span>Schedule Q1 refurb review</span>
+                                    </li>
+                                    <li>
+                                        <span class="action-number">3</span>
+                                        <span>Document usage during rental period</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="report-card-footer">
+                            <span class="report-footer-note">Actual reports tailored to your warehouse situation</span>
                         </div>
                     </div>
                 </div>
