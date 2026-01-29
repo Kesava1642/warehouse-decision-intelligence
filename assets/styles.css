@@ -397,19 +397,19 @@ header .nav a {
     background-color: var(--bg);
     background-image: url("./images/home-hero.png");
     background-size: cover;
-    background-position: center;
+    background-position: center 65%;
     background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
 }
 
-/* Left-to-right overlay: darker behind text, right side stays vivid */
+/* Overlay: light on left so image is clear; subtle centre tint for text; right stays vivid */
 .hero.hero-home::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(11, 18, 32, 0.92) 0%, rgba(11, 18, 32, 0.75) 30%, rgba(11, 18, 32, 0.38) 58%, rgba(11, 18, 32, 0.08) 85%, transparent 100%);
+    background: linear-gradient(to right, rgba(11, 18, 32, 0.22) 0%, rgba(11, 18, 32, 0.45) 35%, rgba(11, 18, 32, 0.28) 60%, rgba(11, 18, 32, 0.06) 85%, transparent 100%);
     pointer-events: none;
 }
 
@@ -447,11 +447,13 @@ header .nav a {
     color: #fff;
 }
 
-/* CTA pill: soft backdrop so buttons stay readable on any part of the image */
+/* CTA buttons sit directly on hero (no panel/backdrop) */
 .hero.hero-home .hero-ctas {
-    background: rgba(11, 18, 32, 0.52);
-    padding: 1rem 1.5rem;
-    border-radius: 100px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
     gap: var(--spacing-sm);
 }
 
