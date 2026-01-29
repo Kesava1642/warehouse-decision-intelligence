@@ -1701,21 +1701,22 @@ header .nav a {
     line-height: 1.6;
 }
 
-/* CTA Section */
+/* CTA Section (dark theme + subtle blue glow) */
 .cta-section {
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-2xl) 0;
     text-align: center;
-    background-color: var(--accent);
-    color: #ffffff;
+    background-color: var(--bg-section);
+    background-image: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(37, 99, 235, 0.18) 0%, transparent 65%);
+    color: var(--text-on-dark);
 }
 
 .cta-section h2 {
-    color: #ffffff;
+    color: #fff;
 }
 
 .cta-section p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: var(--spacing-lg);
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: var(--spacing-md);
 }
 
 .cta-buttons {
@@ -1725,25 +1726,9 @@ header .nav a {
     flex-wrap: wrap;
 }
 
-.cta-section .btn-primary {
-    background-color: #ffffff;
-    color: var(--accent);
-    border-color: #ffffff;
-}
-
-.cta-section .btn-primary:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.cta-section .btn-secondary {
-    background-color: transparent;
-    color: #ffffff;
-    border-color: #ffffff;
-}
-
-.cta-section .btn-secondary:hover {
-    background-color: #ffffff;
-    color: var(--accent);
+/* Buttons match hero: same border-radius, hover, sizes (no CTA overrides) */
+.cta-section .btn {
+    border-radius: var(--border-radius);
 }
 
 /* =============================================
