@@ -1357,6 +1357,22 @@ header .nav a {
     text-decoration: underline;
 }
 
+.footer-brand .footer-contact-email,
+.footer-brand .footer-contact-location {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0.25rem 0;
+}
+
+.footer-brand .footer-contact-email a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.footer-brand .footer-contact-email a:hover {
+    text-decoration: underline;
+}
+
 .footer-legal {
     display: flex;
     align-items: center;

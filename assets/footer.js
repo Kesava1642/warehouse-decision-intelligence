@@ -24,19 +24,16 @@
                     <div class="footer-col">
                         <h4>Product</h4>
                         <a href="${pagesPath}/decision-demo.html">Decision demo</a>
-                        <a href="${pagesPath}/use-cases.html">Use cases</a>
+                        <a href="${pagesPath}/transport-board.html">Transport board</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Services</h4>
-                        <a href="${pagesPath}/services.html">Emergency Services</a>
-                        <a href="${pagesPath}/transport-board.html">Transport board</a>
+                        <h4>Validation</h4>
+                        <a href="${pagesPath}/validation.html">Validation</a>
+                        <a href="${pagesPath}/about.html">About</a>
                     </div>
                     <div class="footer-col">
                         <h4>Get started</h4>
                         <a href="${pagesPath}/early-access.html">Early access</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Trust</h4>
                         <a href="${pagesPath}/trust.html">Trust</a>
                     </div>
                 </div>
@@ -45,7 +42,8 @@
                     <div class="footer-brand">
                         <p class="footer-wordmark">Warehouse Decision Intelligence</p>
                         <p class="footer-mission">UK-focused warehouse decision intelligence</p>
-                        <p class="footer-contact"><a href="mailto:founder.clarityops@gmail.com">founder.clarityops@gmail.com</a></p>
+                        <p class="footer-contact-email">Email: <a href="mailto:founder.clarityops@gmail.com">founder.clarityops@gmail.com</a></p>
+                        <p class="footer-contact-location">Location: Basildon, Essex, United Kingdom</p>
                     </div>
                     <div class="footer-legal">
                         <a href="${pagesPath}/privacy.html">Privacy</a>
