@@ -29,6 +29,7 @@
                     <div class="footer-col">
                         <h4>Validation</h4>
                         <a href="${pagesPath}/validation.html">Validation</a>
+                        <a href="${pagesPath}/business-model.html">Business model</a>
                         <a href="${pagesPath}/about.html">About</a>
                     </div>
                     <div class="footer-col">

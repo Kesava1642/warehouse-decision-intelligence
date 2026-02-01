@@ -4732,6 +4732,18 @@ header .nav a {
     color: var(--accent);
 }
 
+/* Capability Statement */
+.capability-statement {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    padding: var(--spacing-md);
+    background-color: var(--bg-section);
+    border-radius: var(--border-radius-md);
+    border-left: 3px solid var(--accent);
+    margin: var(--spacing-md) 0;
+}
+
 /* Independence Disclaimer */
 .independence-disclaimer {
     font-size: 0.875rem;
@@ -5327,6 +5339,98 @@ header .nav a {
 .btn-large {
     padding: 1rem 2rem;
     font-size: 1.0625rem;
+}
+
+/* =============================================
+   Business Model Page
+   ============================================= */
+.business-model-section {
+    padding: var(--spacing-2xl) 0;
+}
+
+.business-model-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.business-model-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+}
+
+.model-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border);
+}
+
+.model-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.model-card-header h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text);
+}
+
+.model-card-content p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.model-card-content p:last-child {
+    margin-bottom: 0;
+}
+
+.business-model-disclaimer {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.business-model-disclaimer p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+    text-align: center;
+}
+
+.business-model-cta {
+    padding: var(--spacing-2xl) 0;
+    background: var(--bg-section);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .business-model-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =============================================
