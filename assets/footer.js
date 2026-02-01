@@ -45,14 +45,16 @@
                     <div class="footer-brand">
                         <p class="footer-wordmark">Warehouse Decision Intelligence</p>
                         <p class="footer-mission">UK-focused warehouse decision intelligence</p>
+                        <p class="footer-contact"><a href="mailto:founder.clarityops@gmail.com">founder.clarityops@gmail.com</a></p>
                     </div>
-                    <form class="footer-subscribe" action="#" method="post" aria-label="Email signup">
-                        <div class="footer-subscribe-row">
-                            <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
-                            <button type="submit" class="footer-submit">Submit</button>
-                        </div>
-                        <p class="footer-note">By signing up, I agree with the data policy.</p>
-                    </form>
+                    <div class="footer-legal">
+                        <a href="${pagesPath}/privacy.html">Privacy</a>
+                        <span class="footer-sep">·</span>
+                        <a href="${pagesPath}/terms.html">Terms</a>
+                        <span class="footer-sep">·</span>
+                        <a href="${pagesPath}/refunds.html">Refunds</a>
+                    </div>
+                    <p class="footer-copyright">© 2026 ClarityOps</p>
                 </div>
             </div>
         </footer>
