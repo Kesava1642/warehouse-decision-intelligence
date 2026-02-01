@@ -2250,10 +2250,56 @@ header .nav a {
     margin-bottom: var(--spacing-md);
 }
 
-.results-placeholder p {
+.results-placeholder .placeholder-intro {
     color: var(--text-muted);
     max-width: 300px;
-    margin-bottom: 0;
+    margin-bottom: var(--spacing-lg);
+}
+
+.placeholder-preview {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.preview-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-sm);
+}
+
+.preview-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.preview-value {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+.placeholder-note {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+/* Demo Clarification */
+.demo-clarification {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 }
 
 /* Results Content */
