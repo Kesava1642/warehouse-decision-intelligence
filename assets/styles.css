@@ -5002,6 +5002,88 @@ header .nav a {
     background-color: var(--bg-section);
 }
 
+/* Validation Intro Text */
+.validation-intro-text {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl) auto;
+    text-align: center;
+}
+
+/* Validation Evidence Grid */
+.validation-evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.validation-evidence-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    border-top: 3px solid var(--accent);
+}
+
+.validation-evidence-card h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.validation-evidence-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.validation-evidence-card p:last-child {
+    margin-bottom: 0;
+}
+
+.validation-evidence-card .evidence-note {
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: var(--text-muted);
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid var(--border);
+    margin-top: var(--spacing-sm);
+}
+
+/* Validation Disclaimer Box */
+.validation-disclaimer-box {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.validation-disclaimer-box p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+}
+
+.validation-disclaimer-box p + p {
+    margin-top: var(--spacing-xs);
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .validation-evidence-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Evidence Cards */
 .evidence-grid {
     display: grid;
