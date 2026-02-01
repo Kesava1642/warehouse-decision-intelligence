@@ -116,35 +116,62 @@
 
                     <!-- Results Panel -->
                     <div class="demo-results-container" id="results-container">
-                        <div class="results-placeholder">
-                            <div class="placeholder-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                                </svg>
+                        <div class="results-placeholder report-preview">
+                            <div class="report-preview-header">
+                                <div class="report-preview-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    </svg>
+                                </div>
+                                <h3>Decision Summary Output</h3>
                             </div>
-                            <h3>Decision Summary Output</h3>
-                            <p class="placeholder-intro">Complete the form to generate your decision summary.</p>
+                            <p class="report-preview-intro">Complete the form to generate your decision summary.</p>
                             
-                            <div class="placeholder-preview">
-                                <div class="preview-item">
-                                    <span class="preview-label">Suitability score</span>
-                                    <span class="preview-value">— / 100</span>
+                            <div class="report-preview-sections">
+                                <div class="report-preview-section">
+                                    <h4>Suitability score</h4>
+                                    <div class="preview-score-bar">
+                                        <div class="preview-score-track"></div>
+                                    </div>
+                                    <span class="preview-score-placeholder">— / 100</span>
                                 </div>
-                                <div class="preview-item">
-                                    <span class="preview-label">Recommendation</span>
-                                    <span class="preview-value">Buy / Rent / Used / Delay</span>
+                                
+                                <div class="report-preview-section">
+                                    <h4>Recommendation</h4>
+                                    <div class="preview-recommendation-options">
+                                        <span class="preview-option">Buy</span>
+                                        <span class="preview-option">Rent</span>
+                                        <span class="preview-option">Used</span>
+                                        <span class="preview-option">Delay</span>
+                                    </div>
                                 </div>
-                                <div class="preview-item">
-                                    <span class="preview-label">Top 3 decision factors</span>
-                                    <span class="preview-value">Based on your inputs</span>
+                                
+                                <div class="report-preview-section">
+                                    <h4>Top decision factors</h4>
+                                    <ul class="preview-factors-list">
+                                        <li><span class="factor-dot"></span> Factor based on your inputs</li>
+                                        <li><span class="factor-dot"></span> Factor based on your inputs</li>
+                                        <li><span class="factor-dot"></span> Factor based on your inputs</li>
+                                    </ul>
                                 </div>
-                                <div class="preview-item">
-                                    <span class="preview-label">Next actions</span>
-                                    <span class="preview-value">Prioritised steps</span>
+                                
+                                <div class="report-preview-section">
+                                    <h4>Next actions</h4>
+                                    <ul class="preview-actions-list">
+                                        <li><span class="action-num">1</span> Action step</li>
+                                        <li><span class="action-num">2</span> Action step</li>
+                                        <li><span class="action-num">3</span> Action step</li>
+                                    </ul>
                                 </div>
                             </div>
                             
-                            <p class="placeholder-note">Sample suppliers shown after decision. No fake company names.</p>
+                            <div class="report-preview-footer">
+                                <p class="report-preview-note">Sample output — full service includes human review and a delivered decision report.</p>
+                                <p class="report-preview-suppliers">Sample suppliers shown after decision (no fake company names).</p>
+                            </div>
                         </div>
                     </div>
                 </div>
