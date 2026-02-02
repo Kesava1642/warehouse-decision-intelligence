@@ -40,7 +40,9 @@
         <section class="page-header">
             <div class="container">
                 <h1>Emergency Services Directory</h1>
-                <p class="page-intro">Find urgent support when your usual engineer or contractor is unavailable. Search by category and location to connect with providers offering same-day or next-day callouts.</p>
+                <p class="page-intro">Concept-stage service. No live provider onboarding or bookings.</p>
+                <p class="page-intro">Find urgent support when your usual engineer or contractor is unavailable. This directory is a concept demo that uses sample data and is planned as part of a future pilot phase.</p>
+                <p class="page-intro">ClarityOps does not provide repair services. All coordination is advisory and decision-support only.</p>
                 <span class="pilot-badge">Pilot demo – directory uses sample data</span>
             </div>
         </section>
@@ -144,7 +146,7 @@
                 <div class="register-layout">
                     <div class="register-info">
                         <h2>Register as a provider</h2>
-                        <p>If you offer emergency support services to UK warehouses, register your interest to be included in our pilot directory.</p>
+                        <p>If you offer emergency support services to UK warehouses, you can submit details for consideration as part of a planned pilot phase. No live onboarding is currently in place.</p>
                         
                         <div class="register-benefits">
                             <div class="benefit-item">
@@ -172,11 +174,11 @@
                                         <polyline points="22 4 12 14.01 9 11.01"></polyline>
                                     </svg>
                                 </div>
-                                <span>We verify providers before adding to the directory</span>
+                                <span>Provider onboarding and verification are planned only after initial pilot delivery</span>
                             </div>
                         </div>
 
-                        <p class="verify-note"><strong>Note:</strong> We verify all providers during the pilot. Registration does not guarantee inclusion.</p>
+                        <p class="verify-note"><strong>Note:</strong> This is concept-stage only. Any onboarding or verification approach is planned as part of a future pilot phase. Submitting details does not guarantee inclusion.</p>
                     </div>
 
                     <div class="register-form-container">
@@ -258,7 +260,7 @@
         <section class="disclaimer-section">
             <div class="container">
                 <p class="disclaimer-text">
-                    <strong>Pilot disclaimer:</strong> This directory shows sample provider data for demonstration purposes. We connect interested warehouses with potential providers but are not the contracting party. You must verify insurance, qualifications, and compliance with your site health &amp; safety requirements before engaging any provider.
+                    <strong>Pilot disclaimer:</strong> This directory shows sample provider data for demonstration purposes. No live provider onboarding or bookings are available. If this concept progresses to a pilot phase, any introductions would be optional and you would contract directly with third parties. You must verify insurance, qualifications, and compliance with your site health &amp; safety requirements before engaging any provider.
                 </p>
             </div>
         </section>
@@ -398,7 +400,7 @@
                             <span class="provider-category">${provider.category}</span>
                         </div>
                         <div class="provider-availability ${provider.availableToday ? 'available' : 'not-available'}">
-                            ${provider.availableToday ? 'Available today' : 'Book ahead'}
+                            ${provider.availableToday ? 'Indicative availability' : 'Indicative availability'}
                         </div>
                     </div>
                     <div class="provider-body">
@@ -415,7 +417,7 @@
                         </div>
                     </div>
                     <div class="provider-actions">
-                        <a href="mailto:hello@example.com?subject=${encodeURIComponent(`Emergency support request - ${provider.category} - ${provider.name}`)}&body=${encodeURIComponent(`Provider: ${provider.name}\nCategory: ${provider.category}\nArea: ${provider.areaServed}\n\nPlease describe your situation:\n\n`)}" class="btn btn-primary btn-small">Contact provider</a>
+                        <a href="mailto:hello@example.com?subject=${encodeURIComponent(`Emergency support enquiry (concept demo) - ${provider.category} - ${provider.name}`)}&body=${encodeURIComponent(`Provider (sample): ${provider.name}\nCategory: ${provider.category}\nArea: ${provider.areaServed}\n\nEnquiry (concept-stage only):\n\n`)}" class="btn btn-primary btn-small">Contact provider (concept)</a>
                     </div>
                 </article>
             `).join('');
