@@ -1717,6 +1717,20 @@ header .nav a {
     text-align: center;
 }
 
+.founder-meta {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.founder-meta p {
+    margin-bottom: 0.25rem;
+}
+
+.founder-meta p:last-child {
+    margin-bottom: 0;
+}
+
 .page-intro {
     max-width: 650px;
     margin: 0 auto;
