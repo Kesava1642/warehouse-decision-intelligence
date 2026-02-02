@@ -215,6 +215,13 @@ header {
     white-space: nowrap;
 }
 
+.header-brand {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .logo {
     font-size: 1.125rem;
     font-weight: 600;
@@ -224,6 +231,15 @@ header {
 
 .logo:hover {
     color: var(--accent);
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.2;
+    display: block;
+    white-space: nowrap;
 }
 
 .nav,
@@ -1686,6 +1702,18 @@ header .nav a {
 
 .page-header h1 {
     margin-bottom: var(--spacing-md);
+}
+
+.demo-banner {
+    display: block;
+    margin: 0 0 var(--spacing-md) 0;
+    padding: 8px 14px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background-color: rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 6px;
 }
 
 .page-intro {
