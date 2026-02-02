@@ -42,8 +42,8 @@
         <!-- Page Header -->
         <section class="page-header">
             <div class="container">
-                <p class="demo-banner">Demo only — sample data. No live provider onboarding or bookings.</p>
                 <h1>Emergency Services Directory</h1>
+                <p class="demo-banner">Demo only — sample data. No live provider onboarding or bookings.</p>
                 <p class="page-intro">Find urgent support when your usual engineer or contractor is unavailable. This directory is a concept demo that uses sample data and is planned as part of a future pilot phase.</p>
                 <p class="page-intro">ClarityOps does not provide repair services. All coordination is advisory and decision-support only.</p>
                 <span class="pilot-badge">Pilot demo – directory uses sample data</span>
@@ -105,7 +105,7 @@
                                 <div class="form-group checkbox-group">
                                     <label class="checkbox-label">
                                         <input type="checkbox" id="filter-available-today" name="availableToday">
-                                        <span class="checkbox-text">Available today only</span>
+                                        <span class="checkbox-text">Sample filter (demo only)</span>
                                     </label>
                                 </div>
 
@@ -113,7 +113,7 @@
                                 <button type="button" class="btn btn-secondary btn-full" onclick="resetFilters()">Reset filters</button>
                             </form>
 
-                            <p class="filter-note">Availability shown is indicative. Always confirm directly with the provider.</p>
+                            <p class="filter-note">Data shown is sample only. Confirm directly with any provider before engaging.</p>
                         </div>
                     </aside>
 
@@ -207,11 +207,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="reg-response">Typical response time</label>
+                                    <label for="reg-response">Planned response (if pilot proceeds)</label>
                                     <select id="reg-response" name="response">
                                         <option value="">Select response</option>
-                                        <option value="Same day">Same day</option>
-                                        <option value="Next day">Next day</option>
+                                        <option value="Within 24 hours">Within 24 hours</option>
+                                        <option value="Within 48 hours">Within 48 hours</option>
                                         <option value="2-3 days">2-3 days</option>
                                         <option value="Within a week">Within a week</option>
                                     </select>
@@ -293,9 +293,9 @@
                 category: "Doors/Shutters",
                 areaServed: "North West, Yorkshire, North East",
                 regions: ["North West", "Yorkshire", "North East"],
-                responseTime: "Same day",
+                responseTime: "Within 24 hours",
                 availableToday: true,
-                description: "Industrial doors, roller shutters, fire exits, and dock doors. 24/7 callout available."
+                description: "Industrial doors, roller shutters, fire exits, and dock doors. 24/7 callout (sample data)."
             },
             {
                 id: 3,
@@ -303,7 +303,7 @@
                 category: "Fire Safety",
                 areaServed: "National (UK-wide)",
                 regions: ["West Midlands", "East Midlands", "North West", "North East", "Yorkshire", "South East", "South West", "London", "Scotland", "Wales"],
-                responseTime: "Next day",
+                responseTime: "Within 48 hours",
                 availableToday: false,
                 description: "Fire alarm testing, extinguisher servicing, emergency lighting, and compliance checks."
             },
@@ -353,7 +353,7 @@
                 category: "Electrical",
                 areaServed: "Scotland, North East, North West",
                 regions: ["Scotland", "North East", "North West"],
-                responseTime: "Same day",
+                responseTime: "Within 24 hours",
                 availableToday: true,
                 description: "Emergency callouts, PAT testing, and fixed wire testing."
             },
@@ -373,7 +373,7 @@
                 category: "Forklift Service",
                 areaServed: "Wales, South West",
                 regions: ["Wales", "South West"],
-                responseTime: "Next day",
+                responseTime: "Within 48 hours",
                 availableToday: false,
                 description: "Forklift repairs, reach trucks, pallet trucks, and MHE servicing."
             }
@@ -403,7 +403,7 @@
                             <span class="provider-category">${provider.category}</span>
                         </div>
                         <div class="provider-availability ${provider.availableToday ? 'available' : 'not-available'}">
-                            ${provider.availableToday ? 'Indicative availability' : 'Indicative availability'}
+                            Sample data
                         </div>
                     </div>
                     <div class="provider-body">
