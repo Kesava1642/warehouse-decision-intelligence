@@ -41,7 +41,7 @@
                 <div class="footer-divider"></div>
                 <div class="footer-bottom">
                     <div class="footer-brand">
-                        <p class="footer-wordmark">Warehouse Decision Intelligence</p>
+                        <p class="footer-wordmark">ClarityOps</p>
                         <p class="footer-mission">UK-focused warehouse decision intelligence</p>
                         <p class="footer-contact-email">Email: <a href="mailto:founder.clarityops@gmail.com">founder.clarityops@gmail.com</a></p>
                         <p class="footer-contact-location">Location: Basildon, Essex, United Kingdom</p>
