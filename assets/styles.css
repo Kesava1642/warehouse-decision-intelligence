@@ -6941,3 +6941,72 @@ header .nav a {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
+
+/* =============================================
+   Current Stage & Next 60 Days (Stage Panel)
+   ============================================= */
+.stage-panel {
+    padding: var(--spacing-2xl) 0;
+    background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.10), transparent 55%);
+}
+
+.stage-panel__inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.98));
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+}
+
+.stage-panel__block + .stage-panel__block {
+    margin-top: var(--spacing-lg);
+}
+
+.stage-panel__title {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.stage-panel__body {
+    max-width: 70ch;
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.stage-panel__block--next {
+    margin-top: var(--spacing-md);
+}
+
+.stage-panel__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 52ch;
+}
+
+.stage-panel__list li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.stage-panel__list li::before {
+    content: "";
+    position: absolute;
+    left: 0.35rem;
+    top: 0.7em;
+    width: 0.32rem;
+    height: 0.32rem;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.20);
+}
