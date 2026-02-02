@@ -402,13 +402,13 @@ header .nav a {
     margin-bottom: 0;
     display: inline-block;
     padding: 10px 20px;
-    background-color: rgba(37, 99, 235, 0.12);
-    border: 1px solid rgba(51, 65, 85, 0.4);
+    background-color: rgba(37, 99, 235, 0.07);
+    border: 1px solid rgba(51, 65, 85, 0.3);
     border-radius: 8px;
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.02em;
-    color: var(--accent);
+    color: var(--text-secondary);
 }
 
 /* Home hero – full-width background image (same pattern as How it works) */
@@ -464,9 +464,9 @@ header .nav a {
 }
 
 .hero.hero-home .hero-pilot-note {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.25);
-    color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.88);
 }
 
 /* CTA buttons sit directly on hero (no panel/backdrop) */
@@ -1709,11 +1709,12 @@ header .nav a {
     margin: 0 0 var(--spacing-md) 0;
     padding: 8px 14px;
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--text-secondary);
-    background-color: rgba(148, 163, 184, 0.12);
-    border: 1px solid rgba(148, 163, 184, 0.25);
+    background-color: rgba(148, 163, 184, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.2);
     border-radius: 6px;
+    text-align: center;
 }
 
 .page-intro {
@@ -4045,12 +4046,12 @@ header .nav a {
     display: inline-block;
     margin-top: var(--spacing-md);
     padding: var(--spacing-xs) var(--spacing-md);
-    background-color: rgba(37, 99, 235, 0.2);
-    border: 1px solid var(--accent);
+    background-color: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.35);
     border-radius: 100px;
     font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--accent);
+    font-weight: 400;
+    color: var(--text-secondary);
 }
 
 .transport-section {
