@@ -5045,6 +5045,18 @@ header .nav a {
     background-color: var(--bg-section);
 }
 
+.validation-plan-list {
+    list-style: disc;
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.validation-plan-list li {
+    margin-bottom: 0.5rem;
+}
+
 /* Validation Intro Text */
 .validation-intro-text {
     font-size: 1.0625rem;
