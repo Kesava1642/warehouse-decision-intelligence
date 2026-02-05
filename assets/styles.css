@@ -7403,12 +7403,10 @@ header .header-content {
 }
 
 .brand-logo {
-    height: 36px;
+    height: 44px;
     width: auto;
     display: block;
     object-fit: contain;
-    filter: none;
-    opacity: 1;
 }
 
 header .nav,
@@ -7456,7 +7454,7 @@ header a[href*="mailto"].nav-cta {
 
 @media (max-width: 768px) {
     .brand-logo {
-        height: 30px;
+        height: 34px;
     }
 }
 
