@@ -7290,8 +7290,9 @@ header .nav {
 
 /* Keep header height consistent (reduce "covering" feeling) */
 header {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* === Dropdown hover behaviour (desktop) === */
@@ -7349,3 +7350,10 @@ header {
     background: rgba(11, 18, 32, 0.06);
     border-radius: 10px;
 }
+
+/* Breathing space between header and hero */
+.hero,
+.hero-home {
+    margin-top: 16px;
+}
+
