@@ -333,6 +333,70 @@ header .nav a {
     display: none;
 }
 
+/* Premium nav dropdowns (home / grouped nav) */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav-dropdown > summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav-dropdown .dropdown-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 240px;
+    max-width: calc(100vw - 24px);
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(10, 18, 35, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    display: none;
+    z-index: 999;
+}
+
+.nav-dropdown[open] .dropdown-panel {
+    display: grid;
+    gap: 6px;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.86);
+    text-decoration: none;
+}
+
+.dropdown-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.96);
+}
+
+/* Contact CTA — clear but not loud */
+.nav-cta {
+    margin-left: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-cta:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
 /* Mobile Menu Button */
 .mobile-menu-btn {
     display: none;
@@ -5520,6 +5584,27 @@ header .nav a {
         flex-direction: column;
         gap: var(--spacing-sm);
         align-items: stretch;
+    }
+
+    /* Grouped nav (home): stack links and dropdowns vertically */
+    .header .nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .header .nav > .nav-link,
+    .header .nav > .nav-dropdown,
+    .header .nav > .nav-cta {
+        display: block;
+        margin-left: 0;
+    }
+
+    .header .nav-dropdown .dropdown-panel {
+        position: static;
+        max-width: 100%;
+        margin-top: 6px;
+        margin-bottom: var(--spacing-xs);
     }
 
     .header .nav-link {

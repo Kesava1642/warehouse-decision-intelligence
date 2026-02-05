@@ -26,18 +26,32 @@
                 <span class="logo-subtitle">Operational decision support for warehouse and retail environments</span>
             </div>
             <nav class="nav" aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="pages/how-it-works.html" class="nav-link">How it works</a></li>
-                    <li><a href="pages/framework.html" class="nav-link">Framework</a></li>
-                    <li><a href="pages/business-model.html" class="nav-link">Business model</a></li>
-                    <li><a href="pages/decision-demo.html" class="nav-link">Decision demo</a></li>
-                    <li><a href="pages/use-cases.html" class="nav-link">Use cases</a></li>
-                    <li><a href="pages/services.html" class="nav-link">Emergency Services (Pilot)</a></li>
-                    <li><a href="pages/transport-board.html" class="nav-link">Transport board (Demo)</a></li>
-                    <li><a href="pages/early-access.html" class="nav-link">Pilot access</a></li>
-                    <li><a href="pages/trust.html" class="nav-link">Trust</a></li>
-                </ul>
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="pages/how-it-works.html" class="nav-link">How it works</a>
+                <a href="pages/framework.html" class="nav-link">Framework</a>
+                <a href="pages/business-model.html" class="nav-link">Business model</a>
+                <a href="pages/decision-demo.html" class="nav-link">Decision demo</a>
+
+                <details class="nav-dropdown">
+                    <summary class="nav-link">Services</summary>
+                    <div class="dropdown-panel">
+                        <a href="pages/use-cases.html" class="dropdown-link">Use cases</a>
+                        <a href="pages/services.html" class="dropdown-link">Emergency Services (Pilot)</a>
+                        <a href="pages/transport-board.html" class="dropdown-link">Transport board (Demo)</a>
+                    </div>
+                </details>
+
+                <details class="nav-dropdown">
+                    <summary class="nav-link">Pilot</summary>
+                    <div class="dropdown-panel">
+                        <a href="pages/early-access.html" class="dropdown-link">Pilot access</a>
+                        <a href="pages/validation.html" class="dropdown-link">Validation plan</a>
+                    </div>
+                </details>
+
+                <a href="pages/trust.html" class="nav-link">Trust</a>
+
+                <a class="nav-cta" href="mailto:founder.clarityops@gmail.com">Contact</a>
             </nav>
             <button type="button" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
