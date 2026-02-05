@@ -334,6 +334,20 @@ header .nav a {
 }
 
 /* Premium nav dropdowns (home / grouped nav) */
+.nav-caret {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.75);
+    transform: translateY(-1px);
+    transition: transform 160ms ease, color 160ms ease;
+}
+
+.nav-dropdown[open] .nav-caret {
+    transform: translateY(-1px) rotate(180deg);
+    color: rgba(255, 255, 255, 0.92);
+}
+
 .nav-dropdown {
     position: relative;
 }
@@ -351,13 +365,13 @@ header .nav a {
     position: absolute;
     top: calc(100% + 10px);
     left: 0;
-    min-width: 240px;
+    min-width: 260px;
     max-width: calc(100vw - 24px);
     padding: 10px;
     border-radius: 14px;
-    background: rgba(10, 18, 35, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
     display: none;
     z-index: 999;
 }
@@ -371,13 +385,14 @@ header .nav a {
     display: block;
     padding: 10px 12px;
     border-radius: 10px;
-    color: rgba(255, 255, 255, 0.86);
+    color: rgba(10, 18, 35, 0.92);
     text-decoration: none;
+    font-weight: 600;
 }
 
 .dropdown-link:hover {
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.96);
+    background: rgba(10, 18, 35, 0.06);
+    color: rgba(10, 18, 35, 1);
 }
 
 /* Contact CTA — clear but not loud */
