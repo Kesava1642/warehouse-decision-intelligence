@@ -7357,3 +7357,83 @@ header {
     margin-top: 16px;
 }
 
+/* === Header logo and layout: [Logo left] [Nav center] [Contact right] === */
+.site-header,
+header {
+    height: 64px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.site-header .container,
+header .container,
+.header-inner,
+header .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 64px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+header .nav,
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    flex: 1;
+    margin: 0;
+}
+
+header .nav a,
+header nav a,
+header .nav-link {
+    font-size: 15px;
+    color: #EAF0FF;
+    text-decoration: none;
+}
+
+header .nav a:hover,
+header nav a:hover,
+header .nav-link:hover {
+    color: #FFFFFF;
+}
+
+.btn-contact,
+.contact-btn,
+.nav-cta,
+header a[href*="mailto"].nav-cta {
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #0B1220 !important;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .brand-logo {
+        height: 28px;
+    }
+}
+
