@@ -369,11 +369,12 @@ header .nav a {
     max-width: calc(100vw - 24px);
     padding: 10px;
     border-radius: 14px;
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     display: none;
-    z-index: 999;
+    z-index: 9999;
+    opacity: 1;
 }
 
 .nav-dropdown[open] .dropdown-panel {
@@ -397,14 +398,14 @@ header .nav a {
     display: block;
     padding: 10px 12px;
     border-radius: 10px;
-    color: rgba(10, 18, 35, 0.92);
+    color: #0B1220;
     text-decoration: none;
     font-weight: 600;
 }
 
 .dropdown-link:hover {
-    background: rgba(10, 18, 35, 0.06);
-    color: rgba(10, 18, 35, 1);
+    background: rgba(11, 18, 32, 0.06);
+    color: #0B1220;
 }
 
 /* Contact CTA — clear but not loud */
@@ -7327,27 +7328,40 @@ header {
     content: "▴";
 }
 
-/* Menu panel styling (white, premium) – .dropdown-panel is current markup */
+/* Menu panel styling (white, premium) – dropdown readability */
 .nav-dropdown .dropdown-menu,
 .nav-dropdown > .dropdown,
 .nav-dropdown .dropdown-panel,
 .nav-dropdown ul {
-    background: #ffffff;
-    color: #0b1220;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
     border-radius: 14px;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     padding: 10px;
     min-width: 240px;
+    z-index: 9999;
+    opacity: 1;
 }
 
-/* Links inside dropdown */
-.nav-dropdown a {
-    color: #0b1220;
+.nav-dropdown .dropdown-panel,
+.nav-dropdown .dropdown-panel * {
+    filter: none;
 }
 
-.nav-dropdown a:hover {
+/* Dropdown links: dark readable text */
+.nav-dropdown .dropdown-panel a,
+.nav-dropdown .dropdown-link,
+.nav-dropdown .dropdown-panel .dropdown-link,
+.nav-dropdown a.dropdown-link {
+    color: #0B1220;
+    font-weight: 600;
+}
+
+.nav-dropdown .dropdown-panel a:hover,
+.nav-dropdown .dropdown-link:hover,
+.nav-dropdown .dropdown-panel .dropdown-link:hover {
     background: rgba(11, 18, 32, 0.06);
+    color: #0B1220;
     border-radius: 10px;
 }
 
@@ -7358,13 +7372,17 @@ header {
 }
 
 /* === Header logo and layout: [Logo left] [Nav center] [Contact right] === */
-.site-header,
-header {
+header,
+.site-header {
     height: 64px;
+    display: flex;
+    align-items: center;
     padding-top: 0;
     padding-bottom: 0;
 }
 
+.header-container,
+.header-content,
 .site-header .container,
 header .container,
 .header-inner,
@@ -7373,31 +7391,36 @@ header .header-content {
     align-items: center;
     justify-content: space-between;
     padding: 0 24px;
-    height: 64px;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
-    flex-shrink: 0;
+    flex: 0 0 auto;
 }
 
 .brand-logo {
-    height: 32px;
+    height: 38px;
     width: auto;
     display: block;
+    object-fit: contain;
+    image-rendering: auto;
+    filter: none;
+    opacity: 1;
 }
 
 header .nav,
-header nav {
+header nav,
+.site-header nav {
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 22px;
-    flex: 1;
     margin: 0;
+    margin-left: 24px;
 }
 
 header .nav a,
@@ -7433,7 +7456,7 @@ header a[href*="mailto"].nav-cta {
 
 @media (max-width: 768px) {
     .brand-logo {
-        height: 28px;
+        height: 30px;
     }
 }
 
