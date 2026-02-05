@@ -7187,3 +7187,63 @@ header .nav a {
     border-radius: 50%;
     background: var(--text-secondary);
 }
+
+/* --- Premium header sizing (global) --- */
+header {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+header .nav a,
+header .nav button,
+header .nav .nav-link {
+    font-size: 0.98rem;
+    padding: 10px 12px;
+    letter-spacing: 0.01em;
+}
+
+header .nav {
+    gap: 10px;
+}
+
+header .nav-list {
+    gap: 10px;
+}
+
+/* Make dropdown label feel clearer */
+.nav-dropdown > summary {
+    font-size: 0.98rem;
+    padding: 10px 12px;
+}
+
+/* Premium CTA: white filled */
+.nav-cta {
+    background: #ffffff !important;
+    color: #0b1220 !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px;
+    padding: 10px 14px !important;
+    font-weight: 600;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.nav-cta:active {
+    transform: translateY(0px);
+}
+
+/* Keep header brand readable */
+.header-brand .logo-subtitle {
+    opacity: 0.85;
+    font-size: 0.82rem;
+}
+
+/* Ensure header elements align vertically */
+header .container,
+header .header-inner {
+    align-items: center;
+}
