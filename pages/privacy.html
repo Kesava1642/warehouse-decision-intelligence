@@ -9,27 +9,41 @@
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <!-- Header / Navigation -->
+    <!-- Header / Navigation (matches index.html) -->
     <header class="header">
         <div class="container header-content">
             <a href="../index.html" class="brand">
-                <img src="../assets/images/Kalvra (1).png" alt="Kalvra logo" class="brand-logo">
+                <img src="../assets/images/Kalvra (1).png" alt="Kalvra" class="brand-logo">
             </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="../index.html" class="nav-link">Home</a></li>
-                    <li><a href="how-it-works.html" class="nav-link">How it works</a></li>
-                    <li><a href="framework.html" class="nav-link">Framework</a></li>
-                    <li><a href="business-model.html" class="nav-link">Business model</a></li>
-                    <li><a href="decision-demo.html" class="nav-link">Decision demo</a></li>
-                    <li><a href="use-cases.html" class="nav-link">Use cases</a></li>
-                    <li><a href="services.html" class="nav-link">Emergency Services (Pilot)</a></li>
-                    <li><a href="transport-board.html" class="nav-link">Transport board (Demo)</a></li>
-                    <li><a href="early-access.html" class="nav-link">Early access</a></li>
-                    <li><a href="trust.html" class="nav-link">Trust</a></li>
-                </ul>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How it works</a>
+                <a href="framework.html" class="nav-link">Framework</a>
+                <a href="business-model.html" class="nav-link">Business model</a>
+                <a href="decision-demo.html" class="nav-link">Decision demo</a>
+
+                <details class="nav-dropdown">
+                    <summary class="nav-link">Services <span class="nav-caret" aria-hidden="true">▾</span></summary>
+                    <div class="dropdown-panel">
+                        <a href="use-cases.html" class="dropdown-link">Use cases</a>
+                        <a href="services.html" class="dropdown-link">Emergency Services (Pilot)</a>
+                        <a href="transport-board.html" class="dropdown-link">Transport board (Demo)</a>
+                    </div>
+                </details>
+
+                <details class="nav-dropdown">
+                    <summary class="nav-link">Pilot <span class="nav-caret" aria-hidden="true">▾</span></summary>
+                    <div class="dropdown-panel">
+                        <a href="early-access.html" class="dropdown-link">Pilot access</a>
+                        <a href="validation.html" class="dropdown-link">Validation plan</a>
+                    </div>
+                </details>
+
+                <a href="trust.html" class="nav-link">Trust</a>
+
+                <a class="nav-cta" href="mailto:founder.Kalvra@gmail.com">Contact us</a>
             </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
