@@ -54,11 +54,32 @@
         </header>
     `;
 
+    function setActiveNavLink() {
+        const pathname = window.location.pathname;
+        const segments = pathname.split('/').filter(Boolean);
+        const currentPage = segments.length === 0 || segments[segments.length - 1] === 'warehouse-decision-intelligence'
+            ? 'index.html'
+            : segments[segments.length - 1];
+
+        const navLinks = document.querySelectorAll('.header .nav a.nav-link');
+        if (!navLinks.length) return;
+
+        navLinks.forEach(function (link) { link.classList.remove('active'); });
+        for (let i = 0; i < navLinks.length; i++) {
+            const href = navLinks[i].getAttribute('href') || '';
+            if (href.endsWith('/' + currentPage) || href.endsWith(currentPage)) {
+                navLinks[i].classList.add('active');
+                break;
+            }
+        }
+    }
+
     function injectHeader() {
         try {
             const headerContainer = document.getElementById('site-header');
             if (!headerContainer) return;
             headerContainer.innerHTML = headerHTML;
+            setActiveNavLink();
         } catch (e) {
             // Single concise error; avoid spamming
             console.error('Kalvra header injection failed', e);
