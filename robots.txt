@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kesava1642.github.io/warehouse-decision-intelligence/sitemap.xml
