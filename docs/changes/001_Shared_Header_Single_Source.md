@@ -25,11 +25,10 @@
 - `pages/use-cases.html`
 - `pages/validation.html`
 
-### Why this change was needed
+### Why needed
 
-- To ensure the header markup (logo, navigation, dropdowns, and CTA) is maintained in a single source of truth instead of being duplicated across many HTML files.
-- To keep runtime behavior consistent between the homepage and all `/pages/*` routes while simplifying future edits to the header.
-- To mirror the existing shared-footer pattern (`assets/footer.js`) for the header without introducing network fetches or partial files.
+- Prevent header drift: one source of truth for header markup instead of duplicating across many HTML files.
+- Stable links: `basePath` / `pagesPath` keep navigation and asset URLs correct from both root and `/pages/`.
 
 ### How to verify manually
 
@@ -58,7 +57,7 @@
 
 ### Risks / follow-ups
 
-- Header and footer injection occur via inline `innerHTML`, not via network fetch, so there are no `file://` fetch issues when opening static files directly in the browser; behavior is purely DOM-based.
-- Any future structural change to the header should be made in `assets/header.js` only; the placeholders (`<div id="site-header"></div>`) should remain unchanged.
-- If a future partials/templating system is introduced (e.g., `assets/partials/header.html` plus a loader), this script can be refactored or replaced to read from that partial, reusing the existing `basePath` / `pagesPath` pattern.
+- **Script order dependency:** `header.js` must load before `nav.js` so dropdowns attach to the injected header.
+- Header and footer injection use `innerHTML` (no network fetch), so no `file://` fetch issues.
+- Future improvement: header HTML could be moved into `assets/partials/` and loaded by a small loader if desired.
 
