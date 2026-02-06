@@ -509,7 +509,7 @@ header .nav a {
     min-height: 70vh;
     padding: var(--spacing-3xl) 0;
     background-color: var(--bg);
-    background-image: url("./images/home-hero.png");
+    background-image: url("./images/home-hero.webp");
     background-size: cover;
     background-position: center 65%;
     background-repeat: no-repeat;
@@ -1695,7 +1695,7 @@ header .nav a {
     width: 100%;
     min-height: 70vh;
     background-color: var(--bg);
-    background-image: url("./images/how it works.png");
+    background-image: url("./images/how it works.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
