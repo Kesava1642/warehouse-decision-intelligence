@@ -7317,16 +7317,14 @@ header {
 
 .nav-dropdown summary::after {
     content: "▾";
-    font-size: 0.85em;
-    width: 0.85em;
-    height: 0.85em;
-    margin-left: 6px;
-    opacity: 1;
-    transform: translateY(1px);
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1;
     display: inline-block;
     vertical-align: middle;
-    line-height: 0.85em;
-    text-align: center;
+    margin-left: 4px;
+    transform: translateY(-1px);
+    opacity: 1;
 }
 
 .nav-dropdown[open] summary::after {
