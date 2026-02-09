@@ -63,6 +63,8 @@
         .bcp-preview li { margin-bottom: 0.2rem; }
         .bcp-preview-placeholder { color: #334155; font-size: 0.9375rem; padding: var(--spacing-xl); text-align: center; }
         .bcp-print-actions { margin-bottom: var(--spacing-md); }
+        .bcp-print-hint { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.5rem; max-width: 360px; }
+        .bcp-print-banner { display: none; }
     </style>
 </head>
 <body>
@@ -172,6 +174,7 @@
                     <div class="bcp-preview-column">
                         <div class="bcp-preview-wrap">
                             <div class="bcp-print-actions no-print">
+                                <p class="bcp-print-hint">In the print dialog, turn <strong>off</strong> Headers and footers to remove local file paths.</p>
                                 <button type="button" id="bcp-print-btn" class="btn btn-primary" disabled>Print / Save as PDF</button>
                             </div>
                             <div class="bcp-preview" id="bcp-preview">
@@ -236,6 +239,19 @@
         var businessSite = data.businessName || data.primaryLocation ? [data.businessName, data.primaryLocation].filter(Boolean).join(' — ') : '—';
         var contactLine = data.contactMethod ? 'Primary contact during incidents: ' + data.contactMethod + '.' : '';
         var escalationLine = data.escalationRole ? 'Escalation (role): ' + escapeHtml(data.escalationRole) + '.' : '';
+        var dateGenerated = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+        var printBanner = '<div class="bcp-print-banner">' +
+            '<p class="bcp-print-banner-title">Business Continuity Plan (BCP)</p>' +
+            '<p class="bcp-print-banner-meta">' + escapeHtml(businessSite) + ' &nbsp;|&nbsp; Version v1.0 &nbsp;|&nbsp; ' + escapeHtml(dateGenerated) + ' &nbsp;|&nbsp; Prepared by: Incident Lead</p>' +
+            '</div>';
+
+        var bcpSummary = '<table class="bcp-summary-table"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>' +
+            '<tr><td>Business type</td><td>' + escapeHtml(data.businessType || '—') + '</td></tr>' +
+            '<tr><td>Department</td><td>' + escapeHtml(data.department || '—') + '</td></tr>' +
+            '<tr><td>Role</td><td>' + escapeHtml(data.yourRole || '—') + '</td></tr>' +
+            '<tr><td>Operating model</td><td>' + escapeHtml(data.operatingModel || '—') + '</td></tr>' +
+            '<tr><td>Primary contact method</td><td>' + escapeHtml(data.contactMethod || '—') + '</td></tr>' +
+            '<tr><td>Escalation role</td><td>' + escapeHtml(data.escalationRole || '—') + '</td></tr></tbody></table>';
 
         var docControl = '<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>' +
             '<tr><td>Business / Site</td><td>' + escapeHtml(businessSite) + '</td></tr>' +
@@ -283,7 +299,8 @@
         var returnNormal = '<ul><li>Restore when stand-down criteria met.</li><li>Validate systems and key processes.</li><li>Clear backlog; confirm SLA normal.</li><li>Close incident log; capture lessons learned.</li></ul>';
         var reviewTesting = '<ul><li>Annual test (table-top or live) of key scenarios.</li><li>Update BCP after major change.</li><li>Keep roles and contact details current.</li></ul>';
 
-        var html = '<h1>Business Continuity Plan (BCP) — Lean (Incident-Ready)</h1>' +
+        var html = printBanner +
+            '<h1>Business Continuity Plan (BCP) — Lean (Incident-Ready)</h1>' +
             '<h2>1) Document Control</h2>' + docControl +
             '<h2>2) Purpose &amp; Activation</h2><p><strong>Purpose:</strong> Short, executable plan to maintain or restore critical activities during a disruption. Activation when triggers below are met.</p>' +
             '<p><strong>Activation triggers:</strong></p><p>' + triggers + '</p>' +
@@ -291,10 +308,11 @@
             (contactLine ? '<p>' + contactLine + '</p>' : '') +
             (escalationLine ? '<p>' + escalationLine + '</p>' : '') +
             '<h2>3) Governance</h2>' + governance +
-            '<h2>4) Scenario Runbooks</h2>' + runbooksHtml +
-            '<h2>5) Time &amp; Cost Controls</h2>' + timeCost +
-            '<h2>6) Return to Normal</h2>' + returnNormal +
-            '<h2>7) Review &amp; Testing</h2>' + reviewTesting;
+            '<h2>4) BCP Summary</h2>' + bcpSummary +
+            '<h2>5) Scenario Runbooks</h2>' + runbooksHtml +
+            '<h2>6) Time &amp; Cost Controls</h2>' + timeCost +
+            '<h2>7) Return to Normal</h2>' + returnNormal +
+            '<h2>8) Review &amp; Testing</h2>' + reviewTesting;
 
         return html;
     }
