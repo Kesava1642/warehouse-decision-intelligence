@@ -29,7 +29,7 @@
                         <div class="dropdown-panel">
                             <a href="${pagesPath}/use-cases.html" class="dropdown-link">Use cases</a>
                             <a href="${pagesPath}/services.html" class="dropdown-link">Emergency Services (Pilot)</a>
-                            <a href="${pagesPath}/bcp.html" class="dropdown-link">Business Continuity Plan (BCP)</a>
+                            <a href="${pagesPath}/bcp-generator.html" class="dropdown-link">BCP Generator</a>
                             <a href="${pagesPath}/transport-board.html" class="dropdown-link">Transport board (Demo)</a>
                         </div>
                     </details>

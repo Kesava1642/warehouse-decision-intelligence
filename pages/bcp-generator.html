@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate an incident-ready Business Continuity Plan from a short intake — role-based, usable under pressure.">
+    <title>Kalvra | BCP Generator</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <meta property="og:title" content="Kalvra | BCP Generator">
+    <meta property="og:description" content="Generate an incident-ready Business Continuity Plan from a short intake.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <style>
+        .bcp-generator-section { padding: var(--spacing-2xl) 0; }
+        .bcp-generator-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-2xl);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        @media (min-width: 900px) {
+            .bcp-generator-layout { grid-template-columns: 380px 1fr; }
+        }
+        .bcp-form-column {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            height: fit-content;
+        }
+        .bcp-form-column h2 { margin-top: 0; margin-bottom: var(--spacing-lg); font-size: 1.25rem; }
+        .bcp-form-group { margin-bottom: var(--spacing-md); }
+        .bcp-form-group label { display: block; font-weight: 500; margin-bottom: 0.25rem; font-size: 0.9375rem; }
+        .bcp-form-group input[type="text"],
+        .bcp-form-group input[type="number"],
+        .bcp-form-group select { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: var(--border-radius); font-size: 0.9375rem; }
+        .bcp-form-group .help { font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.25rem; }
+        .bcp-form-group .checkbox-group { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; }
+        .bcp-form-group .checkbox-group label { display: flex; align-items: center; gap: 0.35rem; font-weight: 400; cursor: pointer; }
+        .bcp-form-group .checkbox-group input { margin: 0; }
+        .bcp-activities-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .bcp-activities-table th, .bcp-activities-table td { padding: 0.35rem 0.5rem; text-align: left; border: 1px solid var(--border); }
+        .bcp-activities-table th { background-color: var(--bg-section); font-weight: 600; }
+        .bcp-form-actions { margin-top: var(--spacing-xl); display: flex; gap: var(--spacing-md); flex-wrap: wrap; }
+        .bcp-preview-column { min-width: 0; }
+        .bcp-preview-wrap { position: sticky; top: 1rem; }
+        .bcp-preview {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            max-width: 720px;
+            box-shadow: var(--shadow-sm);
+        }
+        .bcp-preview h1 { font-size: 1.25rem; margin: 0 0 0.5rem 0; }
+        .bcp-preview h2 { font-size: 1rem; margin: 1rem 0 0.5rem 0; }
+        .bcp-preview table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; margin-top: 0.5rem; }
+        .bcp-preview th, .bcp-preview td { padding: 0.35rem 0.5rem; text-align: left; border: 1px solid var(--border); }
+        .bcp-preview th { background-color: var(--bg-section); font-weight: 600; }
+        .bcp-preview ul { margin: 0.35rem 0; padding-left: 1.25rem; }
+        .bcp-preview li { margin-bottom: 0.2rem; }
+        .bcp-preview-placeholder { color: var(--text-muted); font-size: 0.9375rem; padding: var(--spacing-xl); text-align: center; }
+        .bcp-print-actions { margin-bottom: var(--spacing-md); }
+        @media print {
+            .header, .site-footer, .bcp-form-column, .no-print, .bcp-print-actions, .bcp-preview-wrap .btn { display: none !important; }
+            .bcp-generator-layout { display: block !important; }
+            .bcp-preview { max-width: none; box-shadow: none; border: none; }
+            body { background: #fff; }
+            main { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>BCP Generator</h1>
+                <p class="page-intro">Complete the intake below and generate a lean, incident-ready Business Continuity Plan. Use Print / Save as PDF to keep a copy.</p>
+            </div>
+        </section>
+
+        <section class="bcp-generator-section content-section">
+            <div class="container">
+                <div class="bcp-generator-layout">
+                    <div class="bcp-form-column no-print">
+                        <h2>Intake</h2>
+                        <form id="bcp-intake-form">
+                            <div class="bcp-form-group">
+                                <label for="business-name">1. Business name</label>
+                                <input type="text" id="business-name" name="businessName" placeholder="e.g. Acme Logistics Ltd">
+                            </div>
+                            <div class="bcp-form-group">
+                                <label for="business-type">2. Business type</label>
+                                <select id="business-type" name="businessType">
+                                    <option value="">— Select —</option>
+                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="B2B Services">B2B Services</option>
+                                    <option value="Office">Office</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="bcp-form-group">
+                                <label for="primary-location">3. Primary location</label>
+                                <input type="text" id="primary-location" name="primaryLocation" placeholder="e.g. Birmingham, UK">
+                            </div>
+                            <div class="bcp-form-group">
+                                <label for="number-of-sites">4. Number of sites</label>
+                                <input type="number" id="number-of-sites" name="numberOfSites" min="1" placeholder="1">
+                            </div>
+                            <div class="bcp-form-group">
+                                <label for="alternative-hub">5. Nearest alternative hub/site <span class="help">(optional)</span></label>
+                                <input type="text" id="alternative-hub" name="alternativeHub" placeholder="e.g. Manchester depot">
+                            </div>
+                            <div class="bcp-form-group">
+                                <label>6. Departments</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="dept" value="Operations"> Operations</label>
+                                    <label><input type="checkbox" name="dept" value="IT/Systems"> IT/Systems</label>
+                                    <label><input type="checkbox" name="dept" value="Customer Service"> Customer Service</label>
+                                    <label><input type="checkbox" name="dept" value="Facilities"> Facilities</label>
+                                    <label><input type="checkbox" name="dept" value="Finance"> Finance</label>
+                                    <label><input type="checkbox" name="dept" value="HR/People"> HR/People</label>
+                                </div>
+                            </div>
+                            <div class="bcp-form-group">
+                                <label for="staff-count">7. Staff count</label>
+                                <input type="number" id="staff-count" name="staffCount" min="0" placeholder="e.g. 50">
+                            </div>
+                            <div class="bcp-form-group">
+                                <label>8. Top critical activities (3)</label>
+                                <table class="bcp-activities-table">
+                                    <thead>
+                                        <tr><th>Activity</th><th>Max downtime (hrs)</th><th>Min staff</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><input type="text" name="actName" placeholder="Activity 1"></td><td><input type="number" name="actMtd" min="0" placeholder="hrs"></td><td><input type="number" name="actStaff" min="0" placeholder="—"></td></tr>
+                                        <tr><td><input type="text" name="actName" placeholder="Activity 2"></td><td><input type="number" name="actMtd" min="0" placeholder="hrs"></td><td><input type="number" name="actStaff" min="0" placeholder="—"></td></tr>
+                                        <tr><td><input type="text" name="actName" placeholder="Activity 3"></td><td><input type="number" name="actMtd" min="0" placeholder="hrs"></td><td><input type="number" name="actStaff" min="0" placeholder="—"></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bcp-form-group">
+                                <label>9. Key systems</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="systems" value="Email/Teams"> Email/Teams</label>
+                                    <label><input type="checkbox" name="systems" value="POS"> POS</label>
+                                    <label><input type="checkbox" name="systems" value="ERP"> ERP</label>
+                                    <label><input type="checkbox" name="systems" value="WMS"> WMS</label>
+                                    <label><input type="checkbox" name="systems" value="CRM"> CRM</label>
+                                    <label><input type="checkbox" name="systems" value="Telephony"> Telephony</label>
+                                </div>
+                            </div>
+                            <div class="bcp-form-group">
+                                <label>10. Top risks</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="risks" value="Site access loss"> Site access loss</label>
+                                    <label><input type="checkbox" name="risks" value="Power outage"> Power outage</label>
+                                    <label><input type="checkbox" name="risks" value="Internet/network outage"> Internet/network outage</label>
+                                    <label><input type="checkbox" name="risks" value="System outage"> System outage</label>
+                                    <label><input type="checkbox" name="risks" value="Cyber incident"> Cyber incident</label>
+                                    <label><input type="checkbox" name="risks" value="Staff shortage"> Staff shortage</label>
+                                    <label><input type="checkbox" name="risks" value="Supplier failure"> Supplier failure</label>
+                                    <label><input type="checkbox" name="risks" value="Transport disruption"> Transport disruption</label>
+                                </div>
+                            </div>
+                            <div class="bcp-form-group">
+                                <label for="staff-comms">11. Staff communications channel</label>
+                                <select id="staff-comms" name="staffComms">
+                                    <option value="">— Select —</option>
+                                    <option value="Teams/Slack">Teams/Slack</option>
+                                    <option value="Email">Email</option>
+                                    <option value="WhatsApp/SMS">WhatsApp/SMS</option>
+                                    <option value="Phone cascade">Phone cascade</option>
+                                </select>
+                            </div>
+                            <div class="bcp-form-group">
+                                <label for="customer-comms">12. Customer communications channel</label>
+                                <select id="customer-comms" name="customerComms">
+                                    <option value="">— Select —</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Phone">Phone</option>
+                                    <option value="Status page">Status page</option>
+                                    <option value="Account managers">Account managers</option>
+                                </select>
+                            </div>
+                            <div class="bcp-form-actions">
+                                <button type="submit" class="btn btn-primary">Generate BCP Preview</button>
+                                <button type="button" id="bcp-reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="bcp-preview-column">
+                        <div class="bcp-preview-wrap">
+                            <div class="bcp-print-actions no-print">
+                                <button type="button" id="bcp-print-btn" class="btn btn-primary" disabled>Print / Save as PDF</button>
+                            </div>
+                            <div class="bcp-preview" id="bcp-preview">
+                                <div class="bcp-preview-placeholder" id="bcp-preview-placeholder">Complete the intake and click Generate BCP Preview to see your plan here.</div>
+                                <div id="bcp-preview-content" style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="../assets/app.js"></script>
+    <script src="../assets/header.js"></script>
+    <script src="../assets/footer.js"></script>
+    <script src="../assets/nav.js"></script>
+    <script>
+(function() {
+    'use strict';
+
+    var SCENARIO_ACTIONS = {
+        'Site access loss': { impact: 'Site unusable; operations halted.', action: 'Confirm safety; activate alternative site if available.', method: 'Use alternative hub or remote working where possible.' },
+        'Power outage': { impact: 'Systems and equipment down.', action: 'Check ETA from utility; preserve data; notify key contacts.', method: 'Backup power if available; defer non-critical work.' },
+        'Internet/network outage': { impact: 'No remote access or online systems.', action: 'Contact provider; switch to backup connection if any.', method: 'Local systems only; manual fallbacks; delayed sync.' },
+        'System outage': { impact: 'Key system (e.g. WMS/ERP) unavailable.', action: 'Log incident; assess scope; notify IT/Operations Lead.', method: 'Manual workarounds; backup or standby system if defined.' },
+        'Cyber incident': { impact: 'Security or availability compromise.', action: 'Contain (isolate if needed); notify IT/Incident Lead; preserve logs.', method: 'Follow incident response; restore from clean backup.' },
+        'Staff shortage': { impact: 'Below minimum staffing for critical activities.', action: 'Assess gaps; redeploy; contact temps/agency if agreed.', method: 'Prioritise critical activities only; extend hours if safe.' },
+        'Supplier failure': { impact: 'Key supplier cannot deliver.', action: 'Contact supplier; activate alternate supplier if listed.', method: 'Use pre-agreed alternates; buffer stock; delay non-critical orders.' },
+        'Transport disruption': { impact: 'Inbound/outbound transport unavailable.', action: 'Check carrier status; notify customers if SLA at risk.', method: 'Alternative carriers; delayed despatch; collect from site.' }
+    };
+
+    var GOVERNANCE_ROLES = [
+        { role: 'Incident Lead', responsibilities: 'Overall coordination, activation and stand-down.' },
+        { role: 'Operations Lead', responsibilities: 'Critical activities, resources and recovery.' },
+        { role: 'IT/Systems Lead', responsibilities: 'Systems, data and tech recovery.' },
+        { role: 'People/Safety Lead', responsibilities: 'Staff welfare, safety and attendance.' },
+        { role: 'Communications Lead', responsibilities: 'Internal and external messaging, approvals.' },
+        { role: 'Supplier/Vendor Lead', responsibilities: 'Key supplier contact and alternatives.' }
+    ];
+
+    function getFormData() {
+        var form = document.getElementById('bcp-intake-form');
+        var data = {
+            businessName: (form.querySelector('#business-name') || {}).value || '',
+            businessType: (form.querySelector('#business-type') || {}).value || '',
+            primaryLocation: (form.querySelector('#primary-location') || {}).value || '',
+            numberOfSites: (form.querySelector('#number-of-sites') || {}).value || '1',
+            alternativeHub: (form.querySelector('#alternative-hub') || {}).value || '',
+            departments: [].map.call(form.querySelectorAll('input[name="dept"]:checked'), function(c) { return c.value; }),
+            staffCount: (form.querySelector('#staff-count') || {}).value || '',
+            staffComms: (form.querySelector('#staff-comms') || {}).value || '',
+            customerComms: (form.querySelector('#customer-comms') || {}).value || '',
+            systems: [].map.call(form.querySelectorAll('input[name="systems"]:checked'), function(c) { return c.value; }),
+            risks: [].map.call(form.querySelectorAll('input[name="risks"]:checked'), function(c) { return c.value; })
+        };
+        var actNames = form.querySelectorAll('input[name="actName"]');
+        var actMtds = form.querySelectorAll('input[name="actMtd"]');
+        var actStaffs = form.querySelectorAll('input[name="actStaff"]');
+        data.activities = [];
+        for (var i = 0; i < actNames.length; i++) {
+            var name = (actNames[i] && actNames[i].value || '').trim();
+            if (name) data.activities.push({ name: name, mtd: (actMtds[i] && actMtds[i].value) || '—', minStaff: (actStaffs[i] && actStaffs[i].value) || '—' });
+        }
+        return data;
+    }
+
+    function escapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+    function renderPreview(data) {
+        var businessSite = data.businessName || data.primaryLocation ? [data.businessName, data.primaryLocation].filter(Boolean).join(' — ') : '[Business / Site]';
+        var triggers = data.risks.length ? data.risks.map(function(r) { return '• ' + r; }).join('<br>') : '• Safety risk<br>• Site inaccessible<br>• Critical system outage<br>• Staffing below minimum<br>• Regulatory/customer impact';
+
+        var docControl = '<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>' +
+            '<tr><td>Business / Site</td><td>' + escapeHtml(businessSite) + '</td></tr>' +
+            '<tr><td>BCP Owner (Role)</td><td>Incident Lead</td></tr>' +
+            '<tr><td>Version</td><td>v1.0</td></tr>' +
+            '<tr><td>Review Cycle</td><td>Quarterly</td></tr>' +
+            '<tr><td>Approved By (Role)</td><td>—</td></tr></tbody></table>';
+
+        var activationTable = '<table><thead><tr><th>Level</th><th>Description</th></tr></thead><tbody>' +
+            '<tr><td>L1</td><td>Minor — contained impact</td></tr>' +
+            '<tr><td>L2</td><td>Moderate — multi-site or major supplier</td></tr>' +
+            '<tr><td>L3</td><td>Major — widespread or safety-critical</td></tr></tbody></table>';
+
+        var govRows = GOVERNANCE_ROLES.map(function(r) { return '<tr><td>' + escapeHtml(r.role) + '</td><td>' + escapeHtml(r.responsibilities) + '</td></tr>'; }).join('');
+        var governance = '<table><thead><tr><th>Role</th><th>Responsibilities</th></tr></thead><tbody>' + govRows + '</tbody></table>';
+
+        var sysList = data.systems.length ? data.systems.join(', ') : '—';
+        var activityRows = data.activities.length ? data.activities.map(function(a) {
+            var owner = (a.name || '').toLowerCase().indexOf('system') !== -1 || (a.name || '').toLowerCase().indexOf('it') !== -1 ? 'IT/Systems Lead' : 'Operations Lead';
+            return '<tr><td>' + escapeHtml(a.name) + '</td><td>' + owner + '</td><td>' + escapeHtml(a.mtd) + ' hrs</td><td>' + escapeHtml(a.mtd) + ' hrs</td><td>Min staff: ' + escapeHtml(a.minStaff) + '</td><td>' + escapeHtml(sysList) + '</td></tr>';
+        }).join('') : '<tr><td>—</td><td>Operations Lead</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>';
+        var criticalTable = '<table><thead><tr><th>Activity</th><th>Owner Role</th><th>Max Downtime (MTD)</th><th>Target Restore (RTO)</th><th>Minimum Resources</th><th>Dependencies</th></tr></thead><tbody>' + activityRows + '</tbody></table>';
+
+        var scenarioRows = (data.risks.slice(0, 8) || []).map(function(r) {
+            var s = SCENARIO_ACTIONS[r] || { impact: 'Operational impact.', action: 'Assess and escalate to Incident Lead.', method: 'Follow continuity options.' };
+            return '<tr><td>' + escapeHtml(r) + '</td><td>' + escapeHtml(s.impact) + '</td><td>' + escapeHtml(s.action) + '</td><td>' + escapeHtml(s.method) + '</td></tr>';
+        }).join('');
+        if (!scenarioRows) scenarioRows = '<tr><td>Site access loss</td><td>Site unusable.</td><td>Confirm safety; activate alternative if available.</td><td>Alternative hub or remote working.</td></tr>';
+        var scenarios = '<table><thead><tr><th>Scenario</th><th>Likely Impact</th><th>Immediate Action</th><th>Continuity Method</th></tr></thead><tbody>' + scenarioRows + '</tbody></table>';
+
+        var checklist = '<p><strong>People &amp; Safety</strong></p><ul><li>- [ ] Confirm all staff accounted for and safe</li><li>- [ ] Activate People/Safety Lead</li></ul>' +
+            '<p><strong>Operational Stabilisation</strong></p><ul><li>- [ ] Activate BCP (confirm L1/L2/L3)</li><li>- [ ] Assess critical activities (continue / degraded / stopped)</li><li>- [ ] Notify Operations Lead and Incident Lead</li></ul>' +
+            '<p><strong>Systems/Data Protection</strong></p><ul><li>- [ ] IT/Systems Lead notified</li><li>- [ ] Preserve logs and data as required</li></ul>' +
+            '<p><strong>Communications</strong></p><ul><li>- [ ] First internal update per Communications Plan</li><li>- [ ] External comms approved by Incident Lead before sending</li></ul>';
+
+        var staffCh = data.staffComms || '—';
+        var custCh = data.customerComms || '—';
+        var commsTable = '<table><thead><tr><th>Audience</th><th>Channel</th><th>Owner Role</th><th>Frequency</th><th>Approval Role</th></tr></thead><tbody>' +
+            '<tr><td>Staff</td><td>' + escapeHtml(staffCh) + '</td><td>Communications Lead</td><td>As per plan</td><td>Incident Lead</td></tr>' +
+            '<tr><td>Customers</td><td>' + escapeHtml(custCh) + '</td><td>Communications Lead</td><td>As agreed</td><td>Incident Lead</td></tr>' +
+            '<tr><td>Suppliers</td><td>As needed</td><td>Supplier/Vendor Lead</td><td>As needed</td><td>Operations Lead</td></tr>' +
+            '<tr><td>Leadership</td><td>Briefing</td><td>Communications Lead</td><td>Daily summary</td><td>Incident Lead</td></tr></tbody></table>';
+
+        var returnNormal = '<ul><li>Restore normal operations when stand-down criteria met.</li><li>Validate systems and key processes.</li><li>Clear backlog and prioritise work.</li><li>Confirm SLA and customer commitments back to normal.</li><li>Close incident log and capture lessons learned.</li></ul>';
+        var reviewTesting = '<ul><li>Annual test (table-top or live) of key scenarios.</li><li>Update BCP after major change (site, systems, people).</li><li>Keep roles and contact details current.</li></ul>';
+
+        var html = '<h1>Business Continuity Plan (BCP) — Lean (Incident-Ready)</h1>' +
+            '<h2>1) Document Control</h2>' + docControl +
+            '<h2>2) Purpose &amp; Activation</h2><p><strong>Purpose:</strong> Short, executable plan to maintain or restore critical activities during a disruption. Activation when triggers below are met.</p>' +
+            '<p><strong>Activation triggers:</strong></p><p>' + triggers + '</p>' +
+            '<p><strong>Activation Levels</strong></p>' + activationTable +
+            '<h2>3) Governance</h2>' + governance +
+            '<h2>4) Critical Activities &amp; Recovery Targets</h2>' + criticalTable +
+            '<h2>5) Key Disruption Scenarios</h2>' + scenarios +
+            '<h2>6) First 60-minute Checklist</h2>' + checklist +
+            '<h2>7) Communications Plan</h2>' + commsTable +
+            '<h2>8) Return to Normal</h2>' + returnNormal +
+            '<h2>9) Review &amp; Testing</h2>' + reviewTesting;
+
+        return html;
+    }
+
+    function showPreview(html) {
+        var placeholder = document.getElementById('bcp-preview-placeholder');
+        var content = document.getElementById('bcp-preview-content');
+        placeholder.style.display = 'none';
+        content.style.display = 'block';
+        content.innerHTML = html;
+        document.getElementById('bcp-print-btn').disabled = false;
+    }
+
+    function hidePreview() {
+        document.getElementById('bcp-preview-placeholder').style.display = 'block';
+        document.getElementById('bcp-preview-content').style.display = 'none';
+        document.getElementById('bcp-preview-content').innerHTML = '';
+        document.getElementById('bcp-print-btn').disabled = true;
+    }
+
+    document.getElementById('bcp-intake-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        showPreview(renderPreview(getFormData()));
+    });
+
+    document.getElementById('bcp-reset').addEventListener('click', function() {
+        document.getElementById('bcp-intake-form').reset();
+        hidePreview();
+    });
+
+    document.getElementById('bcp-print-btn').addEventListener('click', function() { window.print(); });
+})();
+    </script>
+</body>
+</html>
