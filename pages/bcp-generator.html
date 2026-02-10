@@ -63,7 +63,6 @@
         .bcp-preview li { margin-bottom: 0.2rem; }
         .bcp-preview-placeholder { color: #334155; font-size: 0.9375rem; padding: var(--spacing-xl); text-align: center; }
         .bcp-print-actions { margin-bottom: var(--spacing-md); }
-        .bcp-print-hint { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.5rem; max-width: 360px; }
         .bcp-print-banner { display: none; }
     </style>
 </head>
@@ -100,7 +99,6 @@
                         <li>Communications plan (who to inform, channels, update cadence)</li>
                         <li>Return-to-normal checklist (restore, validate, backlog, lessons learned)</li>
                     </ul>
-                    <p class="bcp-explainer-tip">Tip: When you print/save as PDF, turn OFF browser "Headers and footers" to avoid showing local file paths.</p>
                 </div>
             </div>
         </section>
@@ -201,7 +199,6 @@
                     <div class="bcp-preview-column">
                         <div class="bcp-preview-wrap">
                             <div class="bcp-print-actions no-print">
-                                <p class="bcp-print-hint">In the print dialog, turn <strong>off</strong> Headers and footers to remove local file paths.</p>
                                 <button type="button" id="bcp-print-btn" class="btn btn-primary" disabled>Print / Save as PDF</button>
                             </div>
                             <div class="bcp-preview" id="bcp-preview">
@@ -267,9 +264,11 @@
         var contactLine = data.contactMethod ? 'Primary contact during incidents: ' + data.contactMethod + '.' : '';
         var escalationLine = data.escalationRole ? 'Escalation (role): ' + escapeHtml(data.escalationRole) + '.' : '';
         var dateGenerated = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+        var businessNameDisplay = (data.businessName && data.businessName.trim()) ? data.businessName.trim() : '—';
         var printBanner = '<div class="bcp-print-banner">' +
             '<p class="bcp-print-banner-title">Business Continuity Plan (BCP)</p>' +
-            '<p class="bcp-print-banner-meta">' + escapeHtml(businessSite) + ' &nbsp;|&nbsp; Version v1.0 &nbsp;|&nbsp; ' + escapeHtml(dateGenerated) + ' &nbsp;|&nbsp; Prepared by: Incident Lead</p>' +
+            '<p class="bcp-print-banner-subtitle">Prepared using Kalvra – Operational Decision Intelligence</p>' +
+            '<p class="bcp-print-banner-meta">Generated for: ' + escapeHtml(businessNameDisplay) + ' | Version: v1.0 | Date: ' + escapeHtml(dateGenerated) + '</p>' +
             '</div>';
 
         var bcpSummary = '<table class="bcp-summary-table"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>' +

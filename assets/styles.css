@@ -7617,13 +7617,17 @@ header a[href*="mailto"].nav-cta {
 }
 
 @media print {
+    #site-header,
     .header,
     .site-footer,
+    #site-footer,
+    .page-header,
+    .bcp-explainer-section,
     .bcp-form-column,
     .no-print,
     .bcp-print-actions,
     .bcp-preview-wrap .btn,
-    .bcp-print-hint {
+    .bcp-preview-placeholder {
         display: none !important;
     }
     .bcp-generator-layout {
@@ -7634,13 +7638,19 @@ header a[href*="mailto"].nav-cta {
         box-shadow: none;
         border: none;
         padding: 0.75rem 0;
+        background: #fff;
     }
     body {
-        background: #fff;
+        background: #fff !important;
+        color: #111 !important;
         font-size: 11pt;
     }
     main {
         padding: 0;
+    }
+    .bcp-preview,
+    .bcp-preview * {
+        color: #111 !important;
     }
     .bcp-preview .bcp-print-banner {
         display: block !important;
@@ -7651,12 +7661,18 @@ header a[href*="mailto"].nav-cta {
     .bcp-preview .bcp-print-banner-title {
         font-size: 16pt;
         font-weight: 700;
-        color: #0b1220;
+        color: #0b1220 !important;
         margin: 0 0 0.25rem 0;
+    }
+    .bcp-preview .bcp-print-banner-subtitle {
+        display: block !important;
+        font-size: 11pt;
+        color: #334155 !important;
+        margin: 0 0 0.2rem 0;
     }
     .bcp-preview .bcp-print-banner-meta {
         font-size: 10pt;
-        color: #334155;
+        color: #334155 !important;
         margin: 0;
     }
     .bcp-preview h1 {
@@ -7678,6 +7694,7 @@ header a[href*="mailto"].nav-cta {
         border: 1px solid #374151;
         margin: 0.35rem 0 0.75rem 0;
         page-break-inside: avoid;
+        break-inside: avoid;
     }
     .bcp-preview th,
     .bcp-preview td {
@@ -7686,6 +7703,7 @@ header a[href*="mailto"].nav-cta {
     }
     .bcp-preview table tr {
         page-break-inside: avoid;
+        break-inside: avoid;
     }
     .bcp-preview .runbook-card {
         page-break-inside: avoid;
