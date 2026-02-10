@@ -509,7 +509,7 @@ header .nav a {
     min-height: 70vh;
     padding: var(--spacing-3xl) 0;
     background-color: var(--bg);
-    background-image: url("./images/home-hero.png");
+    background-image: url("./images/home-hero.1.png");
     background-size: cover;
     background-position: center 65%;
     background-repeat: no-repeat;
@@ -518,13 +518,14 @@ header .nav a {
     align-items: center;
 }
 
-/* Overlay: light on left so image is clear; subtle centre tint for text; right stays vivid */
+/* Overlay: darker for text readability while keeping image visible */
 .hero.hero-home::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(11, 18, 32, 0.22) 0%, rgba(11, 18, 32, 0.45) 35%, rgba(11, 18, 32, 0.28) 60%, rgba(11, 18, 32, 0.06) 85%, transparent 100%);
+    background: rgba(8, 15, 30, 0.55);
     pointer-events: none;
+    z-index: 0;
 }
 
 /* Bottom fade: short, ends at hero edge so "Who this is for" is not dimmed */
@@ -548,17 +549,25 @@ header .nav a {
 .hero.hero-home .hero-headline {
     color: #fff;
     line-height: 1.25;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .hero.hero-home .hero-subheading {
-    color: rgba(255, 255, 255, 0.9);
+    color: #fff;
     line-height: 1.5;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.hero.hero-home .hero-pilot-support {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 .hero.hero-home .hero-pilot-note {
-    background-color: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.88);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* CTA buttons sit directly on hero (no panel/backdrop) */
@@ -621,9 +630,9 @@ header .nav a {
         justify-content: center;
     }
 
-    /* Slightly stronger overlay on small screens so text stays readable over any part of image */
+    /* Slightly stronger overlay on small screens so text stays readable */
     .hero.hero-home::before {
-        background: linear-gradient(to right, rgba(11, 18, 32, 0.94) 0%, rgba(11, 18, 32, 0.82) 40%, rgba(11, 18, 32, 0.5) 70%, rgba(11, 18, 32, 0.15) 100%);
+        background: rgba(8, 15, 30, 0.62);
     }
 }
 
@@ -793,6 +802,171 @@ header .nav a {
 
 /* =============================================
    Problem Section
+   ============================================= */
+/* =============================================
+   Decision Cost Section (3 Image Cards)
+   ============================================= */
+.decision-cost {
+    padding: 72px 0;
+    background: linear-gradient(180deg, #0B1220 0%, #0A1020 100%);
+}
+
+.decision-cost__container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.decision-cost__title {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 40px 0;
+}
+
+.decision-cost__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+}
+
+.decision-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 18px 18px 22px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.decision-card:hover {
+    border-color: rgba(15, 23, 42, 0.16);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.decision-card__image {
+    width: 95%;
+    margin: 0 auto;
+    height: 240px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: #0B1220;
+}
+
+.decision-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.05) contrast(1.06);
+    transform: scale(1.02);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Glossy highlight overlay */
+.decision-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(120% 70% at 20% 10%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 35%, rgba(255,255,255,0.00) 60%),
+        linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.00) 45%, rgba(0,0,0,0.18) 100%);
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+/* Gentle hover polish */
+.decision-card:hover .decision-card__image img {
+    transform: scale(1.04);
+    filter: saturate(1.07) contrast(1.08);
+}
+
+.decision-card__heading {
+    margin: 18px 0 10px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0F172A;
+    text-align: center;
+}
+
+.decision-card__text {
+    margin: 10px 0 0 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #334155;
+    text-align: center;
+}
+
+/* =============================================
+   Premium Image Treatment (Reusable Utility)
+   ============================================= */
+.premium-image {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: #0B1220;
+    display: block;
+}
+
+.premium-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.06);
+    transform: scale(1.01);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.premium-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(120% 70% at 20% 10%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.03) 35%, rgba(255,255,255,0.00) 60%),
+        linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.00) 45%, rgba(0,0,0,0.16) 100%);
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+.premium-image:hover img {
+    transform: scale(1.03);
+    filter: saturate(1.07) contrast(1.08);
+}
+
+/* Decision Cost Responsive */
+@media (max-width: 980px) {
+    .decision-cost__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .decision-cost {
+        padding: 56px 0;
+    }
+    .decision-cost__grid {
+        grid-template-columns: 1fr;
+    }
+    .decision-card {
+        min-height: auto;
+    }
+    .decision-card__image {
+        height: 220px;
+        width: 96%;
+    }
+}
+
+/* =============================================
+   Legacy Problem Section (kept for compatibility)
    ============================================= */
 .problem {
     padding: var(--spacing-3xl) 0;
