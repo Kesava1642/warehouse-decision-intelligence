@@ -13,6 +13,7 @@
 - BCP Generator rework: readable preview (high-contrast, black-on-white), business-context intake (department/role/operating model/critical function/contact method/escalation role), standard scenario runbooks (Fire, Flood, Power, IT/Network, Health outbreak, Site shutdown) with Kalvra roles and time/cost controls; print shows only the BCP document. Open: runbooks are generic; spend cap is placeholder; no DOCX export (Print/PDF only).
 - BCP Generator runbooks now render in Situation/Change/Actions format with RACI and improved print-ready styling.
 - BCP Generator PDF export now uses print-ready layout and avoids leaking local file paths (via header/footer disable instruction and print-only banner).
+- BCP Generator now explains what a BCP is and is promoted on Home for faster discovery.
 
 ## Open items
 

@@ -1830,6 +1830,66 @@ header .nav a {
     color: var(--text-secondary);
 }
 
+/* BCP Generator explainer block (scoped to bcp-generator page) */
+.bcp-explainer-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-section);
+    border-bottom: 1px solid var(--border);
+}
+
+.bcp-explainer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.bcp-explainer h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.bcp-explainer h3 {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+}
+
+.bcp-explainer h3:first-of-type {
+    margin-top: var(--spacing-md);
+}
+
+.bcp-explainer p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-sm) 0;
+    line-height: 1.55;
+}
+
+.bcp-explainer ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.bcp-explainer li {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.35rem;
+    line-height: 1.5;
+}
+
+.bcp-explainer-tip {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+}
+
 /* =============================================
    4-step process (How it works page, below hero)
    ============================================= */
