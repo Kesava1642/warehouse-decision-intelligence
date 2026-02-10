@@ -15,6 +15,7 @@
 - BCP Generator PDF export now uses print-ready layout and avoids leaking local file paths (via header/footer disable instruction and print-only banner).
 - BCP Generator now explains what a BCP is and is promoted on Home for faster discovery.
 - BCP Generator now produces clean, professional PDFs without browser headers or user instructions.
+- Home page decision-cost cards now use professional warehouse images instead of icon cards; layout remains responsive.
 
 ## Open items
 
