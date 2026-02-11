@@ -801,7 +801,158 @@ header .nav a {
 }
 
 /* =============================================
-   Problem Section
+   What You Receive (Tile Cards with Wave)
+   ============================================= */
+.wyr {
+    padding: 72px 0;
+    background: transparent;
+}
+
+.wyr__container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.wyr__title {
+    text-align: center;
+    margin: 0 0 12px 0;
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.wyr__subtitle {
+    text-align: center;
+    margin: 0 0 34px 0;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+}
+
+.wyr__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Card base */
+.wyr-card {
+    border-radius: 18px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 2px solid rgba(15, 23, 42, 0.10);
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    display: block;
+}
+
+/* Hover: premium but subtle */
+.wyr-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: 0 10px 26px rgba(2, 6, 23, 0.18);
+}
+
+/* Media area */
+.wyr-card__media {
+    position: relative;
+    height: 170px;
+    background: #0B1220;
+}
+
+.wyr-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Curved wave cut-out at bottom of image area */
+.wyr-card__wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 44px;
+    fill: #FFFFFF;
+}
+
+/* Body area */
+.wyr-card__body {
+    padding: 18px 18px 20px;
+}
+
+.wyr-card__heading {
+    margin: 0 0 6px 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0F172A;
+}
+
+.wyr-card__sub {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(15, 23, 42, 0.70);
+}
+
+/* Selected state (blue border like reference) */
+.wyr-card.is-selected {
+    border-color: #2563EB;
+}
+
+/* Check badge (top-right) */
+.wyr-card__check {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #2563EB;
+    color: #FFFFFF;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 16px rgba(2, 6, 23, 0.22);
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 160ms ease, transform 160ms ease;
+    z-index: 2;
+}
+
+/* Show badge only when selected */
+.wyr-card.is-selected .wyr-card__check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* WYR Responsive */
+@media (max-width: 980px) {
+    .wyr__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .wyr {
+        padding: 56px 0;
+    }
+    .wyr__grid {
+        grid-template-columns: 1fr;
+    }
+    .wyr-card__media {
+        height: 190px;
+    }
+}
+
+/* =============================================
+   Problem Section (Legacy)
    ============================================= */
 /* =============================================
    Decision Cost Section (3 Image Cards)
