@@ -35,14 +35,14 @@
                         <p class="offer-intro">A structured decision review covering equipment, consumables, waste, and business continuity—delivered by an independent analyst, not a supplier.</p>
                         
                         <!-- Pricing -->
-                        <p class="pilot-pricing-note">Pilot pricing (limited scope) — designed to validate demand and delivery.</p>
+                        <p class="pilot-pricing-note">Pilot pricing (UK B2B) — designed to validate delivery and convert into annual subscription.</p>
                         <div class="pricing-tiers" aria-label="Select assessment package">
                             <!-- Starter Tier -->
                             <label class="pricing-tier" data-tier="starter">
                                 <input type="radio" name="pricingTier" value="starter" class="tier-input" checked>
                                 <div class="tier-header">
                                     <div class="tier-name">Starter</div>
-                                    <div class="tier-price">£99</div>
+                                    <div class="tier-price">£750</div>
                                     <div class="tier-badge">Single decision</div>
                                 </div>
                                 <ul class="tier-items">
@@ -59,7 +59,7 @@
                                 <input type="radio" name="pricingTier" value="standard" class="tier-input">
                                 <div class="tier-header">
                                     <div class="tier-name">Standard</div>
-                                    <div class="tier-price">£199</div>
+                                    <div class="tier-price">£1,100</div>
                                     <div class="tier-badge tier-badge-featured">Most common</div>
                                 </div>
                                 <ul class="tier-items">
@@ -75,7 +75,7 @@
                                 <input type="radio" name="pricingTier" value="pro" class="tier-input">
                                 <div class="tier-header">
                                     <div class="tier-name">Pro</div>
-                                    <div class="tier-price">£299</div>
+                                    <div class="tier-price">£1,900</div>
                                     <div class="tier-badge">Continuity-focused</div>
                                 </div>
                                 <ul class="tier-items">
@@ -86,6 +86,7 @@
                                 </ul>
                             </label>
                         </div>
+                        <p class="pilot-pricing-note" style="margin-top: 16px;">Subscription rollout is offered after pilot completion based on delivery fit.</p>
 
                         <!-- What You Get -->
                         <div class="offer-inclusions">
@@ -289,9 +290,9 @@
             const tierRadios = document.querySelectorAll('input[name="pricingTier"]');
 
             const TIER_DISPLAY = {
-                starter: 'Starter (£99)',
-                standard: 'Standard (£199)',
-                pro: 'Pro (£299)'
+                starter: 'Starter (£750)',
+                standard: 'Standard (£1,100)',
+                pro: 'Pro (£1,900)'
             };
 
             function setSelectedTier(tierKey) {
@@ -335,7 +336,7 @@
 
                 const selectedTierInput = document.querySelector('input[name="pricingTier"]:checked');
                 const selectedTier = selectedTierInput ? selectedTierInput.value : 'starter';
-                const selectedTierDisplay = TIER_DISPLAY[selectedTier] || 'Starter (£99)';
+                const selectedTierDisplay = TIER_DISPLAY[selectedTier] || 'Starter (£750)';
 
                 // Gather form data
                 const formData = {
