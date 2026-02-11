@@ -16,6 +16,7 @@
 - BCP Generator now explains what a BCP is and is promoted on Home for faster discovery.
 - BCP Generator now produces clean, professional PDFs without browser headers or user instructions.
 - Home page decision-cost cards now use professional warehouse images instead of icon cards; layout remains responsive.
+- Home decision-cost cards updated to editorial-style image-first tiles (full-bleed images, improved hierarchy).
 
 ## Open items
 
