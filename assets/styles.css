@@ -951,6 +951,32 @@ header .nav a {
     }
 }
 
+/* === What you receive: clearer + bigger images === */
+#what-you-receive .wyr-card__media {
+    height: 200px;
+}
+
+#what-you-receive .wyr-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: none;
+    transform: none;
+    opacity: 1;
+}
+
+#what-you-receive .wyr-card__media::after,
+#what-you-receive .wyr-card__media::before {
+    content: none;
+}
+
+@media (max-width: 640px) {
+    #what-you-receive .wyr-card__media {
+        height: 220px;
+    }
+}
+
 /* =============================================
    Problem Section (Legacy)
    ============================================= */
