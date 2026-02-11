@@ -13,8 +13,8 @@
 
     const footerHTML = `
         <footer class="site-footer">
-            <div class="footer-inner">
-                <div class="footer-grid">
+            <div class="footer-container">
+                <div class="footer-top">
                     <div class="footer-col">
                         <h4>Main</h4>
                         <a href="${basePath}/index.html">Home</a>
@@ -38,7 +38,7 @@
                         <a href="${pagesPath}/trust.html">Trust</a>
                     </div>
                 </div>
-                <div class="footer-divider"></div>
+                <hr class="footer-divider" />
                 <div class="footer-bottom">
                     <div class="footer-brand">
                         <p class="footer-wordmark">Kalvra</p>
@@ -53,7 +53,7 @@
                         <span class="footer-sep">·</span>
                         <a href="${pagesPath}/refunds.html">Refunds</a>
                     </div>
-                    <p class="footer-copyright">© 2026 Kalvra</p>
+                    <div class="footer-copy">© 2026 Kalvra</div>
                 </div>
             </div>
         </footer>
