@@ -951,9 +951,21 @@ header .nav a {
     }
 }
 
-/* === What you receive: clearer + bigger images === */
+/* === What you receive: image sizing + less wasted space === */
+#what-you-receive .wyr-card {
+    min-height: 440px;
+}
+
 #what-you-receive .wyr-card__media {
-    height: 200px;
+    height: 250px;
+}
+
+#what-you-receive .wyr-card__body {
+    padding: 16px 18px 16px;
+}
+
+#what-you-receive .wyr-card__sub {
+    margin-bottom: 0;
 }
 
 #what-you-receive .wyr-card__media img {
@@ -961,9 +973,9 @@ header .nav a {
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: none;
-    transform: none;
-    opacity: 1;
+    filter: none !important;
+    transform: none !important;
+    opacity: 1 !important;
 }
 
 #what-you-receive .wyr-card__media::after,
@@ -971,9 +983,52 @@ header .nav a {
     content: none;
 }
 
-@media (max-width: 640px) {
+/* Desktop: 6-column grid for proper wide card spanning */
+@media (min-width: 981px) {
+    #what-you-receive .wyr__grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    /* Top 3 cards each take 2 columns (2/6 = 1/3) */
+    #what-you-receive .wyr-card:not(.wyr-card--wide) {
+        grid-column: span 2;
+    }
+
+    /* Bottom 2 cards each take 3 columns (3/6 = 1/2) to fill full width */
+    #what-you-receive .wyr-card--wide {
+        grid-column: span 3;
+    }
+
+    /* Wide cards get slightly larger images */
+    #what-you-receive .wyr-card--wide .wyr-card__media {
+        height: 280px;
+    }
+}
+
+/* Tablet: 2 columns, no spanning */
+@media (max-width: 980px) {
+    #what-you-receive .wyr__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #what-you-receive .wyr-card,
+    #what-you-receive .wyr-card--wide {
+        grid-column: auto;
+    }
     #what-you-receive .wyr-card__media {
-        height: 220px;
+        height: 250px;
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 640px) {
+    #what-you-receive .wyr__grid {
+        grid-template-columns: 1fr;
+    }
+    #what-you-receive .wyr-card__media {
+        height: 260px;
+    }
+    #what-you-receive .wyr-card {
+        min-height: auto;
     }
 }
 
