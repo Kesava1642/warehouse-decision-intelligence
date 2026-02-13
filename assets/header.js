@@ -13,7 +13,7 @@
 
     const headerHTML = `
         <header class="header">
-            <div class="container header-content">
+            <div class="header-container">
                 <a href="${basePath}/index.html" class="brand">
                     <img src="${basePath}/assets/images/Kalvra (1).png" alt="Kalvra" class="brand-logo">
                 </a>
@@ -44,7 +44,7 @@
 
                     <a href="${pagesPath}/trust.html" class="nav-link">Trust</a>
 
-                    <a class="nav-cta" href="mailto:founder.Kalvra@gmail.com">Contact us</a>
+                    <a class="nav-cta header-cta" href="mailto:founder.Kalvra@gmail.com">Contact us</a>
                 </nav>
                 <button type="button" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
                     <span></span>

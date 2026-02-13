@@ -235,14 +235,13 @@ header {
     height: var(--header-height);
 }
 
-.site-header .container,
-.header .container,
+/* Header inner layout handled by .header-container */
 .header-content,
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 18px;
     flex-wrap: nowrap;
     height: 100%;
     min-height: 0;
@@ -291,8 +290,6 @@ nav,
     gap: 18px;
     flex-wrap: nowrap;
     white-space: nowrap;
-    margin-left: auto;
-    flex-shrink: 0;
 }
 
 header ul,
@@ -7914,7 +7911,7 @@ header .nav-list {
 }
 
 /* Ensure header elements align vertically */
-header .container,
+header .header-container,
 header .header-inner {
     align-items: center;
 }
@@ -7926,17 +7923,18 @@ header {
     z-index: 1000;
 }
 
-header .container,
+header .header-container,
 header .header-inner {
     max-width: 1120px;
     margin: 0 auto;
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
+    box-sizing: border-box;
 }
 
 /* Prevent nav from pushing weirdly */
@@ -8045,9 +8043,11 @@ header {
     margin-top: 16px;
 }
 
-/* === Header logo and layout: [Logo left] [Nav center] [Contact right] === */
+/* === Header logo and layout: [Logo left] [Nav + Contact right] === */
 header,
-.site-header {
+.site-header,
+.header {
+    width: 100%;
     height: 64px;
     display: flex;
     align-items: center;
@@ -8055,18 +8055,21 @@ header,
     padding-bottom: 0;
 }
 
-.header-container,
-.header-content,
-.site-header .container,
-header .container,
-.header-inner,
-header .header-content {
+/* Header container: centered with equal padding */
+.header-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    gap: 18px;
+    box-sizing: border-box;
+    height: 100%;
 }
 
+/* Brand / Logo */
 .brand {
     display: flex;
     align-items: center;
@@ -8082,16 +8085,25 @@ header .header-content {
     object-fit: contain;
 }
 
+/* Navigation: flex naturally, push CTA to end */
 header .nav,
 header nav,
-.site-header nav {
-    flex: 1 1 auto;
+.site-header nav,
+.header .nav {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 22px;
+    gap: 18px;
     margin: 0;
-    margin-left: 24px;
+    margin-left: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+/* Header CTA stays in flow, not clipped */
+.header-cta {
+    margin-left: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 header .nav a,
@@ -8110,7 +8122,6 @@ header .nav-link:hover {
 
 .btn-contact,
 .contact-btn,
-.nav-cta,
 header a[href*="mailto"].nav-cta {
     height: 40px;
     padding: 0 16px;
@@ -8123,6 +8134,7 @@ header a[href*="mailto"].nav-cta {
     justify-content: center;
     font-weight: 600;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
