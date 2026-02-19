@@ -751,17 +751,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.main-header');
             if (!header) return;
-            const isLight = document.body.classList.contains('theme-light');
-            if (isLight) {
-                header.classList.toggle('is-solid', window.scrollY > 40);
-                header.style.background = window.scrollY > 40 ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.72)';
-            } else {
-                if (window.scrollY > 40) {
-                    header.style.background = 'rgba(10, 15, 25, 0.95)';
-                } else {
-                    header.style.background = 'rgba(10, 15, 25, 0.55)';
-                }
-            }
+            header.classList.toggle('is-solid', window.scrollY > 40);
+            header.style.background = window.scrollY > 40 ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.78)';
         });
     }
 

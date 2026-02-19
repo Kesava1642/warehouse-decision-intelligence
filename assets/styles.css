@@ -4,40 +4,39 @@
    Warehouse Decision Intelligence - Stylesheet
    ============================================= */
 
-/* CSS Variables */
-/* Option A — Dark Enterprise Blue.
- * Rollback: restore previous theme by reverting this commit or replacing variables with the old values.
- */
+/* CSS Variables — Enterprise Light (default) */
 :root {
-    --bg-main: #0B1220;
-    --bg-section: #111827;
-    --bg-card: #1F2933;
-    --text-primary: #FFFFFF;
-    --text-secondary: #CBD5E1;
-    --border: #334155;
-    --accent: #2563EB;
-    --accent-hover: #3B82F6;
-    --text-muted: #94a3b8;
+    --bg-main: #f6f7fb;
+    --bg-section: #ffffff;
+    --bg-card: #ffffff;
+    --text-primary: #0b1220;
+    --text-secondary: rgba(11, 18, 32, 0.78);
+    --border: rgba(15, 23, 42, 0.12);
+    --accent: #0b5fff;
+    --accent-hover: #0a4fe0;
+    --text-muted: rgba(11, 18, 32, 0.70);
 
     /* Design tokens (unified styling) */
-    --bg: #0B1220;
-    --surface: #FFFFFF;
-    --surface-muted: #F1F5F9;
-    --text: #0F172A;
-    --text-on-dark: #E5E7EB;
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --surface-muted: #f2f4f8;
+    --surface-2: #f2f4f8;
+    --text: #0b1220;
+    --text-on-dark: #ffffff;
     --border-token: rgba(15, 23, 42, 0.12);
-    --shadow: 0 10px 30px rgba(2, 6, 23, 0.18);
+    --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
 
-    /* Card and footer tokens (premium white cards, light footer) */
+    /* Card and footer tokens */
     --card-bg: #ffffff;
-    --card-text: #0f172a;
-    --card-muted: #475569;
-    --card-border: rgba(203, 213, 225, 0.5);
+    --card-text: #0b1220;
+    --card-muted: rgba(11, 18, 32, 0.65);
+    --card-border: rgba(15, 23, 42, 0.12);
     --card-radius: 16px;
-    --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
-    --footer-bg: #F1F5F9;
-    --footer-text: #0f172a;
+    --card-shadow: 0 10px 26px rgba(2, 6, 23, 0.08);
+    --footer-bg: #ffffff;
+    --footer-text: rgba(11, 18, 32, 0.78);
 
+    --color-primary: #0b5fff;
     --color-success: #059669;
     --color-negative: #dc2626;
 
@@ -79,7 +78,7 @@ html {
 body {
     font-family: var(--font-family);
     line-height: var(--line-height-base);
-    color: var(--text-on-dark);
+    color: var(--text-primary);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -190,7 +189,7 @@ p {
 }
 
 .btn-primary {
-    background-color: #0d3b66;
+    background-color: var(--accent);
     color: #ffffff;
     border: none;
     padding: 14px 24px;
@@ -200,7 +199,7 @@ p {
 }
 
 .btn-primary:hover {
-    background-color: #0b3154;
+    background-color: var(--accent-hover);
     color: #ffffff;
 }
 
@@ -214,7 +213,7 @@ p {
 }
 
 .btn-secondary:hover {
-    background-color: #0d3b66;
+    background-color: var(--accent);
     color: #ffffff;
 }
 
@@ -542,12 +541,12 @@ header .nav a {
     color: var(--text-secondary);
 }
 
-/* Home hero – full-width background image (same pattern as How it works) */
+/* Home hero – full-width background image; kept as dark contrast block */
 .hero.hero-home {
     width: 100%;
     min-height: 70vh;
     padding: var(--spacing-3xl) 0;
-    background-color: var(--bg);
+    background-color: #0b1220;
     background-image: url("./images/home-hero.1.png");
     background-size: cover;
     background-position: center 65%;
@@ -567,7 +566,7 @@ header .nav a {
     z-index: 0;
 }
 
-/* Bottom fade: short, ends at hero edge so "Who this is for" is not dimmed */
+/* Bottom fade into light section below */
 .hero.hero-home::after {
     content: '';
     position: absolute;
@@ -585,14 +584,22 @@ header .nav a {
     z-index: 2;
 }
 
+.hero.hero-home .hero-headline,
+.hero.hero-home .hero-subheading,
+.hero.hero-home .hero-pilot-support,
+.hero.hero-home .hero-metrics,
+.hero.hero-home .hero-bullets__title,
+.hero.hero-home .hero-bullets__list,
+.hero.hero-home .hero-pilot-note {
+    color: #ffffff;
+}
+
 .hero.hero-home .hero-headline {
-    color: #fff;
     line-height: 1.25;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .hero.hero-home .hero-subheading {
-    color: #fff;
     line-height: 1.5;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -619,16 +626,16 @@ header .nav a {
     gap: var(--spacing-sm);
 }
 
-/* Home hero only: "Request early access" = white button, dark text (primary button unchanged) */
+/* Home hero only: secondary CTA = white button, dark text */
 .hero.hero-home .hero-ctas .btn-secondary {
     background-color: #fff;
-    color: var(--bg);
+    color: #0b1220;
     border-color: #fff;
 }
 
 .hero.hero-home .hero-ctas .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.92);
-    color: var(--bg);
+    color: #0b1220;
     border-color: rgba(255, 255, 255, 0.92);
 }
 
@@ -919,7 +926,7 @@ header .nav a {
 .wyr-card__media {
     position: relative;
     height: 170px;
-    background: #0B1220;
+    background: var(--surface-muted);
 }
 
 .wyr-card__media img {
@@ -1101,7 +1108,9 @@ header .nav a {
    ============================================= */
 .decision-cost {
     padding: 72px 0;
-    background: linear-gradient(180deg, #0B1220 0%, #0A1020 100%);
+    background: var(--bg-section);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .decision-cost__container {
@@ -1111,11 +1120,15 @@ header .nav a {
 
 .decision-cost__title {
     text-align: center;
-    color: #FFFFFF;
+    color: var(--text-primary);
     font-size: clamp(1.6rem, 2.2vw, 2.2rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     margin: 0 0 40px 0;
+}
+
+.decision-cost__intro {
+    color: var(--text-secondary);
 }
 
 .decision-cost__grid {
@@ -1197,6 +1210,64 @@ header .nav a {
 .decision-card--fullbg:hover {
     border-color: rgba(255, 255, 255, 0.22);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================
+   Decision Cost: stacked cards (image + caption below, no overlay)
+   Used on index.html for consistent light theme.
+   ============================================= */
+.decision-cost .decision-card--stacked {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-radius: var(--border-radius-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.decision-cost .decision-card--stacked:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border);
+}
+
+.decision-cost .decision-card--stacked .decision-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--surface-muted);
+}
+
+.decision-cost .decision-card--stacked .decision-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.decision-cost .decision-card--stacked .decision-card__content {
+    position: static;
+    padding: 20px 20px 24px;
+    text-align: left;
+}
+
+.decision-cost .decision-card--stacked .decision-card__heading {
+    margin: 0 0 8px 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-shadow: none;
+}
+
+.decision-cost .decision-card--stacked .decision-card__text {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-shadow: none;
 }
 
 /* Decision Cost Responsive */
@@ -1316,7 +1387,9 @@ header .nav a {
    ============================================= */
 .solution {
     padding: var(--spacing-3xl) 0;
-    background-color: var(--bg-main);
+    background-color: var(--surface-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .section-intro {
@@ -1324,6 +1397,7 @@ header .nav a {
     max-width: 600px;
     margin: -1rem auto var(--spacing-2xl);
     font-size: 1.125rem;
+    color: var(--text-secondary);
 }
 
 /* Horizontal Steps Flow */
@@ -1370,7 +1444,7 @@ header .nav a {
     border-radius: 50%;
     margin-bottom: var(--spacing-md);
     position: relative;
-    box-shadow: 0 0 0 4px var(--bg-main);
+    box-shadow: 0 0 0 4px var(--surface-2);
 }
 
 .step-info h3 {
@@ -1852,10 +1926,11 @@ header .nav a {
    Site Footer (WHOOP-style dark multi-column)
    ============================================= */
 .site-footer {
-    background: var(--bg);
-    color: var(--text-on-dark);
+    background: var(--footer-bg);
+    color: var(--footer-text);
     width: 100%;
     padding: 56px 0 36px;
+    border-top: 1px solid var(--border);
 }
 
 .footer-container {
@@ -1914,7 +1989,7 @@ header .nav a {
 
 .footer-divider {
     border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-top: 1px solid var(--border);
     margin: 40px 0 28px;
 }
 
@@ -2133,13 +2208,13 @@ header .nav a {
 .footer-brand-section .footer-wordmark {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--footer-text);
     margin: 0 0 0.25rem 0;
 }
 
 .footer-brand-section .footer-mission {
     font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted);
     margin: 0;
 }
 
@@ -2168,24 +2243,24 @@ header .nav a {
 }
 
 .footer-legal-links a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text);
     font-size: 0.875rem;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .footer-legal-links a:hover {
-    color: #ffffff;
+    color: var(--accent);
 }
 
 .footer-sep {
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--text-muted);
     font-size: 0.875rem;
 }
 
 .footer-copyright {
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-muted);
     margin: var(--spacing-sm) 0 0 0;
 }
 
@@ -2209,7 +2284,7 @@ header .nav a {
 .how-hero {
     width: 100%;
     min-height: 70vh;
-    background-color: var(--bg);
+    background-color: #0b1220;
     background-image: url("./images/how it works.png");
     background-size: cover;
     background-position: center;
@@ -2718,7 +2793,7 @@ header .nav a {
 }
 
 .analysis-item h3 {
-    color: #fff;
+    color: var(--text-primary);
     font-size: 1.125rem;
     font-weight: 600;
     margin: 0 0 0.5rem;
@@ -2727,7 +2802,7 @@ header .nav a {
 
 .analysis-item p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -2843,12 +2918,12 @@ header .nav a {
 }
 
 .supplier-step h3 {
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .supplier-step p {
     margin-bottom: 0;
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -7786,7 +7861,7 @@ header .nav a {
    ============================================= */
 .stage-panel {
     padding: var(--spacing-2xl) 0;
-    background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.10), transparent 55%);
+    background: var(--bg);
 }
 
 .stage-panel__inner {
@@ -7794,10 +7869,9 @@ header .nav a {
     margin: 0 auto;
     padding: var(--spacing-xl);
     border-radius: 18px;
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.98));
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
 }
 
 .stage-panel__block + .stage-panel__block {
@@ -8568,8 +8642,8 @@ header a[href*="mailto"].nav-cta {
     top: 0;
     z-index: 999;
     backdrop-filter: blur(14px);
-    background: rgba(10, 15, 25, 0.55);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.78);
+    border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
@@ -8582,12 +8656,18 @@ header a[href*="mailto"].nav-cta {
     justify-content: space-between;
 }
 
-.main-header .logo a {
+.main-header .logo a,
+.main-header .brand-name {
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 0.5px;
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text-primary);
+}
+
+.main-header .brand-mark {
+    filter: invert(1) brightness(0.18);
+    opacity: 0.92;
 }
 
 .main-header .nav-links {
@@ -8596,15 +8676,17 @@ header a[href*="mailto"].nav-cta {
     align-items: center;
 }
 
-.main-header .nav-item a {
+.main-header .nav-item a,
+.main-header .nav-link {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-secondary);
     font-size: 14px;
     transition: 0.2s ease;
 }
 
-.main-header .nav-item a:hover {
-    color: #00bcd4;
+.main-header .nav-item a:hover,
+.main-header .nav-link:hover {
+    color: var(--text-primary);
 }
 
 .main-header .nav-right {
@@ -8615,14 +8697,14 @@ header a[href*="mailto"].nav-cta {
 
 .main-header .nav-contact {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     text-decoration: none;
 }
 
 .main-header .nav-cta {
     padding: 8px 16px;
     border-radius: 22px;
-    background: linear-gradient(135deg, #00bcd4, #0066ff);
+    background: linear-gradient(135deg, var(--accent), var(--color-primary));
     color: white;
     font-size: 13px;
     text-decoration: none;
@@ -8631,7 +8713,7 @@ header a[href*="mailto"].nav-cta {
 
 .main-header .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0, 188, 212, 0.4);
+    box-shadow: 0 6px 18px rgba(11, 95, 255, 0.35);
 }
 
 .main-header .dropdown {
@@ -8642,26 +8724,27 @@ header a[href*="mailto"].nav-cta {
     position: absolute;
     top: 38px;
     left: 0;
-    background: rgba(15, 20, 35, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(16px);
     border-radius: 12px;
     padding: 14px;
     display: none;
     flex-direction: column;
     min-width: 220px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 34px rgba(2, 6, 23, 0.1);
 }
 
 .main-header .dropdown-menu a {
     padding: 8px 12px;
     font-size: 13px;
     border-radius: 8px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
     text-decoration: none;
 }
 
 .main-header .dropdown-menu a:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(2, 6, 23, 0.04);
 }
 
 .main-header .dropdown:hover .dropdown-menu {
