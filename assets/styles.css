@@ -8555,3 +8555,117 @@ header a[href*="mailto"].nav-cta {
         font-size: 0.9rem;
     }
 }
+
+/* ============================= */
+/* PREMIUM GLASS HEADER */
+/* ============================= */
+
+.main-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(14px);
+    background: rgba(10, 15, 25, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-header .logo a {
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.main-header .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.main-header .nav-item a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.main-header .nav-item a:hover {
+    color: #00bcd4;
+}
+
+.main-header .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.main-header .nav-contact {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.main-header .nav-cta {
+    padding: 8px 16px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #00bcd4, #0066ff);
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.main-header .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 188, 212, 0.4);
+}
+
+.main-header .dropdown {
+    position: relative;
+}
+
+.main-header .dropdown-menu {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    background: rgba(15, 20, 35, 0.95);
+    backdrop-filter: blur(16px);
+    border-radius: 12px;
+    padding: 14px;
+    display: none;
+    flex-direction: column;
+    min-width: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.main-header .dropdown-menu a {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.main-header .dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.main-header .dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+body {
+    padding-top: 70px;
+}

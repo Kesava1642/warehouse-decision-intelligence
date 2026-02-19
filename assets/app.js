@@ -734,3 +734,28 @@
     }
 })();
 
+/**
+ * Premium glass header – scroll solid effect
+ */
+(function() {
+    'use strict';
+
+    function initHeaderScroll() {
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (!header) return;
+            if (window.scrollY > 40) {
+                header.style.background = 'rgba(10, 15, 25, 0.95)';
+            } else {
+                header.style.background = 'rgba(10, 15, 25, 0.55)';
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeaderScroll);
+    } else {
+        initHeaderScroll();
+    }
+})();
+

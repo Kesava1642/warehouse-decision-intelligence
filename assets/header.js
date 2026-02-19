@@ -1,90 +1,61 @@
 /**
- * Shared Header Component
- * Injects the main Kalvra header into #site-header on all pages.
+ * Premium Glass Header – KlingAI-inspired (enterprise adapted)
+ * Injects main-header into #site-header with correct paths for root and /pages/.
  */
-
 (function() {
     'use strict';
 
-    // Detect if we're on the root or in /pages/ for correct link paths
     const isInPagesDir = window.location.pathname.includes('/pages/');
     const basePath = isInPagesDir ? '..' : '.';
     const pagesPath = isInPagesDir ? '.' : './pages';
 
     const headerHTML = `
-        <header class="header">
-            <div class="header-container">
-                <a href="${basePath}/index.html" class="brand">
-                    <img src="${basePath}/assets/images/Kalvra (1).png" alt="Kalvra" class="brand-logo">
-                </a>
-                <nav class="nav" aria-label="Main navigation">
-                    <a href="${basePath}/index.html" class="nav-link">Home</a>
-                    <a href="${pagesPath}/how-it-works.html" class="nav-link">How it works</a>
-                    <a href="${pagesPath}/framework.html" class="nav-link">Framework</a>
-                    <a href="${pagesPath}/business-model.html" class="nav-link">Business model</a>
-                    <a href="${pagesPath}/decision-demo.html" class="nav-link">Decision demo</a>
+<header class="main-header">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="${basePath}/index.html">Kalvra</a>
+    </div>
 
-                    <details class="nav-dropdown">
-                        <summary class="nav-link">Services <span class="nav-caret" aria-hidden="true">▾</span></summary>
-                        <div class="dropdown-panel">
-                            <a href="${pagesPath}/use-cases.html" class="dropdown-link">Use cases</a>
-                            <a href="${pagesPath}/services.html" class="dropdown-link">Emergency Services (Pilot)</a>
-                            <a href="${pagesPath}/bcp-generator.html" class="dropdown-link">BCP Generator</a>
-                            <a href="${pagesPath}/transport-board.html" class="dropdown-link">Transport board (Demo)</a>
-                        </div>
-                    </details>
+    <nav class="nav-links">
+      <div class="nav-item">
+        <a href="${pagesPath}/services.html">Product</a>
+      </div>
 
-                    <details class="nav-dropdown">
-                        <summary class="nav-link">Pilot <span class="nav-caret" aria-hidden="true">▾</span></summary>
-                        <div class="dropdown-panel">
-                            <a href="${pagesPath}/early-access.html" class="dropdown-link">Pilot access</a>
-                            <a href="${pagesPath}/validation.html" class="dropdown-link">Validation plan</a>
-                        </div>
-                    </details>
+      <div class="nav-item">
+        <a href="${pagesPath}/how-it-works.html">How It Works</a>
+      </div>
 
-                    <a href="${pagesPath}/trust.html" class="nav-link">Trust</a>
+      <div class="nav-item">
+        <a href="${pagesPath}/use-cases.html">Use Cases</a>
+      </div>
 
-                    <a class="nav-cta header-cta" href="mailto:founder.Kalvra@gmail.com">Contact us</a>
-                </nav>
-                <button type="button" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </header>
-    `;
+      <div class="nav-item dropdown">
+        <a href="#">Platform ▾</a>
+        <div class="dropdown-menu">
+          <a href="${pagesPath}/owner-dashboard.html">Owner Dashboard</a>
+          <a href="${pagesPath}/services.html#decision-pack">Decision Packs</a>
+          <a href="${pagesPath}/services.html#continuity">Continuity Engine</a>
+          <a href="${pagesPath}/services.html#neutrality">Supplier Neutrality Logic</a>
+        </div>
+      </div>
 
-    function setActiveNavLink() {
-        const pathname = window.location.pathname;
-        const segments = pathname.split('/').filter(Boolean);
-        const currentPage = segments.length === 0 || segments[segments.length - 1] === 'warehouse-decision-intelligence'
-            ? 'index.html'
-            : segments[segments.length - 1];
+      <div class="nav-item">
+        <a href="${pagesPath}/about.html">About</a>
+      </div>
+    </nav>
 
-        const navLinks = document.querySelectorAll('.header .nav a.nav-link');
-        if (!navLinks.length) return;
-
-        navLinks.forEach(function (link) { link.classList.remove('active'); });
-        for (let i = 0; i < navLinks.length; i++) {
-            const href = navLinks[i].getAttribute('href') || '';
-            if (href.endsWith('/' + currentPage) || href.endsWith(currentPage)) {
-                navLinks[i].classList.add('active');
-                break;
-            }
-        }
-    }
+    <div class="nav-right">
+      <a href="${pagesPath}/contact.html" class="nav-contact">Contact</a>
+      <a href="${pagesPath}/contact.html" class="nav-cta">Request Pilot</a>
+    </div>
+  </div>
+</header>
+`;
 
     function injectHeader() {
-        try {
-            const headerContainer = document.getElementById('site-header');
-            if (!headerContainer) return;
-            headerContainer.innerHTML = headerHTML;
-            setActiveNavLink();
-        } catch (e) {
-            // Single concise error; avoid spamming
-            console.error('Kalvra header injection failed', e);
-        }
+        const el = document.getElementById('site-header');
+        if (!el) return;
+        el.innerHTML = headerHTML;
     }
 
     if (document.readyState === 'loading') {
@@ -93,4 +64,3 @@
         injectHeader();
     }
 })();
-
