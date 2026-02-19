@@ -8770,3 +8770,61 @@ body {
         display: none;
     }
 }
+
+/* ============================= */
+/* DROPDOWN FIX: no hover-gap + clickable */
+/* ============================= */
+
+.dropdown--platform {
+    position: relative;
+}
+
+.dropdown--platform .dropdown-menu {
+    z-index: 2000;
+    pointer-events: auto;
+}
+
+/* Make sure the menu stays open on hover OR keyboard focus */
+.dropdown--platform:hover .dropdown-menu,
+.dropdown--platform:focus-within .dropdown-menu {
+    display: flex;
+}
+
+/* Create a "hover bridge" so moving from button to menu doesn't close it */
+.dropdown--platform .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+}
+
+/* Slightly closer to the trigger to reduce gap */
+.dropdown--platform .dropdown-menu {
+    top: 40px;
+}
+
+/* Make the trigger feel active */
+.dropdown--platform:hover .nav-link--button,
+.dropdown--platform:focus-within .nav-link--button {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.96);
+}
+
+/* ============================= */
+/* HEADER FONT SIZE TUNING */
+/* (enterprise premium, not oversized) */
+/* ============================= */
+
+.main-header .brand-name {
+    font-size: 17px;
+}
+
+.main-header .nav-link {
+    font-size: 16px;
+}
+
+.main-header .nav-cta {
+    font-size: 14px;
+}

@@ -22,8 +22,8 @@
       <a class="nav-link" href="${pagesPath}/how-it-works.html">How It Works</a>
       <a class="nav-link" href="${pagesPath}/use-cases.html">Use Cases</a>
 
-      <div class="nav-item dropdown">
-        <button class="nav-link nav-link--button" type="button" aria-haspopup="true" aria-expanded="false">
+      <div class="nav-item dropdown dropdown--platform">
+        <button class="nav-link nav-link--button" type="button" aria-haspopup="true" aria-expanded="false" data-dropdown="platform">
           Platform <span class="chev">▾</span>
         </button>
         <div class="dropdown-menu" role="menu">
