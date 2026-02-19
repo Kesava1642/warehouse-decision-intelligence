@@ -735,6 +735,13 @@
 })();
 
 /**
+ * Theme: Light mode default (applied site-wide)
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('theme-light');
+});
+
+/**
  * Premium glass header – scroll solid effect
  */
 (function() {
@@ -744,10 +751,16 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.main-header');
             if (!header) return;
-            if (window.scrollY > 40) {
-                header.style.background = 'rgba(10, 15, 25, 0.95)';
+            const isLight = document.body.classList.contains('theme-light');
+            if (isLight) {
+                header.classList.toggle('is-solid', window.scrollY > 40);
+                header.style.background = window.scrollY > 40 ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.72)';
             } else {
-                header.style.background = 'rgba(10, 15, 25, 0.55)';
+                if (window.scrollY > 40) {
+                    header.style.background = 'rgba(10, 15, 25, 0.95)';
+                } else {
+                    header.style.background = 'rgba(10, 15, 25, 0.55)';
+                }
             }
         });
     }

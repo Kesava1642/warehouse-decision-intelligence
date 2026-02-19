@@ -8889,3 +8889,155 @@ body {
 .main-header .nav-container {
     height: 74px;
 }
+
+/* ============================================================
+   THEME LIGHT (Enterprise)
+   - Applied via body.theme-light
+   - Appended at end to override earlier dark styles safely
+   ============================================================ */
+
+body.theme-light {
+    background: #f6f7fb;
+    color: #0b1220;
+}
+
+/* Make default text readable everywhere */
+body.theme-light p,
+body.theme-light li,
+body.theme-light span {
+    color: rgba(11, 18, 32, 0.86);
+}
+
+/* Links */
+body.theme-light a {
+    color: #0b1220;
+}
+
+body.theme-light a:hover {
+    color: #0b5fff;
+}
+
+/* Sections / containers */
+body.theme-light .page,
+body.theme-light main {
+    background: transparent;
+}
+
+/* Cards / panels (generic) */
+body.theme-light .card,
+body.theme-light .owner-panel,
+body.theme-light .proof-card,
+body.theme-light .owner-control-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+}
+
+/* Titles */
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light .section-title {
+    color: #0b1220;
+}
+
+body.theme-light .section-subtitle,
+body.theme-light .muted {
+    color: rgba(11, 18, 32, 0.72);
+}
+
+/* ============================= */
+/* Header: glass-light */
+body.theme-light .main-header {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+    backdrop-filter: blur(14px);
+}
+
+body.theme-light .brand-name {
+    color: rgba(11, 18, 32, 0.96);
+}
+
+body.theme-light .nav-link {
+    color: rgba(11, 18, 32, 0.78);
+}
+
+body.theme-light .nav-link:hover {
+    color: rgba(11, 18, 32, 0.96);
+    background: rgba(2, 6, 23, 0.04);
+}
+
+/* Dropdown panel */
+body.theme-light .dropdown-menu {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.10);
+}
+
+body.theme-light .dropdown-menu a {
+    color: rgba(11, 18, 32, 0.86);
+}
+
+body.theme-light .dropdown-menu a:hover {
+    background: rgba(2, 6, 23, 0.04);
+}
+
+/* CTA button stays premium */
+body.theme-light .nav-cta {
+    color: #ffffff;
+}
+
+/* Scroll effect compatibility (if present) */
+body.theme-light .main-header.is-solid {
+    background: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* ============================= */
+/* Hero: keep readable on light mode */
+body.theme-light .hero-v2__eyebrow,
+body.theme-light .hero-v2__subhead,
+body.theme-light .hero-v2__headline {
+    color: #ffffff;
+}
+
+/* ============================= */
+/* Footer: convert to clean light footer */
+body.theme-light footer,
+body.theme-light .site-footer,
+body.theme-light #site-footer {
+    background: #ffffff;
+    border-top: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+body.theme-light footer *,
+body.theme-light .site-footer * {
+    color: rgba(11, 18, 32, 0.78);
+}
+
+body.theme-light footer a,
+body.theme-light .site-footer a {
+    color: rgba(11, 18, 32, 0.86);
+}
+
+body.theme-light footer a:hover,
+body.theme-light .site-footer a:hover {
+    color: #0b5fff;
+}
+
+/* Footer headings stronger */
+body.theme-light footer h4,
+body.theme-light .site-footer h4 {
+    color: rgba(11, 18, 32, 0.96);
+}
+
+/* ============================= */
+/* Buttons: make secondary button work on light backgrounds */
+body.theme-light .btn.btn-secondary {
+    background: #ffffff;
+    color: rgba(11, 18, 32, 0.90);
+    border: 1px solid rgba(15, 23, 42, 0.14);
+}
+
+body.theme-light .btn.btn-secondary:hover {
+    background: rgba(2, 6, 23, 0.03);
+}
