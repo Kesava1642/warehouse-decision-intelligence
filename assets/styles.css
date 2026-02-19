@@ -644,16 +644,20 @@ header .nav a {
 }
 
 /* Home hero only: secondary CTA = white button, dark text */
+/* Hero secondary CTA: high contrast outline (Request pilot) */
 .hero.hero-home .hero-ctas .btn-secondary {
-    background-color: #fff;
-    color: #0b1220;
-    border-color: #fff;
+    background: #ffffff !important;
+    color: #0b5fff !important;
+    border: 2px solid #0b5fff !important;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .hero.hero-home .hero-ctas .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.92);
-    color: #0b1220;
-    border-color: rgba(255, 255, 255, 0.92);
+    background: #0b5fff !important;
+    color: #ffffff !important;
+    border-color: #0b5fff !important;
 }
 
 /* Home hero: tablet and small desktop */
