@@ -772,3 +772,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 })();
 
+/* ============================= */
+/* Typography: Inter (global) */
+/* ============================= */
+(function ensureInterFont() {
+    var id = 'kalvra-inter-font';
+    if (document.getElementById(id)) return;
+    var pre1 = document.createElement('link');
+    pre1.rel = 'preconnect';
+    pre1.href = 'https://fonts.googleapis.com';
+    var pre2 = document.createElement('link');
+    pre2.rel = 'preconnect';
+    pre2.href = 'https://fonts.gstatic.com';
+    pre2.crossOrigin = 'anonymous';
+    var link = document.createElement('link');
+    link.id = id;
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+    var head = document.head || document.getElementsByTagName('head')[0];
+    if (head) {
+        head.appendChild(pre1);
+        head.appendChild(pre2);
+        head.appendChild(link);
+    }
+})();
