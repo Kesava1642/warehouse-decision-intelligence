@@ -8828,3 +8828,64 @@ body {
 .main-header .nav-cta {
     font-size: 14px;
 }
+
+/* ============================= */
+/* HEADER FIX PACK: dropdown stability + typography */
+/* ============================= */
+
+/* Ensure dropdown is always above hero overlays */
+.main-header .dropdown,
+.main-header .dropdown-menu {
+    z-index: 3000;
+}
+
+/* Keep menu open on hover OR keyboard focus */
+.main-header .dropdown:hover .dropdown-menu,
+.main-header .dropdown:focus-within .dropdown-menu {
+    display: flex;
+}
+
+/* Hover bridge: prevents "gap close" between trigger and menu */
+.main-header .dropdown .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+}
+
+/* Pull the menu slightly closer to the trigger */
+.main-header .dropdown .dropdown-menu {
+    top: 40px;
+    pointer-events: auto;
+}
+
+/* Make trigger feel active while open */
+.main-header .dropdown:hover .nav-link--button,
+.main-header .dropdown:focus-within .nav-link--button {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.96);
+}
+
+/* Typography increase (clean premium) */
+.main-header .brand-name {
+    font-size: 17px;
+}
+
+.main-header .nav-link {
+    font-size: 16px;
+}
+
+.main-header .nav-cta {
+    font-size: 14px;
+}
+
+/* Slightly increase header height to match larger text */
+.main-header {
+    height: 74px;
+}
+
+.main-header .nav-container {
+    height: 74px;
+}
