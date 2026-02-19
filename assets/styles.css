@@ -9513,3 +9513,107 @@ body.theme-light footer small,
 body.theme-light .site-footer small {
     color: rgba(11, 18, 32, 0.58);
 }
+
+/* ============================= */
+/* HOME: Hero polish */
+/* ============================= */
+
+body.theme-light .hero h1 {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.theme-light .hero p {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.theme-light .hero .btn,
+body.theme-light .hero .nav-cta {
+    min-width: 180px;
+}
+
+body.theme-light .hero .hero-demo,
+body.theme-light .hero .hero-panel,
+body.theme-light .hero .hero-preview,
+body.theme-light .hero .hero-image-panel,
+body.theme-light .hero .demo-panel {
+    max-width: 720px;
+    margin: 18px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 14px 38px rgba(2, 6, 23, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+body.theme-light .hero .hero-demo::before,
+body.theme-light .hero .hero-panel::before,
+body.theme-light .hero .hero-preview::before,
+body.theme-light .hero .hero-image-panel::before,
+body.theme-light .hero .demo-panel::before {
+    opacity: 0.18 !important;
+}
+
+/* ============================= */
+/* HOME: Current stage section tighten */
+/* ============================= */
+
+body.theme-light .current-stage,
+body.theme-light .stage-card,
+body.theme-light .timeline-card,
+body.theme-light .milestone-card {
+    padding: 20px !important;
+}
+
+body.theme-light .current-stage h3,
+body.theme-light .stage-card h3,
+body.theme-light .timeline-card h3,
+body.theme-light .milestone-card h3 {
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+body.theme-light .current-stage ul,
+body.theme-light .stage-card ul,
+body.theme-light .timeline-card ul,
+body.theme-light .milestone-card ul {
+    margin: 10px 0 0;
+}
+
+/* ============================= */
+/* Footer polish */
+/* ============================= */
+
+body.theme-light footer,
+body.theme-light .site-footer,
+body.theme-light #site-footer {
+    background: #ffffff;
+    border-top: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light footer .footer-grid,
+body.theme-light .site-footer .footer-grid {
+    padding-top: 34px;
+    padding-bottom: 26px;
+}
+
+body.theme-light footer h4,
+body.theme-light .site-footer h4 {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(11, 18, 32, 0.72);
+    margin-bottom: 12px;
+}
+
+body.theme-light footer a,
+body.theme-light .site-footer a {
+    color: rgba(11, 18, 32, 0.72);
+}
+
+body.theme-light footer a:hover,
+body.theme-light .site-footer a:hover {
+    color: #0b5fff;
+}
