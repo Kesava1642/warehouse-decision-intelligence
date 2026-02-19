@@ -556,12 +556,12 @@ header .nav a {
     align-items: center;
 }
 
-/* Overlay: darker for text readability while keeping image visible */
+/* Overlay: subtle for text readability, less busy */
 .hero.hero-home::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(8, 15, 30, 0.55);
+    background: rgba(8, 15, 30, 0.40);
     pointer-events: none;
     z-index: 0;
 }
@@ -582,6 +582,23 @@ header .nav a {
 .hero.hero-home .container {
     position: relative;
     z-index: 2;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero.hero-home .hero-headline {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero.hero-home .hero-subheading,
+.hero.hero-home .hero-pilot-support,
+.hero.hero-home .hero-pilot-note {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero.hero-home .hero-headline,
@@ -7867,7 +7884,7 @@ header .nav a {
 .stage-panel__inner {
     max-width: 1040px;
     margin: 0 auto;
-    padding: var(--spacing-xl);
+    padding: 22px 24px;
     border-radius: 18px;
     border: 1px solid var(--border);
     background: var(--surface);
@@ -7875,14 +7892,14 @@ header .nav a {
 }
 
 .stage-panel__block + .stage-panel__block {
-    margin-top: 32px;
+    margin-top: 20px;
 }
 
 .stage-panel__title {
     font-size: 2rem;
     line-height: 1.2;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     color: var(--text-primary);
     text-align: center;
 }
@@ -7895,11 +7912,11 @@ header .nav a {
 }
 
 .stage-panel__block--next .stage-panel__title {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
 .stage-panel__list {
-    margin: 0 auto;
+    margin: 10px auto 0;
     padding: 0;
     max-width: 720px;
 }
@@ -9591,13 +9608,10 @@ body.theme-light .site-footer,
 body.theme-light #site-footer {
     background: #ffffff;
     border-top: 1px solid rgba(15, 23, 42, 0.12);
-}
-
-body.theme-light footer .footer-grid,
-body.theme-light .site-footer .footer-grid {
     padding-top: 34px;
     padding-bottom: 26px;
 }
+
 
 body.theme-light footer h4,
 body.theme-light .site-footer h4 {
