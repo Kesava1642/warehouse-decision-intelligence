@@ -1,6 +1,6 @@
 /**
- * Premium Glass Header – KlingAI-inspired (enterprise adapted)
- * Injects main-header into #site-header with correct paths for root and /pages/.
+ * Premium Glass Header – logo mark, polish, path-aware links.
+ * Injects main-header into #site-header (root and /pages/).
  */
 (function() {
     'use strict';
@@ -12,40 +12,33 @@
     const headerHTML = `
 <header class="main-header">
   <div class="nav-container">
-    <div class="logo">
-      <a href="${basePath}/index.html">Kalvra</a>
-    </div>
+    <a class="brand" href="${basePath}/index.html" aria-label="Kalvra Home">
+      <img class="brand-mark" src="${basePath}/assets/brand/kalvra-mark.svg" alt="Kalvra logo mark" />
+      <span class="brand-name">Kalvra</span>
+    </a>
 
-    <nav class="nav-links">
-      <div class="nav-item">
-        <a href="${pagesPath}/services.html">Product</a>
-      </div>
-
-      <div class="nav-item">
-        <a href="${pagesPath}/how-it-works.html">How It Works</a>
-      </div>
-
-      <div class="nav-item">
-        <a href="${pagesPath}/use-cases.html">Use Cases</a>
-      </div>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="nav-link" href="${pagesPath}/services.html">Product</a>
+      <a class="nav-link" href="${pagesPath}/how-it-works.html">How It Works</a>
+      <a class="nav-link" href="${pagesPath}/use-cases.html">Use Cases</a>
 
       <div class="nav-item dropdown">
-        <a href="#">Platform ▾</a>
-        <div class="dropdown-menu">
-          <a href="${pagesPath}/owner-dashboard.html">Owner Dashboard</a>
-          <a href="${pagesPath}/services.html#decision-pack">Decision Packs</a>
-          <a href="${pagesPath}/services.html#continuity">Continuity Engine</a>
-          <a href="${pagesPath}/services.html#neutrality">Supplier Neutrality Logic</a>
+        <button class="nav-link nav-link--button" type="button" aria-haspopup="true" aria-expanded="false">
+          Platform <span class="chev">▾</span>
+        </button>
+        <div class="dropdown-menu" role="menu">
+          <a role="menuitem" href="${pagesPath}/owner-dashboard.html">Owner Dashboard</a>
+          <a role="menuitem" href="${pagesPath}/services.html#decision-pack">Decision Packs</a>
+          <a role="menuitem" href="${pagesPath}/services.html#continuity">Continuity Engine</a>
+          <a role="menuitem" href="${pagesPath}/services.html#neutrality">Supplier Neutrality Logic</a>
         </div>
       </div>
 
-      <div class="nav-item">
-        <a href="${pagesPath}/about.html">About</a>
-      </div>
+      <a class="nav-link" href="${pagesPath}/about.html">About</a>
+      <a class="nav-link" href="${pagesPath}/contact.html">Contact</a>
     </nav>
 
     <div class="nav-right">
-      <a href="${pagesPath}/contact.html" class="nav-contact">Contact</a>
       <a href="${pagesPath}/contact.html" class="nav-cta">Request Pilot</a>
     </div>
   </div>
