@@ -42,9 +42,10 @@
                 <div class="footer-bottom">
                     <div class="footer-brand">
                         <p class="footer-wordmark">Kalvra</p>
-                        <p class="footer-mission">UK-focused warehouse decision intelligence</p>
+                        <p class="footer-mission">Kalvra (UK pilot) — independent decision-support venture. UK-focused warehouse decision intelligence.</p>
                         <p class="footer-contact-email">Email: <a href="mailto:founder.Kalvra@gmail.com">founder.Kalvra@gmail.com</a></p>
                         <p class="footer-contact-location">Location: Basildon, Essex, United Kingdom</p>
+                        <p class="footer-identity-link"><a href="${pagesPath}/contact.html">Contact &amp; Business identity</a></p>
                     </div>
                     <div class="footer-legal">
                         <a href="${pagesPath}/privacy.html">Privacy</a>

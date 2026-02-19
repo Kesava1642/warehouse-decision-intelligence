@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kalvra owner control layer concept: decision logs, incident timelines, and continuity versioning for warehouse operations." />
+  <title>Kalvra | Owner dashboard concept</title>
+  <meta property="og:title" content="Kalvra | Owner dashboard concept" />
+  <meta property="og:description" content="Decision logs, incident timelines, and continuity versioning (concept UI) for warehouse operations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="page">
+    <section class="container" style="padding: 54px 0 18px;">
+      <h1 style="margin-bottom: 10px;">Owner dashboard concept</h1>
+      <p style="max-width: 880px; color: rgba(255,255,255,0.86); line-height: 1.6;">
+        This page demonstrates the <strong>control layer</strong> Kalvra uses to make decisions repeatable:
+        <strong>logs, timelines, versioning, and ownership</strong>.
+        <br />
+        <span style="opacity: 0.9;">Demo UI only — illustrative entries. Pilot delivery is currently service-led.</span>
+      </p>
+    </section>
+
+    <section class="container" style="padding: 18px 0 44px;">
+      <div class="owner-panel-grid">
+        <div class="owner-panel">
+          <h2>Decision log</h2>
+          <p class="muted">Illustrative sample rows (not customer claims).</p>
+          <div class="table-wrap">
+            <table class="owner-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Site</th>
+                  <th>Decision type</th>
+                  <th>Recommendation</th>
+                  <th>Owner</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Illustrative</td>
+                  <td>UK Warehouse</td>
+                  <td>Forklift availability</td>
+                  <td>Rent short-term → refurb review</td>
+                  <td>Ops Manager</td>
+                  <td>Recorded</td>
+                </tr>
+                <tr>
+                  <td>Illustrative</td>
+                  <td>3PL Site</td>
+                  <td>Dock door failure</td>
+                  <td>Repair now + contingency vendor</td>
+                  <td>Facilities</td>
+                  <td>Recorded</td>
+                </tr>
+                <tr>
+                  <td>Illustrative</td>
+                  <td>Retail DC</td>
+                  <td>Consumables leakage</td>
+                  <td>Wrap spec + usage controls</td>
+                  <td>Warehouse Lead</td>
+                  <td>Recorded</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="owner-panel">
+          <h2>Incident timeline</h2>
+          <p class="muted">60-minute + 24-hour checkpoints with accountable actions.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">T+0–10 min</div>
+              <div class="timeline-body"><strong>Stabilise</strong> — isolate risk, confirm safety, assign incident owner.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">T+10–60 min</div>
+              <div class="timeline-body"><strong>Continuity actions</strong> — throughput workaround, comms plan, supplier-neutral options list.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">T+1–24 hr</div>
+              <div class="timeline-body"><strong>Decision pack</strong> — costs, risks, recommendation, and next-step owners logged.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="owner-panel">
+          <h2>Continuity versioning</h2>
+          <p class="muted">Department runbooks with RACI + change history.</p>
+          <ul class="owner-list">
+            <li><strong>Operations</strong> — peak volume workaround, labour redeploy, cut-off decisions</li>
+            <li><strong>IT / Network</strong> — scanner outage steps, label printing fallback, escalation</li>
+            <li><strong>Transport</strong> — linehaul contingency, collection cut-offs, third-party overflow</li>
+            <li><strong>Customer Service</strong> — SLA comms templates, exception rules, client updates</li>
+          </ul>
+        </div>
+
+        <div class="owner-panel">
+          <h2>Innovation mechanism</h2>
+          <p class="muted">What makes Kalvra different (visible on-site, not only in pitch decks).</p>
+          <ul class="owner-list">
+            <li><strong>Decision Pack</strong> — scoring + constraints + risks + actions (print/PDF ready)</li>
+            <li><strong>Audit trail</strong> — every decision has owner, timestamp, and rationale</li>
+            <li><strong>Scenario runbooks</strong> — structured first-hour + first-day continuity playbooks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding: 0 0 72px;">
+      <div class="notice">
+        <strong>Note:</strong> Kalvra is not a repair contractor. Any supplier engagement is optional and contracted directly by the customer.
+        This page demonstrates the control layer concept used to keep decisions consistent and reviewable.
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../assets/app.js"></script>
+  <script src="../assets/header.js"></script>
+  <script src="../assets/footer.js"></script>
+  <script src="../assets/nav.js"></script>
+</body>
+</html>

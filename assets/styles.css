@@ -540,6 +540,43 @@ header .nav a {
     color: var(--text-secondary);
 }
 
+.hero-bullets {
+    margin: 18px 0 12px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.18);
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-bullets__title {
+    margin: 0 0 8px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+}
+.hero-bullets__list {
+    margin: 0;
+    padding-left: 18px;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.55;
+}
+.hero-metrics {
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.86);
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero.hero-home .hero-bullets__title,
+.hero.hero-home .hero-bullets__list {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.hero.hero-home .hero-metrics {
+    color: rgba(255, 255, 255, 0.86);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
 /* Home hero – full-width background image (same pattern as How it works) */
 .hero.hero-home {
     width: 100%;
@@ -8553,5 +8590,124 @@ header a[href*="mailto"].nav-cta {
 @media (min-width: 1024px) and (max-width: 1200px) {
     .header .nav a.nav-link {
         font-size: 0.9rem;
+    }
+}
+
+/* --- Owner control layer (homepage + owner dashboard) --- */
+.owner-control {
+    padding: 72px 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.owner-control-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+.owner-control-card {
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.18);
+}
+.owner-control-card h3 {
+    margin: 0 0 8px;
+}
+.owner-control-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.55;
+}
+.owner-control-cta {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 900px) {
+    .owner-control-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.owner-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+.owner-panel {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 16px;
+    padding: 18px;
+}
+.owner-panel h2 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+}
+.muted {
+    margin: 0 0 12px;
+    color: rgba(255, 255, 255, 0.75);
+}
+.table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.owner-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+}
+.owner-table th,
+.owner-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+    vertical-align: top;
+}
+.owner-table th {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+}
+.owner-table td {
+    color: rgba(255, 255, 255, 0.82);
+}
+.timeline {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+.timeline-item {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px;
+}
+.timeline-time {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.timeline-body {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.55;
+}
+.owner-list {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.55;
+}
+.notice {
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.6;
+}
+@media (max-width: 900px) {
+    .owner-panel-grid {
+        grid-template-columns: 1fr;
     }
 }

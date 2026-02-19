@@ -43,6 +43,15 @@
                     </details>
 
                     <a href="${pagesPath}/trust.html" class="nav-link">Trust</a>
+                    <a href="${pagesPath}/about.html" class="nav-link">About</a>
+                    <a href="${pagesPath}/contact.html" class="nav-link">Contact</a>
+
+                    <details class="nav-dropdown">
+                        <summary class="nav-link">Resources <span class="nav-caret" aria-hidden="true">▾</span></summary>
+                        <div class="dropdown-panel">
+                            <a href="${pagesPath}/owner-dashboard.html" class="dropdown-link">Owner dashboard</a>
+                        </div>
+                    </details>
 
                     <a class="nav-cta header-cta" href="mailto:founder.Kalvra@gmail.com">Contact us</a>
                 </nav>
