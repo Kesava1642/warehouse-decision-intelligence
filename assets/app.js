@@ -763,6 +763,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 })();
 
+/**
+ * Platform dropdown: click toggle + click-outside close (hover still works)
+ */
+(function() {
+    'use strict';
+
+    function initPlatformDropdown() {
+        var trigger = document.querySelector('.dropdown--platform .nav-link--button');
+        var dropdown = document.querySelector('.dropdown--platform');
+        if (!trigger || !dropdown) return;
+
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var open = dropdown.classList.toggle('is-open');
+            trigger.setAttribute('aria-expanded', open);
+        });
+
+        document.addEventListener('click', function(e) {
+            if (dropdown.classList.contains('is-open') && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('is-open');
+            }
+        });
+    }
+
+    function run() {
+        initPlatformDropdown();
+        if (!document.querySelector('.dropdown--platform')) {
+            setTimeout(initPlatformDropdown, 50);
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+    } else {
+        run();
+    }
+})();
+
 /* ============================= */
 /* Typography: Inter (global) */
 /* ============================= */
