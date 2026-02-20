@@ -1,7 +1,6 @@
 /**
- * Premium Glass Header – logo mark, polish, path-aware links.
- * Logo priority: assets/logo.*, assets/brand/logo.*, assets/brand/kalvra*.*, assets/favicon.svg.
- * Detected in repo: assets/brand/kalvra-mark.svg (fallback: assets/favicon.svg).
+ * Premium Glass Header – official logo, path-aware links.
+ * Logo: assets/images/kalvra-logo.png
  */
 (function() {
     'use strict';
@@ -9,14 +8,13 @@
     const isInPagesDir = window.location.pathname.includes('/pages/');
     const basePath = isInPagesDir ? '..' : '.';
     const pagesPath = isInPagesDir ? '.' : './pages';
-    const LOGO_PATH = 'assets/brand/kalvra-mark.svg';
+    const LOGO_PATH = 'assets/images/kalvra-logo.png';
 
     const headerHTML = `
 <header class="main-header">
   <div class="nav-container">
     <a class="brand" href="${basePath}/index.html" aria-label="Kalvra Home">
-      <img class="brand-mark" src="${basePath}/${LOGO_PATH}" alt="Kalvra logo" />
-      <span class="brand-name">Kalvra</span>
+      <img class="brand-logo" src="${basePath}/${LOGO_PATH}" alt="Kalvra" />
     </a>
 
     <nav class="nav-links" aria-label="Primary navigation">
